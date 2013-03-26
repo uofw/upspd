@@ -11,7 +11,7 @@ The documentation can be accessed through the "Wiki" tab of this page.
 
 ## How to contribute?
 
-You can simply fork this repository, change the wiki content of your repository and ask for a pull request.
+You can simply directly edit a wiki page and save it; it should open a pull request automatically.
 
 As soon as you have contributed something through a pull request, you will most likely be granted access to modify this wiki directly.
 
