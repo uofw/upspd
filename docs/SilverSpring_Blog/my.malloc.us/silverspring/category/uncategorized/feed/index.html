@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SBORPS &#187; Uncategorized</title>
+	<atom:link href="http://my.malloc.us/silverspring/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Fri, 08 Oct 2010 01:13:30 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+		<item>
+		<title>In Memoriam&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2009/09/in-memoriam/</link>
+		<comments>http://my.malloc.us/silverspring/2009/09/in-memoriam/#comments</comments>
+		<pubDate>Sun, 13 Sep 2009 01:26:07 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=126</guid>
+		<description><![CDATA[My best friend for over 16 years, my loyal companion; deeply loved, and forever missed. You were given a great life yet you gave back so much more in return. I hope you are surrounded by all the toys you could possibly play with, the largest, juiciest bones to chew on, and a neverending stretch [...]]]></description>
+			<content:encoded><![CDATA[<p>My best friend for over 16 years, my loyal companion; deeply loved, and forever missed. You were given a great life yet you gave back so much more in return. I hope you are surrounded by all the toys you could possibly play with, the largest, juiciest bones to chew on, and a neverending stretch of grass to run on.</p>
+<p><a href="http://my.malloc.us/silverspring/files/2009/09/snowy_rip.jpg"><img src="http://my.malloc.us/silverspring/files/2009/09/snowy_rip-300x225.jpg" alt="snowy" title="snowy" width="300" height="225" class="aligncenter size-medium wp-image-127" /></a></p>
+<p>Rest In Peace, Snowy. I&#8217;ll always love you and I&#8217;ll never forget you. You will be dearly missed&#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/09/in-memoriam/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Why &#8220;eggsploit&#8221; is random.</title>
+		<link>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/</link>
+		<comments>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/#comments</comments>
+		<pubDate>Thu, 09 Jul 2009 09:29:40 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=120</guid>
+		<description><![CDATA[So, a lot of people have been complaining about the unstability of the TIFF "eggsploit" (and thus the successful booting of HEN). The exploit relies on hardcoded memory addresses to succeed however a piece of code in the firmware ensures that memory addresses can randomly change. As the vshbridge.prx is loaded and starts, two fixed [...]]]></description>
+			<content:encoded><![CDATA[<p>So, a lot of people have been complaining about the unstability of the TIFF "eggsploit" (and thus the successful booting of HEN). The exploit relies on hardcoded memory addresses to succeed however a piece of code in the firmware ensures that memory addresses can randomly change.</p>
+<p>As the vshbridge.prx is loaded and starts, two fixed memory pools are created and used for nothing else but random padding. The size of these mem pools are randomly assigned based on the system time. This can therefore affect the memory addresses of where modules are loaded into ram and therefore affect the hardcoded addresses the TIFF exploit relies on.</p>
+<p>The code for the random memory padding (executed on vshbridge module_start):</p>
+<div class="igBar"><span id="lc-2"><a href="#" onclick="javascript:showPlainTxt('c-2'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-2">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> _vshVshBridgeStart<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; _vshPowerCallbackInit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceImposeSetStatus<span style="color: red;">&#40;</span><span style="color: #cc66cc;color:#800000;">4</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceUmdSetSuspendResumeMode<span style="color: red;">&#40;</span><span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> size;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> time = sceKernelGetSystemTimeLow<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>; <span style="color: #4EA73B; font-style: italic;">// time since system start</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x400; <span style="color: #4EA73B; font-style: italic;">// 1 KByte</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x300; <span style="color: #4EA73B; font-style: italic;">// 768 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x200; <span style="color: #4EA73B; font-style: italic;">// 512 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x100; <span style="color: #4EA73B; font-style: italic;">// 256 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceKernelCreateFpl<span style="color: red;">&#40;</span><span style="color: #000000;">&quot;SceVshRandomTopPadding&quot;</span>, <span style="color: #cc66cc;color:#800000;">2</span>, <span style="color: #cc66cc;color:#800000;">0</span>, size, <span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #000000; font-weight: bold;">NULL</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x400; <span style="color: #4EA73B; font-style: italic;">// 1 KByte</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x300; <span style="color: #4EA73B; font-style: italic;">// 768 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x200; <span style="color: #4EA73B; font-style: italic;">// 512 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x100; <span style="color: #4EA73B; font-style: italic;">// 256 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceKernelCreateFpl<span style="color: red;">&#40;</span><span style="color: #000000;">&quot;SceVshRandomBottomPadding&quot;</span>, <span style="color: #cc66cc;color:#800000;">2</span>, 0x4000, size, <span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #000000; font-weight: bold;">NULL</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span> <span style="color: #cc66cc;color:#800000;">0</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>This bit of random padding code was added in 2.50 firmware and still exists in the latest firmwares.</p>
+<p>Because HEN uses the TIFF exploit to run there is nothing the HEN could do to improve it's chances of booting successfully. It may be that it's simply random luck.</p>
+<p><em>Note: there is no doubt there are also many other factors which could affect the stability of the TIFF "eggsploit".</em></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/feed/</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>Blog Update</title>
+		<link>http://my.malloc.us/silverspring/2009/05/blog-update/</link>
+		<comments>http://my.malloc.us/silverspring/2009/05/blog-update/#comments</comments>
+		<pubDate>Thu, 07 May 2009 17:16:44 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=71</guid>
+		<description><![CDATA[After being away from the PSP scene for several months (due to several factors such as illness etc.) I've decided to continue and will be starting to add some new content again. I've realised that there has been many bits &#038; pieces of info that I have posted around in several different places over the [...]]]></description>
+			<content:encoded><![CDATA[<p>After being away from the PSP scene for several months (due to several factors such as illness etc.) I've decided to continue and will be starting to add some new content again.</p>
+<p>I've realised that there has been many bits &#038; pieces of info that I have posted around in several different places over the years (in forums etc.) that are useful however not conveniently accessible so I'll be adding them here also. It may seem redundant since it may not necessarily be new info, however gathering all the public info together into one place will make the info more accessible to the people.</p>
+<p>So, greets to all those who still continue to follow and be involved with the PSP community even though the PSP has passed its peak and now entering a declining stage.</p>
+<p>SilverSpring</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/05/blog-update/feed/</wfw:commentRss>
+		<slash:comments>14</slash:comments>
+		</item>
+		<item>
+		<title>PSP-3000 (03g) a step closer to reality</title>
+		<link>http://my.malloc.us/silverspring/2008/08/psp-3000-03g-a-step-closer-to-reality/</link>
+		<comments>http://my.malloc.us/silverspring/2008/08/psp-3000-03g-a-step-closer-to-reality/#comments</comments>
+		<pubDate>Thu, 14 Aug 2008 05:25:48 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/08/14/psp-3000-03g-a-step-closer-to-reality/</guid>
+		<description><![CDATA[The new PSP-3001 model (03g PSP) has been submitted to the FCC for testing: https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&#038;RequestTimeout=500&#038;calledFromFrame=N&#038;application_id=290118&#038;fcc_id='AK8PSP3001 This means the new PSP-3000 model should hit retail shelves soon. Though there have been plenty of clues for months &#038; months now, from unused nids referencing new hardware devices, a reference to a "03g" model in the IPL, that [...]]]></description>
+			<content:encoded><![CDATA[<p>The new PSP-3001 model (03g PSP) has been submitted to the FCC for testing:</p>
+<p><a href="https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&#038;RequestTimeout=500&#038;calledFromFrame=N&#038;application_id=290118&#038;fcc_id='AK8PSP3001">https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&#038;RequestTimeout=500&#038;calledFromFrame=N&#038;application_id=290118&#038;fcc_id='AK8PSP3001</a></p>
+<p>This means the new PSP-3000 model should hit retail shelves soon. Though there have been plenty of clues for months &#038; months now, from unused nids referencing new hardware devices, a reference to a "03g" model in the IPL, that "3000" graphic on the official Sony site, and most recently, alleged pics of a prototype.</p>
+<p>Now it's just a matter of waiting for the official announcement and the official list of changes. Hopefully some of the rumours that have been floating around turn out to be true (the hard disk drive comes to mind). </p>
+<p>With the new PSP-2000 TA-088v3 model that is out now that is completely Pandora-proof you can bet the PSP-3000 will also be completely Pandora-proof. Im sure there would be plenty of people who would only want to buy a hackable PSP-3000. Though you can be sure that when this new model gets here we will all be looking thoroughly for new hacks for it.</p>
+<p>[Waits patiently for the PSP-3000...]</p>
+<p>Thanks to Poison for tip.</p>
+<p>EDIT: 21st August 2008</p>
+<p>Well it seems it has been officially announced now and the current official changelist really is disappointing. Let's hope there are still more changes yet to be announced. Otherwise, it's quite a disappointing model (and no doubt Pandora-proof as well). Oh well, won't stop us from trying to hack it still <img src='http://my.malloc.us/silverspring/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> .</p>
+<p>EDIT: 15th October 2008</p>
+<p>Now that the PSP-3000 has been released it has unfortunately been confirmed that this model is indeed Pandora-proof (as expected). No extra features apart from what had already been announced. So no HDD, GSensor, Bluetooth, or USB Host on this model (even though these features are supported by the firmware). May have to wait for a PSP-4000 then...</p>
+<p>[Waits patiently for the PSP-4000...]</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/08/psp-3000-03g-a-step-closer-to-reality/feed/</wfw:commentRss>
+		<slash:comments>5</slash:comments>
+		</item>
+		<item>
+		<title>Clarification of new TA-088 motherboards</title>
+		<link>http://my.malloc.us/silverspring/2008/08/clarification-of-new-ta-088-models/</link>
+		<comments>http://my.malloc.us/silverspring/2008/08/clarification-of-new-ta-088-models/#comments</comments>
+		<pubDate>Sun, 03 Aug 2008 02:15:14 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/08/03/clarification-of-new-ta-088-models/</guid>
+		<description><![CDATA[There has been news recently about a Pandora-proof PSP with TA-088 motherboard. There has been a lot of speculation and misinformation being spread around. There is a Pandora-proof model out now and it is of a TA-088 motherboard. However, that is not to imply that all TA-088 boards are Pandora-proof. There are currently (AFAIK) three [...]]]></description>
+			<content:encoded><![CDATA[<p>There has been news recently about a Pandora-proof PSP with TA-088 motherboard. There has been a lot of speculation and misinformation being spread around.</p>
+<p>There <em>is</em> a Pandora-proof model out now and it is of a TA-088 motherboard. However, that is not to imply that all TA-088 boards are Pandora-proof. There are currently (AFAIK) three different TA-088 models:</p>
+<p>TA-088v1: These were the first TA-088 models which came with 3.71 firmware. They are similar to TA-085v2 in that it has disabled writing to the battery eeprom so that Pandora batteries cannot be created with these boards. However, like the TA-085v2, Pandora still worked perfectly fine so cfw can still be installed normally like any other PSP.</p>
+<p>TA-088v2: These are newer TA-088 boards which came with 3.90 firmware and had a slight hardware change in the TACHYON IC (the cpu chip). At first, Pandora could not run so it was speculated that the exploit that allows Pandora to work was patched. However, after more research it was found that this was not the case but simply there was a hardware change that made it incompatible with the DDC kernel. Custom IPL's could still be run so cfw still worked on these models, however they will be unable to be installed with the current versions of DDC. A new DDC version will be needed for these models. <em>(EDIT: DC6 has now been released to fix this problem, DC5 and earlier versions still will not work on these boards)</em></p>
+<p>TA-088v3: These are the newest TA-088 boards that seem to be completely Pandora-proof (as far as I can tell). It has a new TACHYON IC part number - CXD2988GG with a copyright year of 2008 (previous TA-088 models had a CXD2975GG part number with a 2007 copyright year). This PSP looks like to be the <strong>real </strong>Pandora-proof model, one that has patched the 'preipl' exploit that allows Pandora to run. If this is the case (and the exploit was <em>properly </em>patched) there would be no workaround or 'fix' to get Pandora to run (unless we find a way to 'properly sign' our own IPL).</p>
+<p>I hope this clears up some of the confusion surrounding the new TA-088 motherboards and the rumours surrounding this new Pandora-proof PSP.</p>
+<p>EDIT:</p>
+<p>There's some confusion with regards to the relationship between the firmware version and the motherboard. There isn't a one-to-one correlation between the motherboard version and the firmware version. That is, if you have a TA-088v2 board then you have (at least) a 3.90 firmware. However the inverse is not true, that is, it doesn't necessarily mean that if you have a 3.90 firmware then you have a TA-088v2 board (you may have a TA-088v1 board or maybe a TA-085v2 board).</p>
+<p>It's just the TA-088v2 boards <em>first</em> started appearing with 3.90 firmware. But you may also still have TA-088v1 boards or TA-085v2 boards being produced with 3.90 firmware too. Especially depending on the region. The firmware versions listed above are the earliest firmwares seen with these boards. These boards were released in Asia first so the firmware version may be earlier than on US or Europe models. </p>
+<p>Basically, you cannot tell what board you have just based on the firmware version (though you can make an educated guess), however if you have a certain board then you will know at least the earliest firmware it will have.</p>
+<p>EDIT2:</p>
+<p>The new TA-088v3 boards only come in 4.xx and above. The new pre-IPL in these boards can only boot the 4.xx IPL's, it cannot boot older IPL's from 3.xx. So as long as the PSP doesnt come with 4.xx fw you know it won't be a v3 board. Just remember, v3 boards cannot run firmwares under 4.xx.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/08/clarification-of-new-ta-088-models/feed/</wfw:commentRss>
+		<slash:comments>39</slash:comments>
+		</item>
+		<item>
+		<title>03g model PSP &#8230;revisited&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2008/01/03g-model-psp-revisited/</link>
+		<comments>http://my.malloc.us/silverspring/2008/01/03g-model-psp-revisited/#comments</comments>
+		<pubDate>Thu, 17 Jan 2008 21:26:21 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/01/18/03g-model-psp-revisited/</guid>
+		<description><![CDATA[More proof of the HDD. Just how the first fat firmware (1.00) was rushed to be released, it seems the first slim firmware (3.60) was also rushed. A certain module that came only on original 3.60 retail slims was (incredibly stupidly) compiled with full debug info intact. Extracted from the debug info was this: view [...]]]></description>
+			<content:encoded><![CDATA[<p>More proof of the HDD.</p>
+<p>Just how the first fat firmware (1.00) was rushed to be released, it seems the first slim firmware (3.60) was also rushed. A certain module that came only on original 3.60 retail slims was (incredibly stupidly) compiled with full debug info intact. Extracted from the debug info was this:</p>
+<div class="igBar"><span id="lc-4"><a href="#" onclick="javascript:showPlainTxt('c-4'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-4">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">typedef</span> <span style="color: #000000; font-weight: bold;">enum</span> <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; SCE_MGVIDEO_DEV_HDD0 = 0x10,</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; SCE_MGVIDEO_DEV_MS0 = 0x20</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span> SceMgVideoDeviceUnit;</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>From the debug info, there are ways to stream MagicGate protected video from HDD.</p>
+<p>There is a tonne of useful debug info extracted, also noteworthy were references to Skype and the boot mode "app" (other modes "vsh", "game", "updater", "pops", etc) with which Skype boots into. There seems to be plans to release more of these 'app's in the future. Perhaps more towards a full pda...(03g).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/01/03g-model-psp-revisited/feed/</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Updater versions</title>
+		<link>http://my.malloc.us/silverspring/2007/12/updater-versions/</link>
+		<comments>http://my.malloc.us/silverspring/2007/12/updater-versions/#comments</comments>
+		<pubDate>Thu, 13 Dec 2007 20:57:51 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/14/updater-versions/</guid>
+		<description><![CDATA[Contrary to what people say about all updaters being the same, it is not true. There have been several instances of multiple releases of a firmware update. It occured with earlier updaters though recent releases have generally been identical. Here's a quick list, but because most sites only post a single version of an update [...]]]></description>
+			<content:encoded><![CDATA[<p><c>Contrary to what people say about all updaters being the same, it is not true. There have been several instances of multiple releases of a firmware update. It occured with earlier updaters though recent releases have generally been identical. </c></p>
+<p>Here's a quick list, but because most sites only post a single version of an update I've been unable to find the alternate versions. Though I have both 2.00 updaters as you see in the list.</p>
+<p>Im still looking for the others so if you have an eboot that does <em>not</em> match the following hashes let me know, specifically:</p>
+<p>1.52 (MD5: B976783070C12C4ED81CC27785222491)</p>
+<p>2.60 (MD5: A69A022FCE43B614A8CB305786F59855)</p>
+<p>1.50<br />
+release:1.00:<br />
+build:89,0,3,1,0:root@psp-vsh<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4231@updater_for_day1,v11488@updater_for_day1,20050304:</p>
+<p>1.51<br />
+release:1.00:<br />
+build:91,0,3,1,0:root@psp-vsh<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4389@updater_151,v12880@updater_151,20050507:</p>
+<p>1.52<br />
+release:1.00:<br />
+build:114,0,3,1,0:root@psp-vsh<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4505@updater_152,v13669@NA,20050602:</p>
+<p>2.00a<br />
+release:1.00:<br />
+build:134,0,3,1,0:root@psp-vsh<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4689@updater_200,v15800@updater_200,20050722:</p>
+<p>2.00b<br />
+release:1.00:<br />
+build:139,0,3,1,0:root@psp-vsh<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4689@updater_200,v16630@updater_200,20050819:</p>
+<p>2.01<br />
+release:1.00:<br />
+build:150,0,3,1,0:root@vsh-build<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4798@updater_201,v18571@updater_201,20050929:</p>
+<p>2.50<br />
+release:1.00:<br />
+build:157,0,3,1,0:root@vsh-build<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4801@updater_250,v19017@updater_250,20051011:</p>
+<p>2.60<br />
+release:1.00:<br />
+build:170,0,3,1,0:root@vsh-build<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p4954@updater_trunk,v20338@updater_trunk,20051122:</p>
+<p>2.70<br />
+release:1.00:<br />
+build:190,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5181@updater_270,v22592@updater_270,20060420:</p>
+<p>2.71<br />
+release:1.00:<br />
+build:203,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5220@updater_271,v22936@updater_271,20060530:</p>
+<p>2.80<br />
+release:1.00:<br />
+build:214,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5271@updater_280,v24380@updater_280,20060721:</p>
+<p>2.81<br />
+release:1.00:<br />
+build:215,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5280@updater_281,v24651@updater_281,20060814:</p>
+<p>2.82<br />
+release:1.00:<br />
+build:218,0,3,1,0:hoshi@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5353@updater_282,v25795@updater_282,20061003:</p>
+<p>3.00<br />
+release:1.00:<br />
+build:230,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5382@updater_300,v27165@updater_300,20061120:</p>
+<p>3.01<br />
+release:1.00:<br />
+build:231,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5404@updater_301,v27257@updater_301,20061121:</p>
+<p>3.02<br />
+release:1.00:<br />
+build:233,0,3,1,0:builder@vsh-build2<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5414@updater_302,v27411@updater_302,20061204:</p>
+<p>3.03<br />
+release:1.00:<br />
+build:238,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5426@updater_303,v27632@updater_303,20061216:</p>
+<p>3.10<br />
+release:1.00:<br />
+build:247,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5471@updater_310,v28276@updater_310,20070119:</p>
+<p>3.11<br />
+release:1.00:<br />
+build:250,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5476@updater_311,v28775@updater_311,20070206:</p>
+<p>3.30<br />
+release:1.00:<br />
+build:259,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5531@updater_330,v30241@updater_330,20070326:</p>
+<p>3.40<br />
+release:1.00:<br />
+build:261,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5576@updater_340,v30701@updater_340,20070406:</p>
+<p>3.50<br />
+release:1.00:<br />
+build:275,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5662@updater_350,v32514@updater_350,20070522:</p>
+<p>3.51<br />
+release:1.00:<br />
+build:278,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5724@updater_351,v33285@updater_351,20070628:</p>
+<p>3.52<br />
+release:1.00:<br />
+build:279,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5742@updater_352,v33536@updater_352,20070710:</p>
+<p>3.70<br />
+release:1.00:<br />
+build:290,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5840@updater_370,v35316@updater_370,20070831:</p>
+<p>3.71<br />
+release:1.00:<br />
+build:291,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5864@updater_371,v35671@updater_371,20070912:</p>
+<p>3.72<br />
+release:1.00:<br />
+build:295,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5876@updater_372,v36347@updater_372,20071015:</p>
+<p>3.73<br />
+release:1.00:<br />
+build:298,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5928@updater_373,v37903@updater_373,20071121:</p>
+<p>3.80<br />
+release:1.00:<br />
+build:303,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5933@updater_380,v38389@updater_380,20071210:</p>
+<p>3.90<br />
+release:1.00:<br />
+build:310,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5940@updater_390,v38984@updater_390,20080125:</p>
+<p>3.93<br />
+release:1.00:<br />
+build:313,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p5989@updater_393,v39469@updater_393,20080215:</p>
+<p>3.95<br />
+release:1.00:<br />
+build:318,0,3,1,0:builder@vsh-build5<br />
+system:17756@release_103a,0x01000300:<br />
+vsh:p6004@updater_395,v40308@updater_395,20080328:</p>
+<p>EDIT: added 3.80, added 3.90, added 3.93, added 3.95</p>
+<p>Note: there were two releases of the 3.93 EBOOT however the app itself stayed the same so there's only one version listed. There were only minor changes to the packaging of the EBOOT, an extra 0x1000 null bytes for the PBP Header, and an extra 0x10 byte hash added to the end of the PSAR. Strangely enough, the extra 0x1000 bytes were taken out again for 3.95.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/12/updater-versions/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>The mind games SCE play&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/</link>
+		<comments>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/#comments</comments>
+		<pubDate>Sun, 02 Dec 2007 12:22:53 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Misc]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/02/the-mind-games-sce-play/</guid>
+		<description><![CDATA[We are all familiar with the various tricks SCE use to fool devs, though I recently came across one that has annoyed me the most. When 3.40 was released, a 'special' prx was flashed with the rest of the firmware that didnt seem to be used at all. It was special in that not only [...]]]></description>
+			<content:encoded><![CDATA[<p>We are all familiar with the various tricks SCE use to fool devs, though I recently came across one that has annoyed me the most.</p>
+<p>When 3.40 was released, a 'special' prx was flashed with the rest of the firmware that didnt seem to be used <strong><em>at all</em></strong>. It was special in that not only was it not used nor referred to once in the entire firmware, it also could <em><strong>NOT</strong></em> be decrypted (the keys to decrypt it simply did not exist in the firmware). Because of this and the fact that the prx was promptly removed from all future firmware (it <strong><em>only</em></strong> exists in 3.40) it was assumed to be a remnant of a debug prx used during testing and they had simply forgot to remove it. Or was it?</p>
+<p>The prx was "idcheck.prx". The module name sounded interesting and on first glance it was assumed to be the debug version of the embedded prx SCE hid in 3.30+ updaters to check for corrupt idstorage in their updaters (the one that refuses to update the PSP if either your keys 4, 5, 6, 7 &amp; 8 were corrupt).</p>
+<p>Long story short, the prx has been decrypted and the result was far from expected. It seems that the original module has been taken out and replaced with a dummy instead. The only remains left of the original module was the module name "sceIdCheck" and the data segment, which included the strings "Illegal idstoarge" (SCE always misspell 'idstorage'), "flash is corrupted", and "cannot restore PSP system". The rest of the module (including all the code) had been dummied with another module from the firmware.</p>
+<p>Now why would SCE do this? If it were a debug prx that was accidently left in, why would they bother going to the trouble of dummying the code?</p>
+<p>Some accidental mistake on their part, or more of their ridiculous mind games at play......</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Welcome&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2007/10/hello-world/</link>
+		<comments>http://my.malloc.us/silverspring/2007/10/hello-world/#comments</comments>
+		<pubDate>Wed, 10 Oct 2007 00:33:38 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false"></guid>
+		<description><![CDATA[Welcome to SilverSpring's bunch of random PSP stuff. There wont be much happening here, it'll just be a bunch of...err...random PSP stuff! Anyway, enjoy your stay here.]]></description>
+			<content:encoded><![CDATA[<p>Welcome to <em><strong>SilverSpring's bunch of random PSP stuff</strong></em>. There wont be much happening here, it'll just be a bunch of...err...random PSP stuff!</p>
+<p>Anyway, enjoy your stay here.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/10/hello-world/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

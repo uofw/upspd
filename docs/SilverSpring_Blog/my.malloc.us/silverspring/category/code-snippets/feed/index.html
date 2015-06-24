@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SBORPS &#187; Code Snippets</title>
+	<atom:link href="http://my.malloc.us/silverspring/category/code-snippets/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Fri, 08 Oct 2010 01:13:30 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+		<item>
+		<title>SBORPS Random Fact 04</title>
+		<link>http://my.malloc.us/silverspring/2008/08/sborps-random-fact-04/</link>
+		<comments>http://my.malloc.us/silverspring/2008/08/sborps-random-fact-04/#comments</comments>
+		<pubDate>Sat, 16 Aug 2008 04:05:52 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+		<category><![CDATA[NID's]]></category>
+		<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/08/16/sborps-random-fact-04/</guid>
+		<description><![CDATA[SCE media reports have always stated that the PSP has AES capabilities. These are apparently referring to the fact that the UMD format discs are AES encrypted. This means that SPOCK (the crypto engine responsible for UMD decryption) has AES decryption capabilities. KIRK on the other hand (the main crypto engine responsible for prx/eboot decryption) [...]]]></description>
+			<content:encoded><![CDATA[<p>SCE media reports have always stated that the PSP has AES capabilities. These are apparently referring to the fact that the UMD format discs are AES encrypted. This means that SPOCK (the crypto engine responsible for UMD decryption) has AES decryption capabilities. KIRK on the other hand (the main crypto engine responsible for prx/eboot decryption) also has a block cipher but is unknown which algorithm it uses, though it is almost certainly AES as well. Currently what is known about the cipher is that it is:</p>
+<ul>
+<li>a block cipher operating in CBC mode</li>
+<li>an all zero 128-bit initialization vector</li>
+<li>128-bit block and key sizes</li>
+<li>cmd4/7 uses a static key that is identical in all PSP's</li>
+<li>cmd5/8 uses a key based off the fuseID making all operations unique per PSP</li>
+<li>cmd6/9 uses a user-defined 128-bit key</li>
+<li>cmd1/2/3 uses the block cipher but also signature algorithms</li>
+<li>the remaining KIRK cmd's do not use the block cipher (sig, hash, &#038; prng algo's)</li>
+</ul>
+<p>Interfacing with KIRK for general-purpose encryption is cumbersome and using a software-based lib is both slow and memory-consuming. Fortunately, there is another method: using the MagicGate hardware. The API provides both standard DES and AES algorithms.</p>
+<ul>
+<li>0x2DAD213D sceMgrDESEncrypt</li>
+<li>0xF5DFD97B sceMgrDESDecrypt</li>
+<li>0x8A916574 sceMgrAESEncrypt</li>
+<li>0x3054F8F1 sceMgrAESDecrypt</li>
+</ul>
+<p>The prototypes are as follows:</p>
+<div class="igBar"><span id="lc-2"><a href="#" onclick="javascript:showPlainTxt('c-2'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-2">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">dst: &nbsp;output buffer</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">src: &nbsp;input buffer</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">size: input size</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">key: &nbsp;encryption/decryption key (64-bit for DES, 128-bit for AES)</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">iv: &nbsp; initialization vector for CBC mode (pass NULL for ECB mode) (64-bit for DES, 128-bit for AES)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceMgrDESEncrypt<span style="color: red;">&#40;</span>u8 *dst, u8 *src, <span style="color: #2E8B57;">int</span> size, u8 *key, u8 *iv<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceMgrDESDecrypt<span style="color: red;">&#40;</span>u8 *dst, u8 *src, <span style="color: #2E8B57;">int</span> size, u8 *key, u8 *iv<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceMgrAESEncrypt<span style="color: red;">&#40;</span>u8 *dst, u8 *src, <span style="color: #2E8B57;">int</span> size, u8 *key, u8 *iv<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceMgrAESDecrypt<span style="color: red;">&#40;</span>u8 *dst, u8 *src, <span style="color: #2E8B57;">int</span> size, u8 *key, u8 *iv<span style="color: red;">&#41;</span>;</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/08/sborps-random-fact-04/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>sceHVAuth_Library</title>
+		<link>http://my.malloc.us/silverspring/2008/06/scehvauth_library/</link>
+		<comments>http://my.malloc.us/silverspring/2008/06/scehvauth_library/#comments</comments>
+		<pubDate>Fri, 20 Jun 2008 11:39:01 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+		<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/06/20/scehvauth_library/</guid>
+		<description><![CDATA[Some new nids: 0x5e335df6 sceHVAuthOpen 0x816a5f92 sceHVAuthAuth 0x9db7de7c sceHVAuthClose The sceHVAuth lib seems to be used for proxy config settings for the Html Viewer. view plain C: /* Creates an 80 char alphanumeric password (randomly generated via a time-seeded Mersenne Twister) */ int sceHVAuthOpen&#40;char *pass&#41;; &#160; /* Verifies the password. hmac is 20-Byte SHA1 HMAC [...]]]></description>
+			<content:encoded><![CDATA[<p>Some new nids:</p>
+<ul>
+<li>0x5e335df6 sceHVAuthOpen</li>
+<li>0x816a5f92 sceHVAuthAuth</li>
+<li>0x9db7de7c sceHVAuthClose</li>
+</ul>
+<p>The sceHVAuth lib seems to be used for proxy config settings for the Html Viewer.</p>
+<div class="igBar"><span id="lc-4"><a href="#" onclick="javascript:showPlainTxt('c-4'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-4">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Creates an 80 char alphanumeric password</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">(randomly generated via a time-seeded Mersenne Twister)</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceHVAuthOpen<span style="color: red;">&#40;</span><span style="color: #2E8B57;">char</span> *pass<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Verifies the password.</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">hmac is 20-Byte SHA1 HMAC in ascii format</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceHVAuthAuth<span style="color: red;">&#40;</span><span style="color: #2E8B57;">char</span> *pass, <span style="color: #2E8B57;">const</span> <span style="color: #2E8B57;">char</span> *hmac<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Clears the password</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> sceHVAuthClose<span style="color: red;">&#40;</span><span style="color: #2E8B57;">char</span> *pass<span style="color: red;">&#41;</span>;</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/06/scehvauth_library/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>NAND set_encryption_seed NID (last remaining sceNand nid)</title>
+		<link>http://my.malloc.us/silverspring/2008/04/nand-set_encryption_seed-nid/</link>
+		<comments>http://my.malloc.us/silverspring/2008/04/nand-set_encryption_seed-nid/#comments</comments>
+		<pubDate>Fri, 11 Apr 2008 03:32:32 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+		<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/04/11/nand-set_encryption_seed-nid/</guid>
+		<description><![CDATA[Sometimes it's the most obvious names that are the hardest to guess (as was also the case with sceSysconBatteryReadNVM): 0x0BEE8F36 sceNandSetScramble That finally completes the sceNand lib !! This is used to set the encryption seed for lfat decryption (on 3.00+) and for idstorage (on slim). After correctly setting the seed, all (per-page) reads to [...]]]></description>
+			<content:encoded><![CDATA[<p>Sometimes it's the most obvious names that are the hardest to guess (as was also the case with sceSysconBatteryReadNVM):</p>
+<p><strong>0x0BEE8F36 sceNandSetScramble</strong></p>
+<p>That finally completes the sceNand lib !!</p>
+<p>This is used to set the encryption seed for lfat decryption (on 3.00+) and for idstorage (on slim). After correctly setting the seed, all (per-page) reads to the nand will be read decrypted (otherwise raw reads to the nand will just return rubbish).</p>
+<p>So, how to calculate the correct seed? For slim idstorage area it is pretty straightforward:</p>
+<div class="igBar"><span id="lc-6"><a href="#" onclick="javascript:showPlainTxt('c-6'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-6">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">u32 magic;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">u32 buf<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">4</span><span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">u32 sha<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">5</span><span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">buf<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> = *<span style="color: red;">&#40;</span>vu32*<span style="color: red;">&#41;</span><span style="color: red;">&#40;</span>0xBC100090<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">buf<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#93;</span> = *<span style="color: red;">&#40;</span>vu32*<span style="color: red;">&#41;</span><span style="color: red;">&#40;</span>0xBC100094<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">buf<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#93;</span> = *<span style="color: red;">&#40;</span>vu32*<span style="color: red;">&#41;</span><span style="color: red;">&#40;</span>0xBC100090<span style="color: red;">&#41;</span>&lt;&lt;<span style="color: #cc66cc;color:#800000;">1</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">buf<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#93;</span> = 0xD41D8CD9;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">sceKernelUtilsSha1Digest<span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>u8*<span style="color: red;">&#41;</span>buf, <span style="color: #2E8B57;">sizeof</span><span style="color: red;">&#40;</span>buf<span style="color: red;">&#41;</span>, <span style="color: red;">&#40;</span>u8*<span style="color: red;">&#41;</span>sha<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">magic = <span style="color: red;">&#40;</span>sha<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> ^ sha<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#93;</span><span style="color: red;">&#41;</span> + sha<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">sceNandSetScramble<span style="color: red;">&#40;</span>magic<span style="color: red;">&#41;</span>;</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>The 64bits stored at hardware register 0xBC100090 is unique for every psp (it is some sort of id or serial). Hence why nand dumps are also unique between psps (for 3.00 onwards).</p>
+<p>For lfat area, things get slightly more complicated to derive the correct seed however is still based on the unique 0xBC100090 register. Maybe will come later then we'll finally have a logical restore for slims (instead of a relatively dangerous physical restore).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/04/nand-set_encryption_seed-nid/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>UMD Firmware Version checker</title>
+		<link>http://my.malloc.us/silverspring/2008/04/umd-firmware-version-checker/</link>
+		<comments>http://my.malloc.us/silverspring/2008/04/umd-firmware-version-checker/#comments</comments>
+		<pubDate>Wed, 02 Apr 2008 00:07:43 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/04/02/umd-firmware-version-checker/</guid>
+		<description><![CDATA[Here's a quick &#038; dirty sample to dump some info regarding your UMD Firmware. http://silverspring.lan.st/umd_ver_check.rar It's a 3.xx app (source included), works on both slim &#038; fat. Will dump a file called umd.bin into root of MS. In it will say something like: SCEI UMD ROM DRIVE 1.090 Oct18 ,2004 Your UMD FW version will [...]]]></description>
+			<content:encoded><![CDATA[<p>Here's a quick &#038; dirty sample to dump some info regarding your UMD Firmware.</p>
+<p><a href="http://silverspring.lan.st/umd_ver_check.rar">http://silverspring.lan.st/umd_ver_check.rar</a></p>
+<p>It's a 3.xx app (source included), works on both slim &#038; fat.</p>
+<p>Will dump a file called umd.bin into root of MS.</p>
+<p>In it will say something like:</p>
+<p>SCEI    UMD ROM DRIVE       1.090 Oct18 ,2004</p>
+<p>Your UMD FW version will be <em>at least</em> 1.090 or above <em>unless</em> you have an early batch 1.00 JP model <strong>AND</strong> you have never used an official SCE updater (note: downgrading your normal psp fw version wont downgrade the umd fw version - so downgrading back to 1.00 wont work).</p>
+<p>For another reference, here is one from pretty recent JP slim (came with 3.72): </p>
+<p>SCEI    UMD ROM DRIVE       1.240 Nov10 ,2006</p>
+<p>Also there are a few numbers before this string appears but I couldnt figure out what they represented.</p>
+<p>EDIT:</p>
+<p>Ok, so the data is just in the standard ATAPI INQUIRY data format.</p>
+<p>So:<br />
+- the drive reports to the host as a "CDROM Device" (0x5 in the Device Type field).<br />
+- that the medium is removable (RMB bit set to 1).<br />
+- is not standard in either ANSI/ECMA/ISO (all set to 0)<br />
+- Response Data Format (2)<br />
+- ATAPI Transport Version (3)<br />
+- Vendor ID is "SCEI"<br />
+- Product ID is "UMD ROM DRIVE"<br />
+- a blank Product Revision Level<br />
+- Vendor Specific info "1.240 Nov10 ,2006"</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/04/umd-firmware-version-checker/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>3.80 and Pandora</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/</link>
+		<comments>http://my.malloc.us/silverspring/2007/12/380-and-pandora/#comments</comments>
+		<pubDate>Wed, 19 Dec 2007 00:52:23 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/</guid>
+		<description><![CDATA[Well it looks like SCE have finally learned and have now removed the functions to read/write to the battery eeprom in 3.80 (they also took out the sceSysconBatteryAuth function too). So you can't make a magic battery with 3.80, but nevermind, the hardware to do so is still there. Here's a compatible replacement: view plain [...]]]></description>
+			<content:encoded><![CDATA[<p>Well it looks like SCE have finally learned and have now removed the functions to read/write to the battery eeprom in 3.80 (they also took out the sceSysconBatteryAuth function too). So you can't make a magic battery with 3.80, but nevermind, the hardware to do so is still there.</p>
+<p>Here's a compatible replacement:</p>
+<div class="igBar"><span id="lc-8"><a href="#" onclick="javascript:showPlainTxt('c-8'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-8">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> write_eeprom<span style="color: red;">&#40;</span>u8 addr, u16 data<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> res;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u8 param<span style="color: red;">&#91;</span>0x60<span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>addr&gt;0x7F<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span>0x80000102<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0C<span style="color: red;">&#93;</span> = 0x73; <span style="color: #4EA73B; font-style: italic;">// write battery eeprom command</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0D<span style="color: red;">&#93;</span> = <span style="color: #cc66cc;color:#800000;">5</span>; <span style="color: #4EA73B; font-style: italic;">// tx packet length</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// tx data</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0E<span style="color: red;">&#93;</span> = addr;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0F<span style="color: red;">&#93;</span> = data;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x10<span style="color: red;">&#93;</span> = data&gt;&gt;<span style="color: #cc66cc;color:#800000;">8</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; res = sceSysconCmdExec<span style="color: red;">&#40;</span>param, <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>res&lt;<span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span>res<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span> <span style="color: #cc66cc;color:#800000;">0</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> read_eeprom<span style="color: red;">&#40;</span>u8 addr<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> res;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u8 param<span style="color: red;">&#91;</span>0x60<span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>addr&gt;0x7F<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span>0x80000102<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0C<span style="color: red;">&#93;</span> = 0x74; <span style="color: #4EA73B; font-style: italic;">// read battery eeprom command</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0D<span style="color: red;">&#93;</span> = <span style="color: #cc66cc;color:#800000;">3</span>; <span style="color: #4EA73B; font-style: italic;">// tx packet length</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// tx data</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; param<span style="color: red;">&#91;</span>0x0E<span style="color: red;">&#93;</span> = addr;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; res = sceSysconCmdExec<span style="color: red;">&#40;</span>param, <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>res&lt;<span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span>res<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// rx data</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>param<span style="color: red;">&#91;</span>0x21<span style="color: red;">&#93;</span>&lt;&lt;<span style="color: #cc66cc;color:#800000;">8</span><span style="color: red;">&#41;</span> | param<span style="color: red;">&#91;</span>0x20<span style="color: red;">&#93;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>EDIT:<br />
+Finally cracked the real names:</p>
+<p>0x68ef0bef sceSysconBatteryReadNVM<br />
+0x1165c864 sceSysconBatteryWriteNVM</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/12/380-and-pandora/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Idstorage Keys (0&#215;0004-0&#215;0008) &#8211; Generating hash</title>
+		<link>http://my.malloc.us/silverspring/2007/11/idstorage-keys-0x0004-0x0008-generating-hash/</link>
+		<comments>http://my.malloc.us/silverspring/2007/11/idstorage-keys-0x0004-0x0008-generating-hash/#comments</comments>
+		<pubDate>Mon, 05 Nov 2007 06:43:41 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/11/05/idstorage-keys-0x0004-0x0008-generating-hash/</guid>
+		<description><![CDATA[The idstorage area stores low level info on the PSP. Keys 4-8 are used for config data for various components (the battery, clock generator, LCD, etc.) and are in a different format to all the other keys. Here is the code to generate the hash for these particular keys: view plain C: /* Idstorage Leaf [...]]]></description>
+			<content:encoded><![CDATA[<p>The idstorage area stores low level info on the PSP. Keys 4-8 are used for config data for various components (the battery, clock generator, LCD, etc.) and are in a different format to all the other keys.</p>
+<p>Here is the code to generate the hash for these particular keys:</p>
+<div class="igBar"><span id="lc-10"><a href="#" onclick="javascript:showPlainTxt('c-10'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-10">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Idstorage Leaf Hash Gen Sample - SilverSpring 2007</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">The idstorage area stores low level info on the PSP.</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Keys 4-8 are used for config data for various components</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">(the battery, clock generator, LCD, etc.)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">and are in a different format to all the other keys.</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Specifically the format is as follows:</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">typedef struct</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">{</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">&nbsp; &nbsp; u32 signature;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">&nbsp; &nbsp; int type;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">&nbsp; &nbsp; int datalen;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">&nbsp; &nbsp; u32 hash;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">&nbsp; &nbsp; u8 databuf[0x1F0];</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">} SceIdStorageLeaf;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">Here's the code to regenerate the hash for those keys.</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B;">#include &lt;stdio.h&gt;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B;">#define POLY (0xEDB88320)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B;">#define LEAF_0x0004_HASH &nbsp; &nbsp;(0x1FAB01BB)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B;">#define LEAF_DATA_SIZE &nbsp;(0x1F0)</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> gen_hash<span style="color: red;">&#40;</span><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> seed, <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">char</span> buf<span style="color: red;">&#91;</span><span style="color: red;">&#93;</span>, <span style="color: #2E8B57;">int</span> size<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">void</span> gen_table<span style="color: red;">&#40;</span><span style="color: #2E8B57;">void</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> table<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">256</span><span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">char</span> leaf_0x0004_data<span style="color: red;">&#91;</span>LEAF_DATA_SIZE<span style="color: red;">&#93;</span> = </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0xD8, 0x00, 0x24, 0x00, 0x14, 0x31, 0x14, 0x00, 0x94, 0x01, 0x48, 0x00, 0xD8, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> main<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> hash;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; gen_table<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; hash = gen_hash<span style="color: red;">&#40;</span>0xFFFFFFFF, leaf_0x0004_data, LEAF_DATA_SIZE<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>hash != LEAF_0x0004_HASH<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: red;">&#40;</span><span style="color: #000000;">&quot;error: hash not match <span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: red;">&#40;</span><span style="color: #000000;">&quot;leaf_0x0004 hash: 0x%08X&quot;</span>, hash<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span> <span style="color: #cc66cc;color:#800000;">0</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> gen_hash<span style="color: red;">&#40;</span><span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> seed, <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">char</span> buf<span style="color: red;">&#91;</span><span style="color: red;">&#93;</span>, <span style="color: #2E8B57;">int</span> size<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> hash = ~seed;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">char</span> index;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> i;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">for</span> <span style="color: red;">&#40;</span>i=<span style="color: #cc66cc;color:#800000;">0</span>; i!=size; i++<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; index = buf<span style="color: red;">&#91;</span>i<span style="color: red;">&#93;</span> ^ hash;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; hash&gt;&gt;= <span style="color: #cc66cc;color:#800000;">8</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; hash ^= table<span style="color: red;">&#91;</span>index<span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span><span style="color: red;">&#40;</span>~hash<span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">void</span> gen_table<span style="color: red;">&#40;</span><span style="color: #2E8B57;">void</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">unsigned</span> <span style="color: #2E8B57;">int</span> i, j, x;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">for</span> <span style="color: red;">&#40;</span>i=<span style="color: #cc66cc;color:#800000;">0</span>; i&lt;<span style="color: #cc66cc;color:#800000;">256</span>; i++<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; x = i;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">for</span> <span style="color: red;">&#40;</span>j=<span style="color: #cc66cc;color:#800000;">0</span>; j&lt;<span style="color: #cc66cc;color:#800000;">8</span>; j++<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>x &amp; <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = <span style="color: red;">&#40;</span>x&gt;&gt;<span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span> ^ POLY;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #5697D9;">else</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x = <span style="color: red;">&#40;</span>x&gt;&gt;<span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; table<span style="color: red;">&#91;</span>i<span style="color: red;">&#93;</span> = x;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>Note: this is a PC app (though you could run it on the PSP as well if you wanted).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/11/idstorage-keys-0x0004-0x0008-generating-hash/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>IPL Decrypt Sample (direct HW access)</title>
+		<link>http://my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/</link>
+		<comments>http://my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/#comments</comments>
+		<pubDate>Wed, 10 Oct 2007 03:16:49 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Code Snippets]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/10/09/ipl-decrypt-sample-direct-hw-access/</guid>
+		<description><![CDATA[Since this place is pretty bare right now here's a quick sample I wrote up demonstrating how to access the KIRK crypto engine directly to do your decryption. Doing raw hardware access means you dont need to access any of the SCE crypto API's such as the semaphore lib (memlmd.prx).This is useful for the future [...]]]></description>
+			<content:encoded><![CDATA[<p>Since this place is pretty bare right now here's a quick sample I wrote up demonstrating how to access the <strong>KIRK</strong> crypto engine directly to do your decryption. Doing raw hardware access means you dont need to access any of the <strong>SCE</strong> crypto API's such as the semaphore lib (<em>memlmd.prx</em>).This is useful for the future since no matter how much <strong>SCE</strong> change the libs, nids, etc. The HW remains the same so it will work in all future firmwares (until new PSP motherboards are developed). Might be useful to add to <strong>PSARDUMPER</strong> since <strong>PSARDUMPER</strong> still rely on the <strong>SCE</strong> crypto libs and <strong>SCE</strong> may change the nids in the future and other stupid stuff like that.</p>
+<p>To use just place an encrypted IPL as <strong><em>enc_ipl.bin</em></strong> in the MS root. It'll decrypt it and save as it <strong><em>dec_ipl.bin</em></strong>.</p>
+<p><strong>NOTE:</strong> the same decryption routine can also decrypt prx's, though they need to be setup first before being passed to the crypto engine (ie. the prx header needs to be descrambled with its decryption key first). I might write up a quick sample to do that later.</p>
+<p>Anyway, enjoy and I hope you'll find this useful...</p>
+<p><strong>EDIT:</strong> <em>this is for 1.50 Kernel</em></p>
+<p><em><strong>Download link:</strong> </em><a href="http://my.malloc.us/silverspring/files/2007/10/ipl-decrypt-sample.rar" title="IPL Decrypt Sample (direct HW access)">IPL Decrypt Sample (direct HW access)</a></p>
+<p><strong><br />
+</strong></p>
+<p><em><strong>Admin note: The issue with the captcha not working has been fixed. Sorry for any inconvenience caused. -EvilSeph </strong></em></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

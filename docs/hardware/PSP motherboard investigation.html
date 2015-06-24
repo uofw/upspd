@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="keywords" content=" Deep PSP motherbaord investigation log, " />
+	<meta name="description" content="[Archive]  Deep PSP motherbaord investigation log Sony PlayStation Portable" />
+	
+	<title> Deep PSP motherbaord investigation log [Archive]  - LAN.ST</title>
+	<link rel="stylesheet" type="text/css" href="http://lan.st/archive/archive.css" />
+</head>
+<body>
+<div class="pagebody">
+<div id="navbar"><a href="http://lan.st/archive/index.php">LAN.ST</a> &gt; <a href="http://lan.st/archive/index.php/f-83.html">Console Hacking &amp; Development</a> &gt; <a href="http://lan.st/archive/index.php/f-43.html">Sony PlayStation Portable</a> &gt;  Deep PSP motherbaord investigation log</div>
+<hr />
+<div class="pda"><a href="http://lan.st/archive/index.php/t-372.html?pda=1" rel="nofollow">PDA</a></div>
+<p class="largefont">View Full Version : <a href="http://lan.st/showthread.php?t=372">Deep PSP motherbaord investigation log</a></p>
+<hr />
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-08-2007, 07:16 AM</div></div><div class="posttext">Ok as all of us now knows of my bricked PSP i will continue my old old junk work.<br />
+<br />
+it consists of completely dissecting the PSP and using the mobo's chips (NAND and ALLEGREX) to try to make a usable (non-user friendly i hate GUIs) environment for testing.<br />
+<br />
+i have opened this thread but will not post any information in it yet because i'm still evaluating if yes/no the info i will reveal is legal to post.   And by all means if anyone else has useful information (no noob/stupid questions or post will be deleted asap).<br />
+<br />
+Tools being used atm.<br />
+-1 completely butchered TA-082 PSP<br />
+-1 bricked 2.71 SEb' PSP<br />
+-soldering iron<br />
+-multimeter<br />
+-oscilloscope scanner<br />
+-1 PC for log and test<br />
+-and various foods (the most important of all tools)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-08-2007, 12:02 PM</div></div><div class="posttext">i'm getting the necessary tools needed so one can have his own proper devbox</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">rabbit</div><div class="date">01-08-2007, 12:50 PM</div></div><div class="posttext">I'm hoping you figure out how to reflash the NAND using the serial port *wink nudge*.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-08-2007, 03:32 PM</div></div><div class="posttext">Alpha version PSP MIPS CPU explanation (highly risky)<br />
+written by SpectroPlasm<br />
+<br />
+BEFORE YOU PROCEED<br />
+I have devoted some of my time (nearly all of my time) for the love of dissection, on studying the inner workings of the PSP.  I have tried to study thoroughly the MiPS allegrex cpu of $ony's PSP and have found these explanations based <br />
+<br />
+upon my tests.  Note i had to completly break a spare PSP mobo in order to study the pinouts, and used those collected data on a working PSP. most of my work has been done by trial and error. USE AT YOUr OWN RISK.  the following does not <br />
+<br />
+follow any order<br />
+<br />
+<br />
+<br />
+Interlock	Description<br />
+------------|---------------------------------<br />
+ITM		Instruction TLB Miss<br />
+ICM		Instruction Cache Miss<br />
+CPBE		Coprocessor Possible Exception<br />
+SXT		Integer Sign Extend<br />
+STI		Store Interlock<br />
+DCM		Data Cache Miss<br />
+WA		Watch Address Exception<br />
+LDI		Load Interlock<br />
+MultB		Multiply Unit Busy<br />
+DivB		Divide Unit Busy<br />
+MDOne		Mult/Div One Cycle Slip<br />
+ShSlip		Var Shift or Shift &gt; 32 bits<br />
+FCBsy		FP Busy<br />
+Reset		vector Exception<br />
+<br />
+<br />
+PIPELINE Backup Process<br />
+-----------------------<br />
+|Run | Run | Run | Run | Run | Run | Run | Stl | Stl | Stl | Stl | Stl | Run | Run | Run | Run | Run | &lt;--cycle<br />
+                     |    |     |     |     |     |     |     |     |     |     | Rst2| Rst1|     |     |     |     |     | &lt;--Restart<br />
+         | IF |  IS |  RF |  EX |  DF |  DS |  TC |     |     |  DF |  DS |  TC |  WB |     |     |     |     | &lt;--Load<br />
+           |    |  IF |  IS |  RF |  EX |  DF |  DS |     |     |     |  DF |  DS |  TC |  WB |     |     |     | <br />
+             |    |     |  IF |  IS |  RF |  EX |  DF |     |     |     |     |  DF |  DS |  TC |  WB |     |     | &lt;--ALU<br />
+          |    |     |     |  IF |  IS |  RF |  EX-|     |     |     |  RF |  EX+|  DF |  DS |  TC |  WB |     |<br />
+                |    |     |     |     |  IF |  IS |  RF |     |     |     |     |     |  EX |  DF |  DS |  TC |     |<br />
+                       |    |     |     |     |     |  IF |  IS |     |     |     |     |     |     |     |     |     |     |<br />
+<br />
+---------------<br />
+Diagnostic Status<br />
+<br />
+24  23 | 22  |21  |20  |19 | 18 | 17 | 16 |<br />
+   0   | BEV |TS  |SR  | 0 | CH | CE | DE |<br />
+   2      1    1    1    1    1    1    1<br />
+<br />
+----|---------------<br />
+Bit |	Description|<br />
+----|---------------<br />
+BEV |	Controls the location of TLB refill and general exception<br />
+    |	vectors.<br />
+    |	0--&gt;normal<br />
+    |	1--&gt;bootstrap<br />
+---------------------------------------------------------------<br />
+TS  |	1--&gt; Indicates TLB shutdown has occurred (read-only).<br />
+---------------------------------------------------------------<br />
+SR  |	1--&gt; Indicates a Reset* signal or NMI has caused a Soft Reset<br />
+    |	exception<br />
+---------------------------------------------------------------<br />
+CH  |	Hit (tag match and valid state) or miss indication for last<br />
+    |	CACHE Hit Invalidate, Hit Write Back Invalidate, Hit Write<br />
+    |	Back, Hit Set Virtual, or Create Dirty Exclusive for a<br />
+    |	secondary cache.<br />
+    |	0--&gt; miss<br />
+    |	1--&gt; hit<br />
+----|----------------------------------------------------------<br />
+CE  |	Contents of the ECC register set or modify the check bits of the<br />
+    |	caches when CE = 1; see description of the ECC register.<br />
+---------------------------------------------------------------<br />
+DE  |	Specifies that cache parity or ECC errors cannot cause<br />
+    |	exceptions.<br />
+    |	0--&gt; parity/ECC remain enabled<br />
+    |	1--&gt; disables parity/ECC<br />
+---------------------------------------------------------------<br />
+0   | 	Reserved. Must be written as zeroes, and returns zeroes<br />
+    |	when read.<br />
+<br />
+---------------<br />
+The Reset exception occurs when the *ColdReset* signal is asserted and<br />
+then deasserted. This exception is not maskable.<br />
+<br />
+Processing<br />
+The CPU provides a special interrupt vector for this exception:<br />
+&#8226; location 0xBFC0 0000 in 32-bit mode<br />
+&#8226; location 0xFFFF FFFF BFC0 0000 in 64-bit mode (theoretically the PSP will do 64bit even if stated as 32bit only it's because the allegrex CPU is of 64bit nature)<br />
+<br />
+The Reset vector resides in unmapped and uncached CPU address space,<br />
+so the hardware need not initialize the TLB or the cache to process this<br />
+exception. It also means the processor can fetch and execute instructions<br />
+while the caches and virtual memory are in an undefined state.<br />
+The contents of all registers in the CPU are undefined when this exception<br />
+occurs, except for the following register fields:<br />
+&#8226; In the Status register, SR and TS are cleared to 0, and ERL and<br />
+BEV are set to 1. All other bits are undefined.<br />
+&#8226; Config register is initialized with the boot mode bits read from<br />
+the serial input.<br />
+&#8226; The Random register is initialized to the value of its upper<br />
+bound.<br />
+&#8226; The Wired register is initialized to 0.<br />
+&#8226; The EW bit in the CacheErr register is cleared (i could be wrong).<br />
+<br />
+more to come as i refine my tests:cool:</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-09-2007, 07:45 AM</div></div><div class="posttext">after looking into how thw chip functions it seems that the three mode the chips offers are:<br />
+-Kernel mode<br />
+-Supervisor mode<br />
+-User mode<br />
+<br />
+but the thing is when the chip boots up it's on kernel mode and all interrupt are turned off, which may explain us not being able to intercept it when it's fully booted.<br />
+<br />
+still investigating hope i get some new info :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">rabbit</div><div class="date">01-10-2007, 01:56 AM</div></div><div class="posttext">I'm guessing unlocking Supervisor mode would allow us to use the serial debug stuff?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-10-2007, 06:48 AM</div></div><div class="posttext">serial debug should be available in supervisor mode but i have no idea on how to get the proper opcodes for it, as i am more than certain that version 2.00+ PSP has undocumented opcodes. Time will tell if we will be able to make use of the little knowledge we have to unlock the next step in total PSP domination :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-10-2007, 08:35 AM</div></div><div class="posttext">more info some of you might know them already but for me it's the first time i'm seeing them and it makes me happy :) i hope more people can get info from the notes i'm making. I some of the admins are able to compile this thread into a simple .txt file it would be awesome too so we can all have a downloadable version. ;).<br />
+<br />
+Boot security measure of the PSP are as follows:<br />
+* hardware engine for encryption (believe it or not it's not in software but in hardware)<br />
+<br />
+* PSP classing kernel and user modes seperatly to avoid sudden take over (from demos, games, and other eboots)<br />
+<br />
+* the booting of the PSP follows a chain of safe files (commonly known as chain of trust boot)<br />
+<br />
+* module loading is extremely limited all is timed (from it's loadup to it's current location in flash0)<br />
+<br />
+* the Os (if we could call it an Os) is basically a series of broken down libs that can collaborated together (very *nix-ish) and they are protected through a software that maps the security and signatures from one to another in order to be able to run, it mostly like a wrapper.<br />
+<br />
+if we sum up the info so far kids, my opinion is this (not everybody cares of my opinions :P)<br />
+the proper Boot sequence of the PSP is like this<br />
+<br />
+switch on------&gt;PSP reads encrypted ROM on Flash------------------------|1<br />
+boot state-----&gt;state1:bootstrap kicks in, hardware decrypts IPL from flash-|2<br />
+boot state-----&gt;state2:IPL decrypts loaders from memory------------------|3<br />
+boot state-----&gt;state3:the loader then returns to flash to load kernel*-----|4<br />
+boot state-----&gt;state4:kernel loaded boot clean sequence is initiated-------|5<br />
+boot state-----&gt;state5:memory cache cleaned XMB loads------------------|6<br />
+*during the load process the loader checks for system depedence modules before continuing<br />
+the numbers i have put on the left side is for telling possible approach to a real custom FW non dependent to the flash itself.<br />
+*if in 2 we are able to do a jump so that the PSP wont activate the hardware decrypter we are able to run unsigned code<br />
+*if in 2 we fail we can still intercept in 4 by disabling chain of trust so we can make replace the kernel of the PSP<br />
+<br />
+but as i said earlier when in kernel state the PSP WILL NOT take any interrupts at all.  That's all for now folks still fiddling around</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">gvg</div><div class="date">01-10-2007, 05:57 PM</div></div><div class="posttext">So this is on a TA-082 mobo, or on all mobos? Very interesting stuff ^^ (not that i understand any of it, but it looks very good and useful)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-11-2007, 07:04 AM</div></div><div class="posttext">this was found on a TA-082 mbo but it's valid for all mobos as i have another ginea pig from my friend here which is a non 082 board, and from looking at it it's only the nand that's different from the rest.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Mathieulh</div><div class="date">01-28-2007, 11:12 PM</div></div><div class="posttext">very nice info spectroplasm !</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-30-2007, 07:04 AM</div></div><div class="posttext">thanks Mathieulh :) i'm still trying to get extra information on the PSP but as of now my oscilloscope is having some light problems.  I'm considering retaking the investigation once it's fixed.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">01-31-2007, 11:19 AM</div></div><div class="posttext">Awesome thread SpectroPlasm! This sole thread made me register to lan.st! I'm staying tuned, very curious about your findings!<br />
+<br />
+In the meanwhile, did you notice this thread on Maxconsole -&gt; http://forums.maxconsole.net/showthread.php?t=46044<br />
+<br />
+I think in your research you must be able to find out at least if an unbricking mode like mentioned in the thread does exist or not. And maybe what Sony did with their special maintenance battery to make it work. But I doubt if someone will ever be able reproduce it.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">01-31-2007, 12:07 PM</div></div><div class="posttext">the thread link you have posted is already being investigated, and it is a way to get somthing to run but as this is an investigation please people don't start frantic assomptions saying &quot;this could mean a downgrader/brick saver&quot;.<br />
+<br />
+the PSX console had a way to get it to read a special named file first altho it will not defeat copy protections means nor is usable in any easy way it is there non the less you can call it the a drive trick (just like PC bios recovery)<br />
+<br />
+the PSP has the same mechanism but the software will not load at all without special keys just like normal EBOOTS.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">fergie4000</div><div class="date">01-31-2007, 12:22 PM</div></div><div class="posttext">get somebody to break in to a sony unbricking place and steal everything.:p</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">rabbit</div><div class="date">01-31-2007, 01:11 PM</div></div><div class="posttext">....<br />
+<br />
+Anyway, since we know the PSP tries to read the stick, can't we find out where?  It'd be nice to be able to rewrite some of that to load an EBOOT on boot, and, I dunno, hash flash0, check it against a stored value, and then reflash the PSP if the hashes don't match.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">01-31-2007, 01:51 PM</div></div><div class="posttext">the thread link you have posted is already being investigated, and it is a way to get somthing to run but as this is an investigation please people don't start frantic assomptions saying &quot;this could mean a downgrader/brick saver&quot;.<br />
+<br />
+the PSX console had a way to get it to read a special named file first altho it will not defeat copy protections means nor is usable in any easy way it is there non the less you can call it the a drive trick (just like PC bios recovery)<br />
+<br />
+the PSP has the same mechanism but the software will not load at all without special keys just like normal EBOOTS.<br />
+<br />
+I don't expect an unbricker or universal downgrader coming out of this. If decryption of the first boot stage is (at least partially) done by hardware, like you're suggesting, it'll be a very hard nut to crack, maybe impossible. But it would be very interesting if your investigations could confirm or deny such an existence and maybe give a clue about how it's working.<br />
+<br />
+Is it a special file read from MS? Does the MS have to be prepared, maybe on a different filesystem? Is unbricking/debugging done by using the serial port? Or is it a combination of loading a bootloader from MS which programs the flash0 over the serial port? Is the battery contact used for serial communication (the third contact)?<br />
+<br />
+Only time will show. That's why this thread is so interesting to me, not because of a possible unbricker/downgrader (if rumours are true, psp-devolution will provide a fairly easy way shortly) but because I'm just curious about the secrets that are buried inside our little but powerfull toy. Secrets are ever intrigueing me.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">02-01-2007, 11:44 AM</div></div><div class="posttext">:) i'm happy to see a follower in the investigation, rest assured nothing is hidden forever (tho it may seem like it)for now my main goal is to try and get a way to regenerate all the proper keys the PSP needs for running our own EBOOTS by using it's own CPU to do so, once this is over we could have all sorts of fun with our toy ranging from piggy back riding the FW to give us extentions to XMB for example all the way to having our own proper FW without relying on $ony's updates. :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">02-01-2007, 02:30 PM</div></div><div class="posttext">Well, that sounds like the ultimate hack. That would mean you could create an EBOOT and run it on any firmware, including official firmwares!</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">02-02-2007, 09:45 AM</div></div><div class="posttext">yes :) exactly no more need to help helpless people (the types that whine a lot for no apparent reason) downgrade their PSPs</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">XsavioR</div><div class="date">02-04-2007, 05:43 AM</div></div><div class="posttext">@ spectroplasm<br />
+<br />
+I was thinking about disecting , and reverse engenering the circut inside the battery pack. Have you already done so ?  What was found if so ? I have a feeling knowing exactly what the board does , will answer some questions about the possibilty of Sony having a magical battery pack. (hardware key) <br />
+<br />
+As a self taught electricial engeneer, the possibilities of those extra contacts (2) not to mention 3 to supply + / -  , and the percision placement of the contacts , left exposed Barley by the void sticker....  Just to give one of the wild ideas in my head ... 2 i/0 lines used to &quot;interupt&quot; the boot, and reburn the flash acording to factory. Controlled by sending the right frequency signal to the input.. ie on off , on off , Hence the required chip in the battery. <br />
+<br />
+Any ways  has any one done it yet ?  you Can immagine why im eager. ( hopefully im not just cluttering the topic, new to the site don't wanna get the axe. k thnx bai</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">02-04-2007, 11:15 PM</div></div><div class="posttext">As a self-taught electrical engineer, you probably already opened your PSP? Just to find out that those two magical contacts in the battery bay belong to the external power jack and just represent GND and +Vcc. What doesn't imply that it's impossible to use it for communication, because we've got powerline communication nowadays.<br />
+<br />
+I think the chip in the battery is mainly used for controlling the charge process and returning the charge level to the psp. But again, that doesn't imply that it isn't used for some magic. But it's just highly unlikely.<br />
+<br />
+My guess is that the magical battery pack is an external pack which connects to the power jack and maybe the headphones serial port. It is already known that the serial port is performing some mysterious acts during the boot process. Furthermore, I think also a specially prepped memorystick is needed. I wouldn't risk flashing the PSP over it's serial port. So I think it might be used to load a bootloader which reads a nand image from the memorystick. Or something like that.<br />
+<br />
+Let's just await what Spectroplasm finds out once his scope is working again.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">XsavioR</div><div class="date">02-05-2007, 06:13 AM</div></div><div class="posttext">As a self-taught electrical engineer, you probably already opened your PSP? <br />
+<br />
+unfortunatly not. I still have the warrenty atm and have been trying to find a reason to open it up. Im tired of fuzzy pictures have been itching to open it up.<br />
+edit :<br />
+odd , if it was for charging,, theres no reason the AAA battery mod,, would state the test he did ( not saying he is credible over any one just siting the reasoning)  showed the psp would not start,, with out the chip , while having regular batteries. <br />
+This would lead me to believe , that mod , would cause a battery explosion ( prolly a bad word , milder pop and spew acids in the compartment)  if plugged in .</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">02-05-2007, 10:08 AM</div></div><div class="posttext">I opened my PSP in the first week I got it and installed a UP in the second. Couldn't help it, my fingers were itching too much to handle.<br />
+<br />
+I know of other battery packs which don't work without a chip. Usually the chip is used for controlling the charging process and as a safety measure, the equipment won't run without the proper feedback from the chip. Think of GSM batteries or laptop battery packs. Or battery drills. Sometimes it's only a resistor, fuse or thermal fuse between +Vcc and the third contact which acts as a release signal.<br />
+<br />
+But we're going too far offtopic now, I'll leave the thread to Spectroplasm.<br />
+<br />
+Btw (and on-topic again): I'm wondering how the newly announced psp devolution chip is working if only a few wires have to be connected. Five or six wires sound like serial unbricking. It looks like they where able to crack Sony's secret. As soon as it can be pre-ordered, I'm #1 on the list!</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">HiFiR</div><div class="date">02-14-2007, 10:22 AM</div></div><div class="posttext">looking at your stuff i realize how much hard work D_A put in writing codes outside in.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">eGamer</div><div class="date">02-14-2007, 12:18 PM</div></div><div class="posttext">Devolution probably use the main bus of the board to navigate data and not the flash connectors as UP does...<br />
+<br />
+In any way, I can confirm that they don't open it in any way in order to fix the flash.<br />
+<br />
+I bricked my PSP not long ago, so I called the official supplier of Sony products in my country... After a short chat with them, they addressed me to some kind of PSP lab near my city...<br />
+At my visit there, they took my PSP for around 25min, and after that it was working again without any visible change, I marked the panel of the PSP before I gave it, and the mark was still there...<br />
+<br />
+<br />
+So big hopes for your project Spectroplasm</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SOOPERGOOMAN</div><div class="date">02-22-2007, 08:31 AM</div></div><div class="posttext">Actually man, they took ur psp apart and reflashed it. Then put it back together. The don't give you new parts.I was told this by the guys in Ontario Canada who refurbish the psp's. they told me that they flash it directly there. I tried to get more info from him but he said he would get fired. But they do reflash them on the spot. Says its a ten minute process. $100 a pop. I am also looking into a piggy back method of reflashing a bricked psp, kinda in the same way as you read the eeprom of an xbox to get the reboot code. Then reflash it with anopther xbox's boot iso and then get the bricked one to run. there is a hardware mod that lefts you connect directly to it(eeprom chip) and then to serial for your pc.I'll get the link for you this week. I figure that if it can read that eeprom then it could potentially be modified to read the psp's. dunno just thoughts to ponder and hopefully help.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">02-26-2007, 02:23 PM</div></div><div class="posttext">ok ok sorry to be lagging around too much, i had a lot of stuff to take care of and now i am back, beginning with which i have updated info on the mobo and its inside workings.  below are updates of my last finds i had to reorder them for better viewing of the process.  cheers more on this<br />
+<br />
+<br />
+Alpha version PSP MIPS CPU explanation (highly risky)<br />
+written by SpectroPlasm<br />
+<br />
+BEFORE YOU PROCEED<br />
+I have devoted some of my time (nearly all of my time) for the love of dissection, on studying the inner workings of the PSP.  I have tried to study thoroughly the MiPS allegrex cpu of $ony's PSP and have found these explanations based upon my tests.  Note i had to completly break a spare PSP mobo in order to study the pinouts, and used those collected data on a working PSP. most of my work has been done by trial and error. USE AT YOUr OWN RISK.  the following does not follow any order<br />
+<br />
+<br />
+<br />
+Interlock	Description<br />
+------------|---------------------------------<br />
+ITM		Instruction TLB Miss<br />
+ICM		Instruction Cache Miss<br />
+CPBE		Coprocessor Possible Exception<br />
+SXT		Integer Sign Extend<br />
+STI		Store Interlock<br />
+DCM		Data Cache Miss<br />
+WA		Watch Address Exception<br />
+LDI		Load Interlock<br />
+MultB		Multiply Unit Busy<br />
+DivB		Divide Unit Busy<br />
+MDOne		Mult/Div One Cycle Slip<br />
+ShSlip		Var Shift or Shift &gt; 32 bits<br />
+FCBsy		FP Busy<br />
+Reset		vector Exception<br />
+<br />
+<br />
+PIPELINE Backup Process<br />
+-----------------------<br />
+|Run | Run | Run | Run | Run | Run | Run | Stl | Stl | Stl | Stl | Stl | Run | Run | Run | Run | Run | &lt;--cycle<br />
+|    |     |     |     |     |     |     |     |     |     | Rst2| Rst1|     |     |     |     |     | &lt;--Restart<br />
+| IF |  IS |  RF |  EX |  DF |  DS |  TC |     |     |  DF |  DS |  TC |  WB |     |     |     |     | &lt;--Load<br />
+|    |  IF |  IS |  RF |  EX |  DF |  DS |     |     |     |  DF |  DS |  TC |  WB |     |     |     | <br />
+|    |     |  IF |  IS |  RF |  EX |  DF |     |     |     |     |  DF |  DS |  TC |  WB |     |     | &lt;--ALU<br />
+|    |     |     |  IF |  IS |  RF |  EX-|     |     |     |  RF |  EX+|  DF |  DS |  TC |  WB |     |<br />
+|    |     |     |     |  IF |  IS |  RF |     |     |     |     |     |  EX |  DF |  DS |  TC |     |<br />
+|    |     |     |     |     |  IF |  IS |     |     |     |     |     |     |     |     |     |     |<br />
+<br />
+---------------<br />
+Diagnostic Status<br />
+<br />
+24  23 | 22  |21  |20  |19 | 18 | 17 | 16 |<br />
+   0   | BEV |TS  |SR  | 0 | CH | CE | DE |<br />
+   2      1    1    1    1    1    1    1<br />
+<br />
+----|---------------<br />
+Bit |	Description|<br />
+----|---------------<br />
+BEV |	Controls the location of TLB refill and general exception<br />
+    |	vectors.<br />
+    |	0--&gt;normal<br />
+    |	1--&gt;bootstrap<br />
+---------------------------------------------------------------<br />
+TS  |	1--&gt; Indicates TLB shutdown has occurred (read-only).<br />
+---------------------------------------------------------------<br />
+SR  |	1® Indicates a Reset* signal or NMI has caused a Soft Reset<br />
+    |	exception<br />
+---------------------------------------------------------------<br />
+CH  |	Hit (tag match and valid state) or miss indication for last<br />
+    |	CACHE Hit Invalidate, Hit Write Back Invalidate, Hit Write<br />
+    |	Back, Hit Set Virtual, or Create Dirty Exclusive for a<br />
+    |	secondary cache.<br />
+    |	0--&gt; miss<br />
+    |	1--&gt; hit<br />
+----|----------------------------------------------------------<br />
+CE  |	Contents of the ECC register set or modify the check bits of the<br />
+    |	caches when CE = 1; see description of the ECC register.<br />
+---------------------------------------------------------------<br />
+DE  |	Specifies that cache parity or ECC errors cannot cause<br />
+    |	exceptions.<br />
+    |	0--&gt; parity/ECC remain enabled<br />
+    |	1--&gt; disables parity/ECC<br />
+---------------------------------------------------------------<br />
+0   | 	Reserved. Must be written as zeroes, and returns zeroes<br />
+    |	when read.<br />
+<br />
+---------------<br />
+The Reset exception occurs when the *ColdReset* signal is asserted and<br />
+then deasserted. This exception is not maskable.<br />
+<br />
+Processing<br />
+The CPU provides a special interrupt vector for this exception:<br />
+&#8226; location 0xBFC0 0000 in 32-bit mode<br />
+&#8226; location 0xFFFF FFFF BFC0 0000 in 64-bit mode (theoretically the MIPS will do 64bit even if stated as 32bit)<br />
+<br />
+The Reset vector resides in unmapped and uncached CPU address space,<br />
+so the hardware need not initialize the TLB or the cache to process this<br />
+exception. It also means the processor can fetch and execute instructions<br />
+while the caches and virtual memory are in an undefined state.<br />
+The contents of all registers in the CPU are undefined when this exception<br />
+occurs, except for the following register fields:<br />
+&#8226; In the Status register, SR and TS are cleared to 0, and ERL and<br />
+BEV are set to 1. All other bits are undefined.<br />
+&#8226; Config register is initialized with the boot mode bits read from<br />
+the serial input.<br />
+&#8226; The Random register is initialized to the value of its upper<br />
+bound.<br />
+&#8226; The Wired register is initialized to 0.<br />
+&#8226; The EW bit in the CacheErr register is cleared (i could be wrong).<br />
+<br />
+more on this as we go further later.  in the mean i wouldn't consider trying all<br />
+of these finds without knowledge of what you are doing.  if some if you hold the soldering iron<br />
+from it's hot tip then you might as well just pass for now :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">02-26-2007, 02:27 PM</div></div><div class="posttext">and now the moment most of you have been waiting for :)<br />
+<br />
+Spectroplasm's nand hardflasher schematics.  USE at your own risk!!<br />
+NOT TO Be SHARED WITH OUTSIDE WORLD!!!!! if sony breaks your house and rapes your wife it's non of my problem or business<br />
+below i have provided the necessary pinouts of the nand flash for anyone interrested in making their own nand flasher.  Please be aware that soldering the pins is a very delicate process and is needed to be done with a needle soldering iron and that the temp should not exceed ~220-260 degrees for more than 5s.<br />
+<br />
+due to issues of the information falling into the wrong hands (noobs who want a chance at nand flashing) i have only provided the pinouts and block operation registers needed for proper operation of the NAND. So you're on your own if you wanna go further on this.<br />
+	      <br />
+	      NC-==|````````````````````````````````````````|==-NC<br />
+	      NC-==| 0	    				    |==-NC<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|					    |==-I/O7<br />
+     special GND-==|					    |==-I/O6<br />
+       RB STATUS-==|					    |==-I/O5<br />
+     READ ENABLE-==|					    |==-I/O4<br />
+     CHIP ENABLE-==|					    |==-NC<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|					    |==-NC<br />
++VCC(2.7~3.3max)-==|					    |==-+VCC(2.7~3.3max)<br />
+      VSS GROUND-==|					    |==-VSS GROUND<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|					    |==-NC<br />
+	     CLE-==|					    |==-NC<br />
+ADDRESS LATCH ON-==|					    |==-I/O3<br />
+    WRITE ENABLE-==|					    |==-I/O2<br />
+   WRITE PROTECT-==|					    |==-I/O1<br />
+	      NC-==|					    |==-I/O0<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|				            |==-NC<br />
+	      NC-==|					    |==-NC<br />
+	      NC-==|________________________________________|==-NC<br />
+<br />
+<br />
+<br />
+BEFORE PROCEEDING MAKE SURE THAT VCC and VSS ARE CoNNECTED AT ALL TIMES<br />
+<br />
+**&quot;I/O&quot; pins listed above are used to input commands to the NAND, I/O enters high-Z mode when deselected or deactivated.<br />
+<br />
+**&quot;Address latch&quot; is used to input address commands to the internal address registers. This is used in conjunction to &quot;Write Enable&quot;<br />
+<br />
+For those who are familiar with nand operations you can bypass all of this mumbo jumbo by making your own flasher for the PSP tho i doubt you'll get any further on a non HB-able PSP.  The above can help on hard-down and hard-up operations.<br />
+<br />
+more to come on this :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">02-27-2007, 07:29 AM</div></div><div class="posttext">I think the pins necessary (I/O 00~07, pins 7~9 and pins 16~19) are perfectly covered by the UP chip, which to me seems the easiest way atm. to hardflash the nand. That is, as long as you don't own a TA-082/086 board ;)<br />
+<br />
+Another thought that occurs to me: basically it should be possible to replace the nand by a larger capacity one. Pinout is usually the same, I think upto 4 Gb (didn't check that, though). Useless for the everyday user but it could be interesting for devs.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Oneohm</div><div class="date">07-11-2007, 10:49 PM</div></div><div class="posttext">1. To reply to the posts about the battery circuit: <br />
+This is actually a Pulse Width Modulation based charger circuit. In order for any company to build a Lithium Ion battery, they must have a circuit diagram of a &quot;managed&quot; charge controller to regulate the power used to charge the battery. This is due to the high volatility of the battery. They can explode if not charged properly. The circuit contains temperature sensors, current sensing and a mosfet based on-off controlled by pulse width modulation. <br />
+<br />
+2. SOOPERGOOMAN - &quot;Actually man, they took ur psp apart and reflashed it. Then put it back together. The don't give you new parts.I was told this by the guys in Ontario Canada who refurbish the psp's.&quot;<br />
+<br />
+This is possible through reverse engineering the board. However NAND flash is made to be flashed in the design by the design. My background is in Notebook computers. When a notebook is &quot;bricked&quot; it can be revived.  Notebook mainboards use three Flash devices. One on the Power management controller which also provides the keyboard connections and connection to the main and secondary bios chips. The primary bios is provided by a code house like Phoenix or AMI and is customized to the hardware. The secondary bios is a serial EEPROM that contains the Make, Model and Serial information. This is considered DMI data. When a notebook mainboard is changed the manufacture authorized facilties use a DMIutility to reflash lines in this serial EEPROM to change the serial number, model and even the boot logo displayed.<br />
+<br />
+So what happens if something is incorrectly flashed in a notebook? On an HP a loopback plug has to be placed onto the parralel port to ground certain I/O lines. The notebook when booted will then run an embedded bootblock program on the Power management controller ROM to reflash the primary bios and DMI if told to do so. It will access the floppy drive or a USB hosted device and read the autoexec.bat on the floppy which when accompanied by a flash utility and a binary file; will flash the bios. <br />
+<br />
+Sony also has hidden firmware access menus on their DVD players and TV sets which can be accessed using a remote or front panel controls. The technician would hold certain buttons like the power button along with the eject button on a DVD player while toggling yet another on/off. The menus will help technicians troubleshoot the device and they can see how long the laser has been in use or how long a picture tube has been on. <br />
+<br />
+On a PS2, they used a special disk to reprogram the firmware on the hardware. The disk was available for purchase for years but is now no longer available.  <br />
+<br />
+So without question knowing the hardware background on Sony's DVD players, PS2's and other devices I can tell you there is a &quot;backdoor&quot;. If the serial lines are going active during power up this may be the uplink used during production. This should be reactivated easily. You are on the right track Spectroplasm.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">solac03</div><div class="date">07-12-2007, 05:10 AM</div></div><div class="posttext">Hello to all <br />
+<br />
+I have been to china and i have seen the unbricking battery and it does exist. It only took less than 10 minutes to unbrick a psp that we had. The battery is being sold in china but it is really really expensive and personally i think it is not worth it. <br />
+<br />
+The battery was custom made it was wrapped with scratch tape. The guy at the store didn't want to show it keep it in his cabinet and when we asked if he can unbrick psp he said yes. Poped in the battery and then some stuff showed up in the screen instantly! after wards he poped the battery out (psp still plug on the outlet) asked if we wanted to unbricked and told us how much. We said yes and he took out a memory stick (just and ordinary memory stick) put in on the psp and then covered the screen with a piece of paper. After a few minutes its done the psp  booted and when i checked the version it has been flashed with 2.71 firmware. (whole thing took less than 10 minutes)<br />
+<br />
+We went to another guy and asked if he had the special battery. He said yes and when we asked how much it was to expensive. He told us that someone stole it from sony then took it to someone who could study the battery and made copies of it but not exact copies. The one we saw was just an oridnary battery that was modified. <br />
+<br />
+The special battery had a 32mb nand inside similar to that of the psp i think if i am not mistaken. But i am not sure about this. One thing is for certain i have seen the battery and it does exist. It was really cheap to have a psp unbricked in china.<br />
+<br />
+The said battery could downgrade any ta-079 to ta-086 to 2.71 firmware regardless of firmware (e.g. 3.51) flashed on the onboard nand of the psp.<br />
+I think that is not worth it with rumors that sony is coming out with a new mainboard for sure its gonna block the battery and the 1.50 firmware and the modchips.<br />
+<br />
+It seems that when a new modchip comes out a new mainboard also follows from sony.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel61</div><div class="date">07-12-2007, 01:26 PM</div></div><div class="posttext">Hi Solac,<br />
+<br />
+I've seen the vids of the jigkick unbricking process already, but it's nice to read an on-hands report, thanks!<br />
+<br />
+You state the battery is expensive, but can you be more specific? An amount in USD or Chinese valuta maybe?<br />
+<br />
+Btw. I think you're right about the new PSP blocking the current jigkick because it's been copied, and about 1.50 being blocked. But as with the TA-082+ boards, I'm pretty sure it can be solved.<br />
+<br />
+I also guess that the motherboard design will be changed to move at least some of the nand lines completely to a hidden layer. This will effectively block all current and future modchips that are based on bridging/replacing the nand someway.<br />
+<br />
+Btw. Spectroplasm, any new discoveries or have you stopped your investigation?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">solac03</div><div class="date">07-13-2007, 03:39 AM</div></div><div class="posttext">hi squirrel, <br />
+<br />
+The guy was asking for 15,000RMB around USD2000. Its too much but its not the exact copy of course since the original had an onboard lcd and other stuff. But it does the job. :)<br />
+<br />
+It is confirmed a new psp is coming out and and its really nice it has tv out similar to the ipod and it is thinner than the psp that we have right now. It's set to come out sometime during Sept. but no definite date yet<br />
+<br />
+I guess they might have redesigned the whole thing. With its thin design i wonder if a modchip would even fit in it. i Wonder if anyone will still find a way to run homebrew on it. ;)<br />
+<br />
+by the way where you from ? :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Squirrel</div><div class="date">07-13-2007, 04:53 AM</div></div><div class="posttext">Thanks for answering. USD2000 is pretty steep for normal users, but for shop owners it's a bargain. A PSP can be downgraded from any version or unbricked in less than 10 minutes. If a shop can offer a ready-while-you-wait service for less than USD50, the unit is paid back in a short time.<br />
+<br />
+I'm eagerly awaiting the new PSP and my screwdrivers are itching to open it :D Wonder what's all in there but I think you're right about the space for a modchip. It becomes now pretty clear why Sony:<br />
+- put the np9660 prx in newer firmwares (copy UMD data to flash to reduce loading times)<br />
+- made Dark_AleX stop right away (np9660 shouldn't be hacked)<br />
+- has a very low stock on &quot;old&quot; model PSP's<br />
+- is closing modchip fitter's websites<br />
+- is putting pressure on downgrade services to close the website<br />
+- and a few other things in which they've suddenly become very active in the last weeks.<br />
+<br />
+I'm from the Netherlands. Btw my above post was done under an &quot;alter ego&quot; but that's been administratively fixed now (thanks Mathieulh!)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">08-07-2007, 09:07 AM</div></div><div class="posttext">jigkick videos are flocking the inet by the minute, it would be sweet to get one of these babies under the knife for investigations ;D<br />
+<br />
+i would surely like if someone had a dump of the raw data it's sending to the third line of the battery tho this way we could simulate it if possible.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">08-07-2007, 09:08 AM</div></div><div class="posttext">the slim PSP is just like the slim ptwo i reckon same chips used but on a tighter fit board, as always nothing is uncrackable and it's only time that is the real enemy here.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SpectroPlasm</div><div class="date">08-07-2007, 09:09 AM</div></div><div class="posttext">*same chips as in their big brother counter parts that is just in case someone thinks it will be a ps2 portable.</div></div><hr />
+
+
+<div id="copyright">vBulletin&reg; v3.7.2, Copyright &copy;2000-2012, Jelsoft Enterprises Ltd.</div>
+</div>
+</body>
+</html>

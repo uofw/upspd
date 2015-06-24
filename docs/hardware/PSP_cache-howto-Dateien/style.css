@@ -1,0 +1,56 @@
+em.NB {
+	font-weight: bold;
+	font-style: italic;
+	font-variant: small-caps;
+}
+a:active {
+	color: #FF0000;
+}
+a:link {
+	color: #0000FF;
+}
+a:visited {
+	color: #A020F0;
+}
+body {
+	color: #000000;
+	background-color: #FFFFFF;
+	padding-left: 2em;
+}
+dl {
+	margin-left: 3em;
+}
+dl dt {
+	font-weight: bold;
+	font-size: smaller;
+	margin-top: 1em;
+}
+dl dt>code {
+	font-weight: bold;
+	font-size: bigger;
+}
+
+code {
+	font-family: monospace;
+}
+
+table tr.heading {
+	font-weight: bold;
+	font-size: -1;
+}
+table {
+	margin-left: 4em;
+}
+
+h1 {
+	margin-top: 2em;
+	margin-left: -1em;
+}
+
+.doc-title {
+	text-align: center;
+	margin-bottom: 2em;
+}
+.doc-title h1 {
+	margin-top: 1em;
+}

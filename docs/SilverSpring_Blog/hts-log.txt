@@ -1,0 +1,73 @@
+HTTrack3.43-9+htsswf+htsjava launched on Thu, 25 Aug 2011 14:01:33 at http://my.malloc.us/silverspring/ +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A999999%c20%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2010], %s -->" -%l "de, en, *" http://my.malloc.us/silverspring/ -O1 "C:\Users\Felix\PSP\Programming\pages\complete pages\Silverspring\Silverspring" +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:01:33	Warning: 	* security warning: maximum bandwidth limited to 100000 to avoid server overload
+14:01:33	Warning: 	* security warning: maximum number of connections per second limited to 5.000000 to avoid server overload
+Warning: Chunk too big (40) for my.malloc.us/silverspring/xmlrpc.php
+14:01:45	Error: 	"Invalid chunk" (-1) at link my.malloc.us/silverspring/xmlrpc.php (from my.malloc.us/silverspring/)
+14:02:08	Warning: 	File has moved from my.malloc.us/silverspring/2008/08/16/sborps-random-fact-04/ to http://my.malloc.us/silverspring/2008/08/sborps-random-fact-04/
+14:02:12	Warning: 	File has moved from my.malloc.us/silverspring/2007/11/16/the-psp-slim-couldve-been-a-gamers-dream-handheld/ to http://my.malloc.us/silverspring/2007/11/the-psp-slim-couldve-been-a-gamers-dream-handheld/
+14:03:12	Warning: 	File has moved from my.malloc.us/silverspring/?p=165 to http://my.malloc.us/silverspring/2010/10/sborps-random-fact-10/
+14:03:27	Warning: 	File has moved from my.malloc.us/silverspring/?p=159 to http://my.malloc.us/silverspring/2010/10/sborps-random-fact-09/
+14:03:31	Warning: 	File has moved from my.malloc.us/silverspring/?p=146 to http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/
+14:03:33	Warning: 	File has moved from my.malloc.us/silverspring/?p=142 to http://my.malloc.us/silverspring/2009/11/sborps-random-fact-07/
+14:03:35	Warning: 	File has moved from my.malloc.us/silverspring/?p=126 to http://my.malloc.us/silverspring/2009/09/in-memoriam/
+14:03:50	Warning: 	File has moved from my.malloc.us/silverspring/?p=120 to http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/
+14:03:53	Warning: 	File has moved from my.malloc.us/silverspring/?p=110 to http://my.malloc.us/silverspring/2009/05/sborps-random-fact-06/
+14:03:55	Warning: 	File has moved from my.malloc.us/silverspring/?p=71 to http://my.malloc.us/silverspring/2009/05/blog-update/
+14:03:55	Error: 	"Not Found" (404) at link nix.rjhs.co.uk/Rec.jpg (from my.malloc.us/silverspring/2009/05/blog-update/)
+14:03:57	Warning: 	File has moved from my.malloc.us/silverspring/?p=68 to http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/
+14:04:04	Warning: 	File has moved from my.malloc.us/silverspring/2008/02/18/sborps-random-fact-01/ to http://my.malloc.us/silverspring/2008/02/sborps-random-fact-01/
+14:04:19	Warning: 	File has moved from my.malloc.us/silverspring/?p=66 to http://my.malloc.us/silverspring/2008/12/another-nid-update-again/
+14:04:22	Warning: 	File has moved from my.malloc.us/silverspring/?p=62 to http://my.malloc.us/silverspring/2008/12/another-nid-update/
+14:04:24	Warning: 	File has moved from my.malloc.us/silverspring/?p=60 to http://my.malloc.us/silverspring/2008/12/nid-update/
+14:04:26	Warning: 	File has moved from my.malloc.us/silverspring/?p=52 to http://my.malloc.us/silverspring/2008/10/utilities/
+14:04:28	Warning: 	File has moved from my.malloc.us/silverspring/?p=51 to http://my.malloc.us/silverspring/2008/10/more-more-more/
+14:04:30	Warning: 	File has moved from my.malloc.us/silverspring/?p=50 to http://my.malloc.us/silverspring/2008/10/marlin-drm-platform-new-nids/
+14:04:33	Warning: 	File has moved from my.malloc.us/silverspring/?p=49 to http://my.malloc.us/silverspring/2008/10/usb-host/
+14:04:35	Warning: 	File has moved from my.malloc.us/silverspring/?p=48 to http://my.malloc.us/silverspring/2008/10/another-large-bunch-of-new-nids/
+14:04:40	Warning: 	File has moved from my.malloc.us/silverspring/?p=47 to http://my.malloc.us/silverspring/2008/09/sborps-random-fact-05/
+14:04:41	Warning: 	File has moved from my.malloc.us/silverspring/?p=46 to http://my.malloc.us/silverspring/2008/09/paf-nids/
+14:04:43	Warning: 	File has moved from my.malloc.us/silverspring/?p=45 to http://my.malloc.us/silverspring/2008/08/psp-libdoc-update-2/
+14:05:17	Warning: 	File has moved from my.malloc.us/silverspring/?p=44 to http://my.malloc.us/silverspring/2008/08/sborps-random-fact-04/
+14:05:21	Warning: 	File has moved from my.malloc.us/silverspring/?p=1 to http://my.malloc.us/silverspring/2007/10/hello-world/
+14:05:22	Warning: 	File has moved from my.malloc.us/silverspring/2007/10/hello-world/trackback/ to http://my.malloc.us/silverspring/2007/10/hello-world/
+14:05:24	Warning: 	File has moved from my.malloc.us/silverspring/?p=30 to http://my.malloc.us/silverspring/2008/04/sborps-random-fact-03/
+14:05:26	Warning: 	File has moved from my.malloc.us/silverspring/?p=26 to http://my.malloc.us/silverspring/2008/02/sborps-random-fact-02/
+14:05:28	Warning: 	File has moved from my.malloc.us/silverspring/?p=25 to http://my.malloc.us/silverspring/2008/02/sborps-random-fact-01/
+14:05:30	Warning: 	File has moved from my.malloc.us/silverspring/?p=43 to http://my.malloc.us/silverspring/2008/08/psp-3000-03g-a-step-closer-to-reality/
+14:05:32	Warning: 	File has moved from my.malloc.us/silverspring/?p=41 to http://my.malloc.us/silverspring/2008/08/clarification-of-new-ta-088-models/
+14:05:34	Warning: 	File has moved from my.malloc.us/silverspring/?p=22 to http://my.malloc.us/silverspring/2008/01/03g-model-psp-revisited/
+14:05:36	Warning: 	File has moved from my.malloc.us/silverspring/?p=19 to http://my.malloc.us/silverspring/2007/12/updater-versions/
+14:05:37	Warning: 	File has moved from my.malloc.us/silverspring/?p=18 to http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/
+14:05:39	Warning: 	File has moved from my.malloc.us/silverspring/?p=42 to http://my.malloc.us/silverspring/2008/08/nids-sce-trickery-fake-names/
+14:05:41	Warning: 	File has moved from my.malloc.us/silverspring/?p=40 to http://my.malloc.us/silverspring/2008/07/some-very-significant-nids/
+14:05:43	Warning: 	File has moved from my.malloc.us/silverspring/?p=39 to http://my.malloc.us/silverspring/2008/07/more-nids/
+14:05:45	Warning: 	File has moved from my.malloc.us/silverspring/?p=37 to http://my.malloc.us/silverspring/2008/06/scehvauth_library/
+14:05:46	Warning: 	File has moved from my.malloc.us/silverspring/?p=35 to http://my.malloc.us/silverspring/2008/05/more-devkit-nids/
+14:05:48	Warning: 	File has moved from my.malloc.us/silverspring/?p=34 to http://my.malloc.us/silverspring/2008/05/last-remaining-idstorage-nid/
+14:05:49	Warning: 	File has moved from my.malloc.us/silverspring/?p=33 to http://my.malloc.us/silverspring/2008/05/new-395-lib-nids/
+14:05:51	Warning: 	File has moved from my.malloc.us/silverspring/?p=32 to http://my.malloc.us/silverspring/2008/05/psp-libdoc-update/
+14:05:53	Warning: 	File has moved from my.malloc.us/silverspring/?p=16 to http://my.malloc.us/silverspring/2007/11/the-psp-slim-couldve-been-a-gamers-dream-handheld/
+14:05:54	Warning: 	File has moved from my.malloc.us/silverspring/?p=38 to http://my.malloc.us/silverspring/2008/07/new-nand-flash-device-support-added/
+14:05:56	Warning: 	File has moved from my.malloc.us/silverspring/?p=29 to http://my.malloc.us/silverspring/2008/04/nand-set_encryption_seed-nid/
+14:05:58	Warning: 	File has moved from my.malloc.us/silverspring/?p=28 to http://my.malloc.us/silverspring/2008/04/umd-firmware-version-checker/
+14:06:00	Warning: 	File has moved from my.malloc.us/silverspring/?p=27 to http://my.malloc.us/silverspring/2008/02/sces-battery-emulator-strange-nid/
+14:06:01	Warning: 	File has moved from my.malloc.us/silverspring/2008/04/02/umd-firmware-version-checker/ to http://my.malloc.us/silverspring/2008/04/umd-firmware-version-checker/
+14:06:03	Warning: 	File has moved from my.malloc.us/silverspring/?p=23 to http://my.malloc.us/silverspring/2008/01/more-sce-mind-games%e2%84%a2/
+14:06:05	Warning: 	File has moved from my.malloc.us/silverspring/?p=20 to http://my.malloc.us/silverspring/2007/12/380-and-pandora/
+14:06:08	Warning: 	File has moved from my.malloc.us/silverspring/?p=13 to http://my.malloc.us/silverspring/2007/11/idstorage-keys-0x0004-0x0008-generating-hash/
+14:06:10	Warning: 	File has moved from my.malloc.us/silverspring/?p=3 to http://my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/
+14:06:11	Warning: 	File has moved from my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/trackback/ to http://my.malloc.us/silverspring/2007/10/ipl-decrypt-sample-direct-hw-access/
+14:06:13	Warning: 	File has moved from my.malloc.us/silverspring/?p=17 to http://my.malloc.us/silverspring/2007/11/the-new-psp-tech-docs-article01/
+14:06:14	Warning: 	File has moved from my.malloc.us/silverspring/?p=14 to http://my.malloc.us/silverspring/2007/11/the-new-psp-technical-docs/
+14:06:16	Warning: 	File has moved from my.malloc.us/silverspring/?p=21 to http://my.malloc.us/silverspring/2007/12/03g-model-psp/
+14:06:17	Warning: 	File has moved from my.malloc.us/silverspring/?p=15 to http://my.malloc.us/silverspring/2007/11/finally/
+
+HTTrack Website Copier/3.43-9 mirror complete in 4 minutes 44 seconds : 240 links scanned, 180 files written (4410123 bytes overall) [3336853 bytes received at 11749 bytes/sec], 1507072 bytes transfered using HTTP compression in 75 files, ratio 22%, 2.0 requests per connection
+(2 errors, 59 warnings, 0 messages)

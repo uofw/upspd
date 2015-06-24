@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: 3.80 and Pandora</title>
+	<atom:link href="http://my.malloc.us/silverspring/2007/12/380-and-pandora/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Sat, 20 Feb 2010 00:43:45 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+	<item>
+		<title>By: silverspring</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-1665</link>
+		<dc:creator>silverspring</dc:creator>
+		<pubDate>Thu, 08 May 2008 08:01:25 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-1665</guid>
+		<description>What do you mean might not notice? If read_eeprom returns a negative number (which it would if sceSysconCmdExec failed) it means it failed. Any other value would mean it succeeded (and would have the correct value for the eeprom read).
+
+Anyway, it was meant to be a direct replacement for the sceSysconBatteryReadNVM/sceSysconBatteryWriteNVM functions which were taken out of the firmware starting from 3.80. Refer to http://forums.ps2dev.org/viewtopic.php?p=57634#57634 where nem posted the prototypes (the function names werent known when that post was made so they&#039;re labelled sceSyscon_driver_68EF0BEF/sceSyscon_driver_1165C864).
+
+This code was meant for apps using the above functions to be able to work in 3.80+. Ie. pandora apps from cory1492, hellcat, et al. So I would have to make sure the prototypes stayed the same as the original functions and that the code functioned exactly the same as the originals.</description>
+		<content:encoded><![CDATA[<p>What do you mean might not notice? If read_eeprom returns a negative number (which it would if sceSysconCmdExec failed) it means it failed. Any other value would mean it succeeded (and would have the correct value for the eeprom read).</p>
+<p>Anyway, it was meant to be a direct replacement for the sceSysconBatteryReadNVM/sceSysconBatteryWriteNVM functions which were taken out of the firmware starting from 3.80. Refer to <a href="http://forums.ps2dev.org/viewtopic.php?p=57634#57634" rel="nofollow">http://forums.ps2dev.org/viewtopic.php?p=57634#57634</a> where nem posted the prototypes (the function names werent known when that post was made so they&#8217;re labelled sceSyscon_driver_68EF0BEF/sceSyscon_driver_1165C864).</p>
+<p>This code was meant for apps using the above functions to be able to work in 3.80+. Ie. pandora apps from cory1492, hellcat, et al. So I would have to make sure the prototypes stayed the same as the original functions and that the code functioned exactly the same as the originals.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: pspZorba</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-1664</link>
+		<dc:creator>pspZorba</dc:creator>
+		<pubDate>Thu, 08 May 2008 01:01:16 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-1664</guid>
+		<description>Hi Silverspring,
+
+Nice job and thank you for sharing.
+
+I have notice in the code of read_eeprom, may be a strange behavior if sceSysconCmdExec returns an error, the caller may not notice. I would suggest to do something like:
+int read_eeprom(u8 addr, u16 * value)
+{
+  int res;
+  u8 param[0x60];
+
+  if (addr&gt;0x7F) return(0x80000102);
+
+  param[0x0C] = 0x74; // read battery eeprom command
+  param[0x0D] = 3; // tx packet length
+
+  // tx data
+  param[0x0E] = addr;
+  res = sceSysconCmdExec(param, 0);
+
+  if (res</description>
+		<content:encoded><![CDATA[<p>Hi Silverspring,</p>
+<p>Nice job and thank you for sharing.</p>
+<p>I have notice in the code of read_eeprom, may be a strange behavior if sceSysconCmdExec returns an error, the caller may not notice. I would suggest to do something like:<br />
+int read_eeprom(u8 addr, u16 * value)<br />
+{<br />
+  int res;<br />
+  u8 param[0x60];</p>
+<p>  if (addr&gt;0x7F) return(0&#215;80000102);</p>
+<p>  param[0x0C] = 0&#215;74; // read battery eeprom command<br />
+  param[0x0D] = 3; // tx packet length</p>
+<p>  // tx data<br />
+  param[0x0E] = addr;<br />
+  res = sceSysconCmdExec(param, 0);</p>
+<p>  if (res</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: bagheera</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-35</link>
+		<dc:creator>bagheera</dc:creator>
+		<pubDate>Fri, 18 Jan 2008 12:16:38 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-35</guid>
+		<description>On maxconsole i have posted a thread about i think something to do with: 
+u32 sceSysconCmdExec(void* param, int unk);
+
+The tools from hellcat/cory1492 won&#039;t work with my newest psp. And they use your work in there tools?
+
+http://forums.maxconsole.net/showthread.php?t=97428
+
+If you don&#039;t like this link posting to maxconsole on your blog. please remove.
+greetz from the netherlands 
+bagheera</description>
+		<content:encoded><![CDATA[<p>On maxconsole i have posted a thread about i think something to do with:<br />
+u32 sceSysconCmdExec(void* param, int unk);</p>
+<p>The tools from hellcat/cory1492 won&#8217;t work with my newest psp. And they use your work in there tools?</p>
+<p><a href="http://forums.maxconsole.net/showthread.php?t=97428" rel="nofollow">http://forums.maxconsole.net/showthread.php?t=97428</a></p>
+<p>If you don&#8217;t like this link posting to maxconsole on your blog. please remove.<br />
+greetz from the netherlands<br />
+bagheera</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Do0kz</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-34</link>
+		<dc:creator>Do0kz</dc:creator>
+		<pubDate>Wed, 16 Jan 2008 20:07:59 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-34</guid>
+		<description>lol guys i wanna know how you work this out please help me... sorry for being a noob heheheh an a pain in the butt ^_^ sowwy Well hope i can get help</description>
+		<content:encoded><![CDATA[<p>lol guys i wanna know how you work this out please help me&#8230; sorry for being a noob heheheh an a pain in the butt ^_^ sowwy Well hope i can get help</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: cory1492</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-32</link>
+		<dc:creator>cory1492</dc:creator>
+		<pubDate>Mon, 14 Jan 2008 19:40:34 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-32</guid>
+		<description>Thanks SilverSpring, got the chance to use the code today with the release of 3.80M33 and it works like a charm.
+-
+u32 sceSysconCmdExec(void* param, int unk);
+-
+Was all I needed to create to make &#039;im go.</description>
+		<content:encoded><![CDATA[<p>Thanks SilverSpring, got the chance to use the code today with the release of 3.80M33 and it works like a charm.<br />
+-<br />
+u32 sceSysconCmdExec(void* param, int unk);<br />
+-<br />
+Was all I needed to create to make &#8216;im go.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Hellcat</title>
+		<link>http://my.malloc.us/silverspring/2007/12/380-and-pandora/comment-page-1/#comment-24</link>
+		<dc:creator>Hellcat</dc:creator>
+		<pubDate>Sat, 22 Dec 2007 05:26:52 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/19/380-and-pandora/#comment-24</guid>
+		<description>Hi! :-)
+
+Might I ask for permission to use this code snippet in my &quot;Pandora Installer for 3.xx Kernels&quot;?
+
+I&#039;d like to have that working on 3.80 as well ;-)
+
+Propper credits would be given, of course!</description>
+		<content:encoded><![CDATA[<p>Hi! <img src='http://my.malloc.us/silverspring/wp-includes/images/smilies/icon_smile.gif' alt=':-)' class='wp-smiley' /> </p>
+<p>Might I ask for permission to use this code snippet in my &#8220;Pandora Installer for 3.xx Kernels&#8221;?</p>
+<p>I&#8217;d like to have that working on 3.80 as well <img src='http://my.malloc.us/silverspring/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> </p>
+<p>Propper credits would be given, of course!</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SBORPS &#187; NID&#8217;s</title>
+	<atom:link href="http://my.malloc.us/silverspring/category/nids/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Fri, 08 Oct 2010 01:13:30 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+		<item>
+		<title>Prx Decryption NID&#8217;s !!!!!</title>
+		<link>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/</link>
+		<comments>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/#comments</comments>
+		<pubDate>Sat, 10 Jan 2009 04:43:17 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=68</guid>
+		<description><![CDATA[I never thought these would ever be cracked but finally here are the sceMesgLed NID&#8217;s (these are only valid upto 2.00 since the NID&#8217;s were later &#8216;randomised&#8217; the following update in 2.50): 0x84a04017 sceUtilsGetLoadModuleCLength 0xa86d5005 sceUtilsGetLoadModuleCLengthByPolling 0xa4547df1 sceUtilsGetLoadModuleDLength 0x94eb1072 sceUtilsGetLoadModuleDLengthByPolling 0x198fd3be sceUtilsGetLoadModuleILength 0xfbc694c7 sceUtilsGetLoadModuleILengthByPolling 0x07e152be sceUtilsGetLoadModuleJLength 0x9906f33a sceUtilsGetLoadModuleJLengthByPolling 0x46ac0e78 sceUtilsGetLoadModuleKLength 0x55c8785e sceUtilsGetLoadModuleKLengthByPolling 0x67a5ecdf sceUtilsGetLoadModuleLLength 0x85b9d9f3 [...]]]></description>
+			<content:encoded><![CDATA[<p>I never thought these would ever be cracked but finally here are the sceMesgLed NID&#8217;s (these are only valid upto 2.00 since the NID&#8217;s were later &#8216;randomised&#8217; the following update in 2.50):</p>
+<ul>
+<li>0x84a04017  sceUtilsGetLoadModuleCLength</li>
+<li>0xa86d5005  sceUtilsGetLoadModuleCLengthByPolling</li>
+<li>0xa4547df1  sceUtilsGetLoadModuleDLength</li>
+<li>0x94eb1072  sceUtilsGetLoadModuleDLengthByPolling</li>
+<li>0x198fd3be  sceUtilsGetLoadModuleILength</li>
+<li>0xfbc694c7  sceUtilsGetLoadModuleILengthByPolling</li>
+<li>0x07e152be  sceUtilsGetLoadModuleJLength</li>
+<li>0x9906f33a  sceUtilsGetLoadModuleJLengthByPolling</li>
+<li>0x46ac0e78  sceUtilsGetLoadModuleKLength</li>
+<li>0x55c8785e  sceUtilsGetLoadModuleKLengthByPolling</li>
+<li>0x67a5ecdf  sceUtilsGetLoadModuleLLength</li>
+<li>0x85b9d9f3  sceUtilsGetLoadModuleLLengthByPolling</li>
+<li>0x951f4a5b  sceUtilsGetLoadModuleMLength</li>
+<li>0x58999d8e  sceUtilsGetLoadModuleMLengthByPolling</li>
+<li>0x9fc926a0  sceUtilsGetLoadModuleNLength</li>
+<li>0x7a922276  sceUtilsGetLoadModuleNLengthByPolling</li>
+</ul>
+<p>As you can see the naming is very cryptic, but the names do make a little bit of sense (more than some other crypto functions &#038; libs). Each of these functions decrypts a particular ~PSP encrypted executable. The executable type is at offset 0x7C of a ~PSP file, and the executable type number corresponds to the letter listed in the above functions. For example, Type3 exe&#8217;s (vshmain modules) use the &#8216;C&#8217; function to decrypt, Type4 exe&#8217;s (user modules) use the &#8216;D&#8217; function, etc. There are no types 5,6,7,8 exe&#8217;s so those letters are missing. Other exe types that use the above functions include:</p>
+<ul>
+<li>Type09 UMD games (use &#8216;I&#8217; to decrypt)
+<li>Type10 Gamesharing games (use &#8216;J&#8217; to decrypt)
+<li>Type11 Debug Gamesharing games (use &#8216;K&#8217; to decrypt)
+<li>Type12 MS Updater (use &#8216;L&#8217; to decrypt)
+<li>Type13 MS Demo games (use &#8216;M&#8217; to decrypt)
+<li>Type14 Flash application eboots (use &#8216;N&#8217; to decrypt)
+</ul>
+<p>Later fw added extra exe types also (such as POPS executables &#8211; Type20). So as you can see the numbering of the executable type corresponds to the letter of the alphabet used in the decryption functions naming.</p>
+<p>Type1 exe&#8217;s are internal debug modules while Type2 exe&#8217;s are kernel modules, they are both decrypted the same way hence the &#8216;A&#8217; and &#8216;B&#8217; in the function sceUtilsGetLoadModuleABLength of memlmd.prx.</p>
+<p>Here are also 2 more NID&#8217;s from memlmd (these ONLY exist in 2.00 which was when these functions were added into the fw, they were later &#8216;randomised&#8217; the following update in 2.50):</p>
+<ul>
+<li>0xc3a6f784 sceUtilsPrepareGetLoadModuleABLength
+<li>0xdf76975e sceUtilsPrepareGetLoadModuleABLengthByPolling
+</ul>
+<p>This function is similar to the &#8216;sigcheck&#8217; functions in that they take an encrypted ~PSP file and &#8216;scrambles&#8217; the &#8216;sig&#8217; area (0xD0 Bytes from offset 0&#215;80-0&#215;150 of ~PSP binaries). The only difference is that this scrambling is not unique per PSP, whereas the normal sigchecking IS unique per PSP (using each PSP&#8217;s FuseID to flash the unique prxs, which is why files from different PSP&#8217;s are not compatible and therefore cannot be shared).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Another NID Update Again</title>
+		<link>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/</link>
+		<comments>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/#comments</comments>
+		<pubDate>Thu, 18 Dec 2008 15:25:36 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=66</guid>
+		<description><![CDATA[From sceHttp: 0x739c2d79 sceHttpInitExternalCache 0xa461a167 sceHttpEndExternalCache 0x8046e250 sceHttpEnableExternalCache 0xb0257723 sceHttpFlushExternalCache 0x457d221d sceHttpFlushCookie 0x4e4a284a sceHttpCloneTemplate From sceSsl: 0xf57765d3 sceSslGetKeyUsage From sceLibUpdateDL (this completes the lib !!): 0xf7e66cb4 sceUpdateDownloadSetUrl 0x88ff3935 sceUpdateDownloadSetDestCode From sceNetWispr (this completes the lib !!): 0xc856aaac sceNetWisprLogoffStart From sceNetIfhandle_driver: 0xd5ad6dea sceNetGetIfhandleOpt 0xc6d14282 sceNetSetIfhandleOpt 0x955f2924 sceNetMCopypacket From sceNetAdhocctl (new in 5.00): 0xb0b80e80 sceNetAdhocctlCreateEnterGameModeMin From sceDNASCore_lib [...]]]></description>
+			<content:encoded><![CDATA[<p>From sceHttp:</p>
+<ul>
+<li>0x739c2d79  sceHttpInitExternalCache</li>
+<li>0xa461a167  sceHttpEndExternalCache</li>
+<li>0x8046e250  sceHttpEnableExternalCache</li>
+<li>0xb0257723  sceHttpFlushExternalCache</li>
+<li>0x457d221d  sceHttpFlushCookie</li>
+<li>0x4e4a284a  sceHttpCloneTemplate</li>
+</ul>
+<p>From sceSsl:</p>
+<ul>
+<li>0xf57765d3  sceSslGetKeyUsage</li>
+</ul>
+<p>From sceLibUpdateDL (this completes the lib !!):</p>
+<ul>
+<li>0xf7e66cb4  sceUpdateDownloadSetUrl</li>
+<li>0x88ff3935  sceUpdateDownloadSetDestCode</li>
+</ul>
+<p>From sceNetWispr (this completes the lib !!):</p>
+<ul>
+<li>0xc856aaac  sceNetWisprLogoffStart</li>
+</ul>
+<p>From sceNetIfhandle_driver:</p>
+<ul>
+<li>0xd5ad6dea  sceNetGetIfhandleOpt</li>
+<li>0xc6d14282  sceNetSetIfhandleOpt</li>
+<li>0x955f2924  sceNetMCopypacket</li>
+</ul>
+<p>From sceNetAdhocctl (new in 5.00):</p>
+<ul>
+<li>0xb0b80e80  sceNetAdhocctlCreateEnterGameModeMin</li>
+</ul>
+<p>From sceDNASCore_lib (this completes the lib !!):</p>
+<ul>
+<li>0xba0d27f8  sceDNASCoreMakeProxyRequest</li>
+</ul>
+<p>From sceVshNetconfAoss:</p>
+<ul>
+<li>0x50df536d  sceNetAOSSInit</li>
+<li>0xd253b522  sceNetAOSSTerm</li>
+<li>0x653d453f  sceNetAOSSStart</li>
+<li>0xac307152  sceNetAOSSStop</li>
+<li>0x2aee9d4d  sceNetAOSSGetState</li>
+</ul>
+<p>From sceLibFont_HV:</p>
+<ul>
+<li>0x33ffd07c  sceFontIsElement</li>
+</ul>
+<p>From sceUsbGps (new in 5.00):</p>
+<ul>
+<li>0x5881c826  sceUsbGpsGetStaticNavMode</li>
+<li>0xa8ed0bc2  sceUsbGpsSetStaticNavMode</li>
+</ul>
+<p>From scePafHeaparea:</p>
+<ul>
+<li>0xf50aae41  sce_paf_private_getheaparea1</li>
+<li>0xacce25b2  sce_paf_private_getheaparea2</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Another NID Update</title>
+		<link>http://my.malloc.us/silverspring/2008/12/another-nid-update/</link>
+		<comments>http://my.malloc.us/silverspring/2008/12/another-nid-update/#comments</comments>
+		<pubDate>Wed, 17 Dec 2008 12:49:44 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=62</guid>
+		<description><![CDATA[From sceUmd (some in 1.xx only some in 3.xx only): 0xf8352373 sceUmdRegisterMediaPresentCallBack 0x5469dc37 sceUmdUnRegisterMediaPresentCallBack 0x84231fcf sceUmdRegisterPowerOnOffUMDCallBack 0x04d1aad9 sceUmdUnRegisterPowerOnOffUMDCallBack 0&#215;18624052 sceUmdRegisterGetUMDPowerOnOffCallBack 0xa140dec2 sceUmdUnRegisterGetUMDPowerOnOffCallBack From sceUmdMan_driver (some in 1.xx only some in 3.xx only): 0x5a302102 sceUmdManUMDDrivePreStart 0xb4692d7f sceUmdManUMDDrivePostStart 0&#215;93539196 sceUmdManGetPowerOnOffStat 0xc8d45a7b sceUmdManSetPowerOnOffStat 0xb989e127 sceUmdManLeptonAliveOnOff 0xb511f821 sceUmdManLPNAssertWakeup 0x736ae133 sceUmdManLPNNegateWakeup 0x552f671a sceUmdManSPKRestart 0x405b48a5 sceUmdManSPKCheckAuth 0xf7c603a2 sceUmdManSPKAuthentication 0x60933ecd sceUmdManIsDvdDrive 0x2e49311e [...]]]></description>
+			<content:encoded><![CDATA[<p>From sceUmd (some in 1.xx only some in 3.xx only):</p>
+<ul>
+<li>0xf8352373  sceUmdRegisterMediaPresentCallBack</li>
+<li>0x5469dc37  sceUmdUnRegisterMediaPresentCallBack</li>
+<li>0x84231fcf  sceUmdRegisterPowerOnOffUMDCallBack</li>
+<li>0x04d1aad9  sceUmdUnRegisterPowerOnOffUMDCallBack</li>
+<li>0&#215;18624052  sceUmdRegisterGetUMDPowerOnOffCallBack</li>
+<li>0xa140dec2  sceUmdUnRegisterGetUMDPowerOnOffCallBack</li>
+</ul>
+<p>From sceUmdMan_driver (some in 1.xx only some in 3.xx only):</p>
+<ul>
+<li>0x5a302102  sceUmdManUMDDrivePreStart</li>
+<li>0xb4692d7f  sceUmdManUMDDrivePostStart</li>
+<li>0&#215;93539196  sceUmdManGetPowerOnOffStat</li>
+<li>0xc8d45a7b  sceUmdManSetPowerOnOffStat</li>
+<li>0xb989e127  sceUmdManLeptonAliveOnOff</li>
+<li>0xb511f821  sceUmdManLPNAssertWakeup</li>
+<li>0x736ae133  sceUmdManLPNNegateWakeup</li>
+<li>0x552f671a  sceUmdManSPKRestart</li>
+<li>0x405b48a5  sceUmdManSPKCheckAuth</li>
+<li>0xf7c603a2  sceUmdManSPKAuthentication</li>
+<li>0x60933ecd  sceUmdManIsDvdDrive</li>
+<li>0x2e49311e  sceUmdManGetFmtVersion</li>
+<li>0xcea5c857  sceUmdManSetCachedRead</li>
+<li>0x8634ffc7  sceUmdManSetUnCachedRead</li>
+</ul>
+<p>From sceMScm_driver:</p>
+<ul>
+<li>0x34124b97  sceMScmTPCGetIntHelper</li>
+<li>0x3ffe76e5  sceMScmTPCSetCmdHelper</li>
+<li>0&#215;36921225  sceMScmTPCReadShortData</li>
+<li>0xef42a4a3  sceMScmTPCWriteShortData</li>
+<li>0x494fb570  sceMScmTPCExSetCmdHelper</li>
+<li>0xcbb2bf6f  sceMScmReadMSRegHelper</li>
+<li>0x6c8aef0b  sceMScmWriteMSRegHelper</li>
+</ul>
+<p>From scePspNpDrm_driver:</p>
+<ul>
+<li>0x04618d16  sceNpDrmGetIDps (just gets the psid)</li>
+<li>0x4478c033  sceNpDrmVerifyRifById</li>
+<li>0xebb198ed  sceNpDrmDecActivation</li>
+</ul>
+<p>From sceNpInstall_driver (this completes the lib !!):</p>
+<ul>
+<li>0x5847d8c7  sceNpInstallGetChallenge</li>
+<li>0x91f9d50d  sceNpInstallCheckActivation</li>
+<li>0x0b039b36  sceNpInstallActivation</li>
+<li>0x7ae4c8bc  sceNpInstallDeactivation</li>
+</ul>
+<p>From sceMlnBridge:</p>
+<ul>
+<li>0xf9357984  sceMlnBridgeSetDKS</li>
+</ul>
+<p>From scePsheet (this completes the lib !!):</p>
+<ul>
+<li>0x3ba93cfa  sceDRMInstallGetProgress</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/12/another-nid-update/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>NID Update</title>
+		<link>http://my.malloc.us/silverspring/2008/12/nid-update/</link>
+		<comments>http://my.malloc.us/silverspring/2008/12/nid-update/#comments</comments>
+		<pubDate>Tue, 16 Dec 2008 15:59:31 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=60</guid>
+		<description><![CDATA[I have been quite busy lately so here&#8217;s a little NID update. From InitForKernel: 0xc4f1ba33 sceKernelStartIntrLogging From KDebugForKernel: 0xffd2f2b9 sceKernelIsDevelopmentToolMode From InterruptManagerForKernel: 0x43a7bbdc sceKernelSetIntrLogging 0x07e138ee sceKernelClearIntrLogging 0xdd55a192 sceKernelGetSyscallRA (used to exist in threadman) From sceDisplay_driver: 0xae0e8972 sceDisplaySetPseudoVsync 0x92c8f8b7 sceDisplayIsPseudoField 0x40f1469c sceDisplayWaitVblankStartMulti 0x77ed8b3a sceDisplayWaitVblankStartMultiCB From sceGe_driver: 0x7b481502 sceGeGetBreakpoint 0xaec21518 sceGePutBreakpoint 0xbad6e1ca sceGeRegisterLogHandler 0xc576e897 sceGeEdramGetHwSize 0x114e1745 sceGeEdramSetRefreshParam [...]]]></description>
+			<content:encoded><![CDATA[<p>I have been quite busy lately so here&#8217;s a little NID update.</p>
+<p>From InitForKernel:</p>
+<ul>
+<li>0xc4f1ba33  sceKernelStartIntrLogging</li>
+</ul>
+<p>From KDebugForKernel:</p>
+<ul>
+<li>0xffd2f2b9  sceKernelIsDevelopmentToolMode</li>
+</ul>
+<p>From InterruptManagerForKernel:</p>
+<ul>
+<li>0x43a7bbdc  sceKernelSetIntrLogging</li>
+<li>0x07e138ee  sceKernelClearIntrLogging</li>
+<li>0xdd55a192  sceKernelGetSyscallRA (used to exist in threadman)</li>
+</ul>
+<p>From sceDisplay_driver:</p>
+<ul>
+<li>0xae0e8972  sceDisplaySetPseudoVsync</li>
+<li>0x92c8f8b7  sceDisplayIsPseudoField</li>
+<li>0x40f1469c  sceDisplayWaitVblankStartMulti</li>
+<li>0x77ed8b3a  sceDisplayWaitVblankStartMultiCB</li>
+</ul>
+<p>From sceGe_driver:</p>
+<ul>
+<li>0x7b481502  sceGeGetBreakpoint</li>
+<li>0xaec21518  sceGePutBreakpoint</li>
+<li>0xbad6e1ca  sceGeRegisterLogHandler</li>
+<li>0xc576e897  sceGeEdramGetHwSize</li>
+<li>0x114e1745  sceGeEdramSetRefreshParam</li>
+</ul>
+<p>From scePower_driver:</p>
+<ul>
+<li>0xc23ac778  scePowerGetGeEdramRefreshMode</li>
+<li>0xe0b7a95d  scePowerSetGeEdramRefreshMode</li>
+<li>0xe8e4e204  scePowerGetForceSuspendCapacity</li>
+<li>0xe8685403  scePowerGetLedOffTiming</li>
+<li>0xd66ef08d  scePowerCheckWlanCondition</li>
+</ul>
+<p>From sceSyscon_driver:</p>
+<ul>
+<li>0xeb277c88  sceSysconReadScratchPad</li>
+<li>0x65eb6096  sceSysconWriteScratchPad</li>
+</ul>
+<p>From sceRtc_driver (new in 5.00):</p>
+<ul>
+<li>0xf5fcc995  sceRtcGetCurrentNetworkTick</li>
+</ul>
+<p>From sceAtrac3plus (this completes the lib !!):</p>
+<ul>
+<li>0x2dd3e298  sceAtracGetBufferInfoForResetting</li>
+</ul>
+<p>From sceAudiocodec:</p>
+<ul>
+<li>0x59176a0f  sceAudiocodecAlcExtendParameter</li>
+</ul>
+<p>From sceMpeg:</p>
+<ul>
+<li>0x0558b075  sceMpegAvcCopyYCbCr</li>
+<li>0&#215;01977054  sceMpegGetUserdataAu (accidently mislabelled as sceMpegQueryUserdataEsSize in libdocs)</li>
+</ul>
+<p>From sceMpegbase:</p>
+<ul>
+<li>0xbea18f91  sceMpegBasePESpacketCopy</li>
+</ul>
+<p>From sceVaudio:</p>
+<ul>
+<li>0x346fbe94  sceVaudioSetEffectType</li>
+<li>0x82ef2f9d  sceVaudioGetEffectString</li>
+<li>0x27acc20b  sceVaudioChReserveBuffering</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/12/nid-update/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Utilities&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2008/10/utilities/</link>
+		<comments>http://my.malloc.us/silverspring/2008/10/utilities/#comments</comments>
+		<pubDate>Thu, 23 Oct 2008 21:17:42 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/10/24/utilities/</guid>
+		<description><![CDATA[The Utilities library was an excellent idea by SCE to allow ever increasing functionality to be available to Game developers (at the expense of user memory though, the Utilities is partly why a whopping 8MB is reserved for the kernel). Anyway, on to the new NID&#8217;s (note not all are available under all firmwares)&#8230; From [...]]]></description>
+			<content:encoded><![CDATA[<p>The Utilities library was an excellent idea by SCE to allow ever increasing functionality to be available to Game developers (at the expense of user memory though, the Utilities is partly why a whopping 8MB is reserved for the kernel).</p>
+<p>Anyway, on to the new NID&#8217;s (note not all are available under all firmwares)&#8230;</p>
+<p>From libs under sceUtility_Driver:</p>
+<ul>
+<li>0x943cba46  sceUtilityAuthDialogInitStart</li>
+<li>0x0f3eeaac  sceUtilityAuthDialogShutdownStart</li>
+<li>0x147f7c85  sceUtilityAuthDialogUpdate</li>
+<li>0x16a1a8d8  sceUtilityAuthDialogGetStatus</li>
+</ul>
+<ul>
+<li>0xdde5389d  sceUtilityDNASInitStart</li>
+<li>0x149a7895  sceUtilityDNASShutdownStart</li>
+<li>0x4a833ba4  sceUtilityDNASUpdate</li>
+<li>0xa50e5b30  sceUtilityDNASGetStatus</li>
+</ul>
+<ul>
+<li>0x04b24901  sceUtilityDdHelperInitStart</li>
+<li>0x1b698f54  sceUtilityDdHelperShutdownStart</li>
+<li>0xfd99af0a  sceUtilityDdHelperUpdate</li>
+<li>0x8fcabab9  sceUtilityDdHelperGetStatus</li>
+</ul>
+<ul>
+<li>0x16d02af0  sceUtilityNpSigninInitStart</li>
+<li>0xe19c97d6  sceUtilityNpSigninShutdownStart</li>
+<li>0xf3fbc572  sceUtilityNpSigninUpdate</li>
+<li>0x86abdb1b  sceUtilityNpSigninGetStatus</li>
+</ul>
+<ul>
+<li>0x42071a83  sceUtilityPS3ScanInitStart</li>
+<li>0xd17a0573  sceUtilityPS3ScanShutdownStart</li>
+<li>0xd852cdce  sceUtilityPS3ScanUpdate</li>
+<li>0x89317c8f  sceUtilityPS3ScanGetStatus</li>
+</ul>
+<ul>
+<li>0x81c44706  sceUtilityRssReaderInitStart</li>
+<li>0xb0fb7ff5  sceUtilityRssReaderContStart</li>
+<li>0xe7b778d8  sceUtilityRssReaderShutdownStart</li>
+<li>0x6f56f9cf  sceUtilityRssReaderUpdate</li>
+<li>0x8326ab05  sceUtilityRssReaderGetStatus</li>
+</ul>
+<ul>
+<li>0x4b0a8fe5  sceUtilityRssSubscriberInitStart</li>
+<li>0x06a48659  sceUtilityRssSubscriberShutdownStart</li>
+<li>0xa084e056  sceUtilityRssSubscriberUpdate</li>
+<li>0x2b96173b  sceUtilityRssSubscriberGetStatus</li>
+</ul>
+<ul>
+<li>0x0251b134  sceUtilityScreenshotInitStart</li>
+<li>0x86a03a27  sceUtilityScreenshotContStart</li>
+<li>0xf9e0008c  sceUtilityScreenshotShutdownStart</li>
+<li>0xab083ea9  sceUtilityScreenshotUpdate</li>
+<li>0xd81957b7  sceUtilityScreenshotGetStatus</li>
+</ul>
+<ul>
+<li>0xda97f1aa  sceUtilityStoreCheckoutInitStart</li>
+<li>0x54a5c62f  sceUtilityStoreCheckoutShutdownStart</li>
+<li>0xb8592d5f  sceUtilityStoreCheckoutUpdate</li>
+<li>0x3aad51dc  sceUtilityStoreCheckoutGetStatus</li>
+</ul>
+<ul>
+<li>0x7635200e  sceUtilityDialogGetGameInfo</li>
+<li>0xef5bc2d1  sceUtilityDialogGetStructVersion</li>
+<li>0x463ea95e  sceUtilityAppletGetType (an amazing false positive for this nid is sceUtilityPspDialog !!)</li>
+<li>0xab46a24f  sceUtilityAppletGetParam</li>
+<li>0x463ea95e  sceUtilityAppletGetType</li>
+<li>0x75ff798c  sceUtilityAppletGetSpeed</li>
+<li>0x4b677ba1  sceUtilityAppletGetStructVersion</li>
+<li>0x00948e27  sceUtilityAppletLoadModule</li>
+<li>0x4acd6532  sceUtilityAppletUnloadModule</li>
+<li>0x97f922a3  sceUtilityAppletSetStatus</li>
+<li>0x9bae7dce  sceUtilityAppletSetThreadId</li>
+<li>0x976f7805  sceUtilityAppletRegisterPowerCallback</li>
+<li>0xe542e9d8  sceUtilityAppletUnregisterPowerCallback</li>
+<li>0x8e8e3aa3  sceUtilitySetNetParamLatestID</li>
+<li>0x3fd8ccfb  sceUtilityGetNetParamInt</li>
+<li>0x63c3e40c  sceUtilitySetNetParamInt</li>
+</ul>
+<p>A few previous Utilities had been added to the PSPSDK most notably the Message Dialogs as well as the Web Browser. Some of these newly discovered Utilities may be also worthwhile to add to PSPSDK especially the Screenshot one. While there are already unofficially screenshot libs, it would be more convenient as well as less memory consuming to use an official lib (for example using the official libmp3 to play mp3 files).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/10/utilities/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>More, more, more&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2008/10/more-more-more/</link>
+		<comments>http://my.malloc.us/silverspring/2008/10/more-more-more/#comments</comments>
+		<pubDate>Fri, 17 Oct 2008 12:41:47 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/10/17/more-more-more/</guid>
+		<description><![CDATA[Four more libs are now fully complete: From sceGpio_driver: 0&#215;95135905 sceGpioPortInvert 0x5691cefa sceGpioEnableTimerCapture 0x2cdc8edc sceGpioDisableTimerCapture 0x6b38b826 sceGpioSetCapturePort 0xc6928224 sceGpioGetCapturePort That completes the GPIO lib !! From scePwm_driver: 0xab6d2e36 scePwmChangeDuty 0xf624c1a0 scePwmReferDuty That completes the PWM lib !! From sceMp3: 0x8AB81558 sceMp3StartEntry 0x732B042A sceMp3EndEntry That completes libmp3 !! From sceAac: 0x6C05813B sceAacStartEntry 0x61AA43C9 sceAacEndEntry That completes [...]]]></description>
+			<content:encoded><![CDATA[<p>Four more libs are now fully complete:</p>
+<p>From sceGpio_driver:</p>
+<ul>
+<li>0&#215;95135905  sceGpioPortInvert</li>
+<li>0x5691cefa  sceGpioEnableTimerCapture</li>
+<li>0x2cdc8edc  sceGpioDisableTimerCapture</li>
+<li>0x6b38b826  sceGpioSetCapturePort</li>
+<li>0xc6928224  sceGpioGetCapturePort</li>
+</ul>
+<p>That completes the GPIO lib !!</p>
+<p>From scePwm_driver:</p>
+<ul>
+<li>0xab6d2e36  scePwmChangeDuty</li>
+<li>0xf624c1a0  scePwmReferDuty</li>
+</ul>
+<p>That completes the PWM lib !!</p>
+<p>From sceMp3:</p>
+<ul>
+<li>0x8AB81558  sceMp3StartEntry</li>
+<li>0x732B042A  sceMp3EndEntry</li>
+</ul>
+<p>That completes libmp3 !!</p>
+<p>From sceAac:</p>
+<ul>
+<li>0x6C05813B  sceAacStartEntry</li>
+<li>0x61AA43C9  sceAacEndEntry</li>
+</ul>
+<p>That completes libaac !!</p>
+<p>From sceAta_driver:</p>
+<ul>
+<li>0x8cada96b sceAtaAhbGetDDRSize</li>
+<li>0xb985f2b0 sceAtaAhbSetDDRSize</li>
+<li>0x7c6b31d8 sceAtaDisplayIPD</li>
+<li>0x9ca52f94 sceAtaExecIPDCmd</li>
+</ul>
+<p>From sceClockgen_driver:</p>
+<ul>
+<li>0xc6d4c843  sceClockgenSetProtocol</li>
+</ul>
+<p>From InitForKernel:</p>
+<ul>
+<li>0x7233b5bc  sceKernelApplicationType</li>
+</ul>
+<p>From IoFileMgrForKernel:</p>
+<ul>
+<li>0x30e8abb3  sceIoValidateFd</li>
+</ul>
+<p>From sceUsb1Seg_driver:</p>
+<ul>
+<li>0xd799104f  sceUsb1SegGetFirmVer</li>
+</ul>
+<p>From sceUSB_Stor_Ms_driver:</p>
+<ul>
+<li>0x7b810720  sceUsbstorMsSetWorkBuf</li>
+<li>0xcf2af7b3  sceUsbstorMsGetNickname</li>
+<li>0x16173d42  sceUsbstorMsSetNickname</li>
+</ul>
+<p>From scePower_driver:</p>
+<ul>
+<li>0xd7b9c925  scePowerGetWatchDog</li>
+<li>0x442bfbac  scePowerGetBacklightMaximum</li>
+<li>0x23436a4a  scePowerGetInnerTemp</li>
+<li>0xf535d928  scePowerSetWakeupCondition</li>
+<li>0x78a1a796  scePowerIsSuspendRequired</li>
+</ul>
+<p>From sceAsfParser:</p>
+<ul>
+<li>0xd2dd1778  sceAsfGetContentDescription</li>
+<li>0xaa881a7b  sceAsfGetExtContent</li>
+<li>0xefc704c3  sceAsfGetHeaderExtension</li>
+<li>0x5ec678cb  sceAsfGetVariableObject</li>
+</ul>
+<p>From sceUmdMan_driver:</p>
+<ul>
+<li>0x1f9afff4  sceUmdManMediaPresent</li>
+<li>0x84410a8e  sceUmdManSetReadAheadSize</li>
+<li>0x63acfd28  sceUmdManSetDisableReadAhead</li>
+<li>0x39704b6e  sceUmdManSetEnableReadAhead</li>
+</ul>
+<p>From sceUmd:</p>
+<ul>
+<li>0x08709f2d  sceUmdAssertLeptonWakeup</li>
+<li>0xad18c797  sceUmdNegateLeptonWakeup</li>
+</ul>
+<p>From sceMgr_driver:</p>
+<ul>
+<li>0xf26c410a  sceMgrMSReadPoolPage</li>
+<li>0xa85906fc  sceMgrMSWritePoolPage</li>
+</ul>
+<p>From sceMSAudio_driver:</p>
+<ul>
+<li>0x66f19ca3  sceMSAudioUpdateIBD</li>
+<li>0x22da9981  sceMSAudioInitFringe</li>
+<li>0x9e37e51d  sceMSAudioInitTrack</li>
+<li>0x5d1c9867  sceMSAudioDecryptFringe</li>
+<li>0x38178f2f  sceMSAudioDecryptTrack</li>
+<li>0x67e58c07  sceMSAudioEndFringe</li>
+<li>0x135f2225  sceMSAudioEndTrack</li>
+<li>0xda34ab8f  sceMSAudioGetMediaType</li>
+<li>0xa18a1df6  sceMSAudioClearMACEntry</li>
+<li>0xe8b25d38  sceMSAudioCalculateICVn</li>
+</ul>
+<p>And vshbridge equivalents:</p>
+<ul>
+<li>0x04310D7C vshMSAudioUpdateIBD</li>
+<li>0xB27C593F vshMSAudioInitFringe</li>
+<li>0&#215;14877197 vshMSAudioInitTrack</li>
+<li>0x0D2CEAD2 vshMSAudioDecryptFringe</li>
+<li>0xD907B6AA vshMSAudioDecryptTrack</li>
+<li>0xD120667D vshMSAudioEndFringe</li>
+<li>0x5BBB35E4 vshMSAudioEndTrack</li>
+<li>0xB0FD5916 vshMSAudioGetMediaType</li>
+<li>0x7A63BE73 vshMSAudioClearMACEntry</li>
+<li>0x222A18C4 vshMSAudioCalculateICVn</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/10/more-more-more/feed/</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Marlin DRM Platform (new nids)</title>
+		<link>http://my.malloc.us/silverspring/2008/10/marlin-drm-platform-new-nids/</link>
+		<comments>http://my.malloc.us/silverspring/2008/10/marlin-drm-platform-new-nids/#comments</comments>
+		<pubDate>Tue, 14 Oct 2008 15:40:57 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/10/15/marlin-drm-platform-new-nids/</guid>
+		<description><![CDATA[Marlin is a DRM platform designed to provide interoperability across multiple devices. It&#8217;s developed by several big name corporations like Sony, Panasonic, Samsung, Philips, etc. Naturally the PSP would be a suitable target. The library sceMlnBridge (mlnbridge.prx) has existed since 2.50 but only in the last few firmwares has the API really expanded: From sceMlnBridge [...]]]></description>
+			<content:encoded><![CDATA[<p>Marlin is a DRM platform designed to provide interoperability across multiple devices. It&#8217;s developed by several big name corporations like Sony, Panasonic, Samsung, Philips, etc.</p>
+<p>Naturally the PSP would be a suitable target. The library sceMlnBridge (mlnbridge.prx) has existed since 2.50 but only in the last few firmwares has the API really expanded:</p>
+<p>From sceMlnBridge (this is not the full list of nids there are still more unknown):</p>
+<ul>
+<li>0x13e68009  sceMlnBridgeAesEcbEncrypt</li>
+<li>0x8d7e61dd  sceMlnBridgeAesEcbDecrypt</li>
+<li>0xde730a46  sceMlnBridgeAesCbcEncrypt</li>
+<li>0x7770fc23  sceMlnBridgeAesCbcDecrypt</li>
+<li>0x54edc552  sceMlnBridgeSHA1</li>
+<li>0x3505ecce  sceMlnBridgeHMAC</li>
+<li>0x2fdf5639  sceMlnBridgeRandInit</li>
+<li>0xd0790a37  sceMlnBridgeRandFin</li>
+<li>0xe79622cd  sceMlnBridgeRandGetBytes</li>
+<li>0xadb4797e  sceMlnBridgeRsaInit</li>
+<li>0xb7e04efa  sceMlnBridgeRsaFin</li>
+<li>0x10c4fec6  sceMlnBridgeSha1MakeDigest</li>
+<li>0xd455dd97  sceMlnBridgeSha256MakeDigest</li>
+</ul>
+<p>Its features include a Public Key Encryption Algorithm, a Public Key Signature Algorithm, a Secret Key Encryption Algorithm, a Secret Key Signature Algorithm, a Digest Algorithm, and more. So here you have access to AES, RSA, SHA1, SHA256, &#038; MT19937 algorithms all in a single usermode lib (though the api was stripped down again from 4.xx for some reason).</p>
+<p>All the algorithms are done in software with the exception of AES, which it relies on MagicGate hardware to perform.</p>
+<p>From sceMgr_driver:</p>
+<ul>
+<li>0xA45A63B6  sceMgrAesEcbEncrypt</li>
+<li>0x19B8F2D0  sceMgrAesEcbDecrypt</li>
+<li>0xA44A5538  sceMgrAesCbcEncrypt</li>
+<li>0xA1F6D85A  sceMgrAesCbcDecrypt</li>
+</ul>
+<p>These are just convenient wrappers over the sceMgrAESEncrypt/sceMgrAESDecrypt functions that were discovered earlier <a href="http://my.malloc.us/silverspring/2008/08/16/sborps-random-fact-04/"><strong><em>here</em></strong></a>.</p>
+<p>Also, an interface through a USB driver (usbstormgr.prx). </p>
+<p>From sceUsbstormln:</p>
+<ul>
+<li>0x1f4ac19c  sceUsbstormlnGetCommand</li>
+<li>0x5821060d  sceUsbstormlnNotifyResponse</li>
+<li>0x382898de  sceUsbstormlnRegisterBuffer</li>
+<li>0x25b6f372  sceUsbstormlnUnregisterBuffer</li>
+<li>0xdec0fe8c  sceUsbstormlnWaitStatus</li>
+<li>0xe11defdf  sceUsbstormlnCancelWaitStatus</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/10/marlin-drm-platform-new-nids/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>USB Host ??</title>
+		<link>http://my.malloc.us/silverspring/2008/10/usb-host/</link>
+		<comments>http://my.malloc.us/silverspring/2008/10/usb-host/#comments</comments>
+		<pubDate>Sun, 12 Oct 2008 04:44:10 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/10/12/usb-host/</guid>
+		<description><![CDATA[Some new nids that may suggest that the PSP does in fact have USB Host capabilities: 0x3E961C02 sceSysregUsbhostResetEnable 0xACFA3764 sceSysregUsbhostResetDisable 0xDA4FCA1D sceSysregUsbhostClkEnable 0x228A73E1 sceSysregUsbhostClkDisable 0xE321F41A sceSysregUsbhostBusClockEnable 0x4D2FFC60 sceSysregUsbhostBusClockDisable 0xFFEB6E00 sceSysregUsbhostQueryIntr 0x87C2BA20 sceSysregUsbhostAcquireIntr However, these nids were only added in 2.70. At the same time, sceSysregAtahdd___ nids were also added so it could be that this [...]]]></description>
+			<content:encoded><![CDATA[<p>Some new nids that may suggest that the PSP does in fact have USB Host capabilities:</p>
+<ul>
+<li>0x3E961C02 sceSysregUsbhostResetEnable</li>
+<li>0xACFA3764 sceSysregUsbhostResetDisable</li>
+<li>0xDA4FCA1D sceSysregUsbhostClkEnable</li>
+<li>0x228A73E1 sceSysregUsbhostClkDisable</li>
+<li>0xE321F41A sceSysregUsbhostBusClockEnable</li>
+<li>0x4D2FFC60 sceSysregUsbhostBusClockDisable</li>
+<li>0xFFEB6E00 sceSysregUsbhostQueryIntr</li>
+<li>0x87C2BA20 sceSysregUsbhostAcquireIntr</li>
+</ul>
+<p>However, these nids were only added in 2.70. At the same time, sceSysregAtahdd___ nids were also added so it could be that this was for the unreleased HDD model PSP and not actually for any current model. Usb Host may have been destined for this new PSP which, along with the internal HDD+GSensor and Bluetooth, defintely would have been a dream handheld. </p>
+<p>At one point it seemed that the new PSP-3000 would be the model to integrate these great features however that does not seem to be the case anymore. With the disappointing new features of the PSP-3000 let&#8217;s hope a PSP-4000 will finally be the time Sony releases this new model.</p>
+<p>Another interesting fact that may mean something or may mean absolutely nothing at all:</p>
+<p>0xBC1000B0 is the Usbhost Interrupt Status register. On normal boot this register is set to 1 however on service mode &#038; test mode boot (ie. for battery serial 0xFFFFFFFF &#038; 0&#215;00000000 respectively) this register is set to 0. Whether this actually means something of significance is unknown however it is rumoured that during service mode the USB is actually plugged in (perhaps connected to a testing PC ?).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/10/usb-host/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>Another large bunch of new NID&#8217;s</title>
+		<link>http://my.malloc.us/silverspring/2008/10/another-large-bunch-of-new-nids/</link>
+		<comments>http://my.malloc.us/silverspring/2008/10/another-large-bunch-of-new-nids/#comments</comments>
+		<pubDate>Fri, 10 Oct 2008 02:00:19 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/10/10/another-large-bunch-of-new-nids/</guid>
+		<description><![CDATA[Syscon G-Sensor As I mentioned in previous entries, support for an internal HDD+GSensor had been added to the kernel from 2.80. It seems SCE had wanted to keep it a secret since when I had revealed the NID&#8217;s referencing these devices, the API had promptly been removed the following firmware. Hence the HDD &#038; GSensor [...]]]></description>
+			<content:encoded><![CDATA[<p><strong>Syscon G-Sensor</strong><br />
+As I mentioned in previous entries, support for an internal HDD+GSensor had been added to the kernel from 2.80. It seems SCE had wanted to keep it a secret since when I had revealed the NID&#8217;s referencing these devices, the API had promptly been removed the following firmware. Hence the HDD &#038; GSensor NID&#8217;s only exist from 2.80-3.60. When they actually plan on releasing this HDD is anyone&#8217;s guess, though I had hoped it would have happened with the release of the PSP-3000. Well, maybe for PSP-4000&#8230;</p>
+<p>From sceSyscon_driver:</p>
+<ul>
+<li>0x3357EE5C sceSysconIsFalling </li>
+<li>0x565EF519 sceSysconGetFallingDetectTime</li>
+</ul>
+<p>This literally detects whether or not the PSP is falling down (the G-Sensor has an accelerometer built in) and if it is, shuts down the HDD to protect from damage. </p>
+<p>Link to previous post about the GSensor and HDD: <a href="http://my.malloc.us/silverspring/2007/11/16/the-psp-slim-couldve-been-a-gamers-dream-handheld/">http://my.malloc.us/silverspring/2007/11/16/the-psp-slim-couldve-been-a-gamers-dream-handheld/</a></p>
+<p><strong>Lightweight Mutex</strong><br />
+Lightweight mutexs have recently been added to the kernel (3.80+ firmwares) however the majority of the API was placed in the sceKernelLibrary of usersystemlib.prx instead of sceThreadManager even though sceKernelCreateLwMutex/sceKernelDeleteLwMutex were still in sceThreadManager.</p>
+<p>From Kernel_Library:</p>
+<ul>
+<li>0xBEA46419 sceKernelLockLwMutex</li>
+<li>0x1FC64E09 sceKernelLockLwMutexCB</li>
+<li>0xDC692EE3 sceKernelTryLockLwMutex</li>
+<li>0x15B6446B sceKernelUnlockLwMutex</li>
+<li>0xC1734599 sceKernelReferLwMutexStatus</li>
+</ul>
+<p>From ThreadManForUser:</p>
+<ul>
+<li>0x4C145944 sceKernelReferLwMutexStatusByID</li>
+</ul>
+<p><strong>Low-level Sound Library</strong><br />
+From 1.00-2.60 a low-level sound library was available as the scePEQ_Library_driver (peq.prx).</p>
+<p>From scePEQ_driver:</p>
+<ul>
+<li>0xF7EA0632 scePeqInit</li>
+<li>0x213DE849 scePeqEntry</li>
+<li>0xED13C3B5 scePeqProc</li>
+</ul>
+<p>From 2.70+ this library was replaced with sceSAScore (sc_sascore.prx &#8211; SC being the shorthand for the main cpu as opposed to ME the Media Engine cpu).</p>
+<p>From sceSasCore_driver:</p>
+<ul>
+<li>0xB0F9F98F sceSasCoreInit</li>
+<li>0xE143A1EA sceSasCoreExit</li>
+</ul>
+<p>For the usermode library the usual naming convention changed (no wonder there were never any hits for these nids, they used a stupid underscore, and two of them!!)</p>
+<p>From sceSasCore:</p>
+<ul>
+<li>0x019B25EB __sceSasSetADSR</li>
+<li>0x07F58C24 __sceSasGetAllEnvelopeHeights</li>
+<li>0x267A6DD2 __sceSasRevParam</li>
+<li>0x2C8E6AB3 __sceSasGetPauseFlag</li>
+<li>0x33D4AB37 __sceSasRevType</li>
+<li>0x42778A9F __sceSasInit</li>
+<li>0x440CA7D8 __sceSasSetVolume</li>
+<li>0x50A14DFC __sceSasCoreWithMix</li>
+<li>0x5F9529F6 __sceSasSetSL</li>
+<li>0x68A46B95 __sceSasGetEndFlag</li>
+<li>0x74AE582A __sceSasGetEnvelopeHeight</li>
+<li>0x76F01ACA __sceSasSetKeyOn</li>
+<li>0x787D04D5 __sceSasSetPause</li>
+<li>0&#215;99944089 __sceSasSetVoice</li>
+<li>0x9EC3676A __sceSasSetADSRmode</li>
+<li>0xA0CF2FA4 __sceSasSetKeyOff</li>
+<li>0xA232CBE6 __sceSasSetTrianglarWave</li>
+<li>0xA3589D81 __sceSasCore</li>
+<li>0xAD84D37F __sceSasSetPitch</li>
+<li>0xB7660A23 __sceSasSetNoise</li>
+<li>0xBD11B7C2 __sceSasGetGrain</li>
+<li>0xCBCD4F79 __sceSasSetSimpleADSR</li>
+<li>0xD1E0A01E __sceSasSetGrain</li>
+<li>0xD5A229C9 __sceSasRevEVOL</li>
+<li>0xD5EBBBCD __sceSasSetSteepWave</li>
+<li>0xE175EF66 __sceSasGetOutputmode</li>
+<li>0xE855BF76 __sceSasSetOutputmode</li>
+<li>0xF983B186 __sceSasRevVON</li>
+</ul>
+<p>Under the same prx another sound lib, the Positional 3D Audio Library, was added in 2.80+.</p>
+<p>From sceP3da:</p>
+<ul>
+<li>0x374500A5 sceP3daBridgeInit</li>
+<li>0x43F756A2 sceP3daBridgeExit</li>
+<li>0x013016F3 sceP3daBridgeCore</li>
+</ul>
+<p><strong>User Log</strong><br />
+Added from 2.80+, can only be used on devkits.</p>
+<p>From UtilsForKernel:</p>
+<ul>
+<li>0x92282A47 sceKernelRegisterUserLogHandler</li>
+<li>0x87E81561 sceKernelPutUserLog</li>
+</ul>
+<p><strong>NP DRM</strong><br />
+As people may know SCE added their own official UMD Emulator to load official PSP ISO&#8217;s bought from PSN Store (such as &#8220;Beats&#8221; and many others). The scePspNpDrm_Driver (npdrm.prx) is what protects these legit ISO&#8217;s. This prx was added in 3.00 way before the actual UMD Emulator (np9660.prx) was added in 3.50 which was even quite a while before it was actually officially enabled. It was unofficially enabled beforehand under M33 CFWs as the NP9660 No-UMD ISO Loader.</p>
+<p>From scePspNpDrm_driver:</p>
+<ul>
+<li>0x17E3F4BB sceNpDrmVerifyAct</li>
+<li>0x37B9B10D sceNpDrmVerifyRif</li>
+<li>0x00AD67F8 sceNpDrmGetFixedKey</li>
+<li>0x5667B7B9 sceNpDrmGetContentKey</li>
+<li>0xD36B4E6D sceNpDrmGetModuleKey</li>
+<li>0x0F9547E6 sceNpDrmGetVersionKey (incorrectly listed as scePspNpDrmInitFromGameIdMs4 on the libdocs)</li>
+<li>0xA1336091 sceNpDrmSetLicenseeKey</li>
+<li>0x9B745542 sceNpDrmClearLicenseeKey</li>
+<li>0x275987D1 sceNpDrmRenameCheck</li>
+<li>0x08D98894 sceNpDrmEdataSetupKey</li>
+<li>0x219EF5CC sceNpDrmEdataGetDataSize</li>
+</ul>
+<p><strong>VSH System Config</strong><br />
+The vshRegSysconf lib was previously under the sceVshCommonUtil_Module upto 1.50. From 2.00 the lib was moved to the the vsh_module.</p>
+<p>From vshmain:</p>
+<ul>
+<li>0x03BB4503 vshRegSysconfGetCharacterSetOem</li>
+<li>0x67BFD9C0 vshRegSysconfSetCharacterSetOem</li>
+<li>0x0FE13026 vshRegSysconfGetCharacterSetAnsi</li>
+<li>0x032D663E vshRegSysconfSetCharacterSetAnsi</li>
+<li>0xF859FC3C vshRegSysconfGetThemeSystemColor</li>
+<li>0xEE3D8305 vshRegSysconfSetThemeSystemColor</li>
+</ul>
+<p>Note: I have yet to add these new NID&#8217;s to the libdoc site. I will do so when I get some spare time.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/10/another-large-bunch-of-new-nids/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>PAF NID&#8217;s !!</title>
+		<link>http://my.malloc.us/silverspring/2008/09/paf-nids/</link>
+		<comments>http://my.malloc.us/silverspring/2008/09/paf-nids/#comments</comments>
+		<pubDate>Tue, 02 Sep 2008 11:10:05 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/09/02/paf-nids/</guid>
+		<description><![CDATA[PAF NID's have been very difficult to crack, the majority of exports are C++ mangled names and the ones that aren't do not follow the standard SCE naming format. But here is a large portion of paf.prx NID's that will now make VSH modules many more times easier to RE. This should be the complete [...]]]></description>
+			<content:encoded><![CDATA[<p>PAF NID's have been very difficult to crack, the majority of exports are C++ mangled names and the ones that aren't do not follow the standard SCE naming format. But here is a large portion of paf.prx NID's that will now make VSH modules many more times easier to RE. This should be the complete list of sce_paf_private functions:</p>
+<div class="igBar"><span id="lc-2"><a href="#" onclick="javascript:showPlainTxt('c-2'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-2">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xC9831AFF&nbsp; sce_paf_private_printf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xBFE9E90B&nbsp; sce_paf_private_wprintf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x5FAC9869&nbsp; sce_paf_private_malloc</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFCB4E053&nbsp; sce_paf_private_malloc2</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x26DE971C&nbsp; sce_paf_private_mtrim</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x613E9AA2&nbsp; sce_paf_private_mtrim2</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x40C95283&nbsp; sce_paf_private_check_leak</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xB61E88F2&nbsp; sce_paf_private_check_leak2</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x545FE2DA&nbsp; sce_paf_private_free</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x7EC15225&nbsp; sce_paf_private_free2</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x60DECA7E&nbsp; sce_paf_private___assert</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFD4C9F47&nbsp; sce_paf_private_wcslen</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x71B4AC50&nbsp; sce_paf_private_memchr</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xF95EA3F1&nbsp; sce_paf_private_memcpy</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x6829D7AF&nbsp; sce_paf_private_memset</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xCA79D58B&nbsp; sce_paf_private_strlen</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x66FE90D7&nbsp; sce_paf_private_strcmp</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x980228BA&nbsp; sce_paf_private_strcpy</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x296897BC&nbsp; sce_paf_private_sinf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xDEDF238F&nbsp; sce_paf_private_cosf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x7BED034E&nbsp; sce_paf_private_sqrtf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xB3D58D25&nbsp; sce_paf_private_floorf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x302F609D&nbsp; sce_paf_private_ceilf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x44AAF96C&nbsp; sce_paf_private_acosf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x49A81B18&nbsp; sce_paf_private_swprintf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFF2F98C6&nbsp; sce_paf_private_strncpy</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x77D981F5&nbsp; sce_paf_private_strrchr</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x45D851D1&nbsp; sce_paf_private_wcscpy</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x71712601&nbsp; sce_paf_private_sprintf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x71460F7C&nbsp; sce_paf_private_vsprintf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x6F092DF6&nbsp; sce_paf_private_vsnprintf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xABBBB335&nbsp; sce_paf_private_fopen</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x07A5F495&nbsp; sce_paf_private_fputc</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xF1552447&nbsp; sce_paf_private_fwrite</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x83944053&nbsp; sce_paf_private_fclose</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x0B4C0DB6&nbsp; sce_paf_private_ferror</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x2FDC80B3&nbsp; sce_paf_private_wcscmp</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFCFAA39F&nbsp; sce_paf_private_wcscasecmp</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xD121F409&nbsp; sce_paf_private_wcsrchr</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x993E9FDC&nbsp; sce_paf_private_strchr</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x3188E7DB&nbsp; sce_paf_private_strstr</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x7CD438D9&nbsp; sce_paf_private_strtok</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xDC38941B&nbsp; sce_paf_private_strtok_r</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xF0B4CAE7&nbsp; sce_paf_private_strncmp</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x6C234A6A&nbsp; sce_paf_private_atoi</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x37A98AE9&nbsp; sce_paf_private_atol</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xB4E3A16C&nbsp; sce_paf_private_abs</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x3DD2A27B&nbsp; sce_paf_private_bsearch</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x9870A25B&nbsp; sce_paf_private_fgetc</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x503BA324&nbsp; sce_paf_private_fread</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x2FA84441&nbsp; sce_paf_private_fseek</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x84BD418F&nbsp; sce_paf_private_ftell</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x902515FB&nbsp; sce_paf_private_look_ctype_table</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x3586BE05&nbsp; sce_paf_private_memalign</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x2FA0EDDC&nbsp; sce_paf_private_memalign2</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x8FC65EB0&nbsp; sce_paf_private_realloc</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x29BAA830&nbsp; sce_paf_private_realloc2</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x3FBD9639&nbsp; sce_paf_private_memcmp</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x6BA9C299&nbsp; sce_paf_private_memmove</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xF1B52E86&nbsp; sce_paf_private_powf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x10B901E7&nbsp; sce_paf_private_qsort</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x4370175A&nbsp; sce_paf_private_rand</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x809A4F83&nbsp; sce_paf_private_snprintf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xA82E3C19&nbsp; sce_paf_private_srand</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xED2B47FA&nbsp; sce_paf_private_strcasecmp</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xDEB2D1C9&nbsp; sce_paf_private_strncasecmp</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x26168DD3&nbsp; sce_paf_private_strcat</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x626D68A1&nbsp; sce_paf_private_strncat</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFBA47E77&nbsp; sce_paf_private_strtol</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x2394D451&nbsp; sce_paf_private_strtoul</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x44A0BCE4&nbsp; sce_paf_private_tanf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x4B1A374C&nbsp; sce_paf_private_tolower</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x1D5D9A68&nbsp; sce_paf_private_toupper</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x51AAAAF4&nbsp; sce_paf_private_wcschr</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x54C0DD23&nbsp; sce_paf_private_wcsncmp</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x9F10613F&nbsp; sce_paf_private_longjmp</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x8F12B63A&nbsp; sce_paf_private_setjmp</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x9D0192FD&nbsp; sce_paf_private_atan2f</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xFEAFC77A&nbsp; sce_paf_private_fabsf</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x77EB25F5&nbsp; sce_paf_private_bcopy</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x99A5CD38&nbsp; sce_paf_private_bzero</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xCE699963&nbsp; sce_paf_private_calloc</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0xCB2198AB&nbsp; sce_paf_private_wcsncpy</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x11EF5210&nbsp; sce_paf_private_logf</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x680513D9&nbsp; sce_paf_private_feof</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x9C483594&nbsp; sce_paf_private_fflush</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">0x1E088F41&nbsp; sce_paf_private_strpbrk</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/09/paf-nids/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

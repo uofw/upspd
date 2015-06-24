@@ -1,0 +1,28 @@
+body {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+a:link {
+  color: #0033CC;
+}
+
+a:visited {
+  color: #0033CC;
+}
+
+a:hover {
+  color: #0033CC;
+}
+
+.title {
+  font-size: 200%;
+}
+
+.section {
+  font-size: 150%;
+}
+
+.table {
+  font-family: monospace;
+}

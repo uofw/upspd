@@ -1,0 +1,312 @@
+/*  
+Theme Name: Japanese Bonzai
+Theme URI: http://www.365karma.com/
+Description: A simple, yet elegant japanese bonzai tree designed theme.
+Version: 1.0
+Author: Eric Head
+Author URI: http://www.365karma.com/
+*/
+
+body { 
+font-family:Verdana, Arial, Helvetica, sans-serif; 
+font-size:10px; 
+background: #000000 url(images/bg.gif) top center repeat-y; 
+color:#EFEFEF; margin:0px;
+}
+
+#dimensions { 
+background:#000000; 
+margin:0px auto; 
+padding-top:25px; 
+width:800px; 
+border-left:#000000 1px solid; 
+border-right:#000000 1px solid; 
+}
+
+#header { 
+background:#000000 url(images/top.jpg) repeat-x; 
+margin: 0px auto; 
+padding: 0px;
+height: 135px; 
+clear:both; 
+}
+
+a:link { 
+text-decoration: none; 
+color : #EEE2D5; 
+border: none;
+}
+
+a:active { 
+text-decoration: none; 
+color : #EEE2D5; 
+border: none;
+}
+
+a:visited { 
+text-decoration: none; 
+color : #EEE2D5; 
+border: none;
+}
+
+a:hover	{ 
+text-decoration: none; 
+color : #EFEFEF; 
+border: none; 
+} 
+
+#title { 
+font-family: Georgia, "Times New Roman", Times, serif; 
+color: #FFFFFF; 
+text-align:left; 
+font-size:36px; 
+line-height:100%; 
+padding-top:20px; 
+text-transform:capitalize; 
+margin:0px; 
+padding-left:50px; 
+}
+
+#title a:link { 
+text-decoration: none; 
+color : #FFFFFF; 
+border: none;
+}
+
+#title a:active { 
+text-decoration: none; 
+color : #FFFFFF; 
+border: none;
+}
+
+#title a:visited { 
+text-decoration: none; 
+color : #FFFFFF; 
+border: none;
+}
+
+#title a:hover	{ 
+text-decoration: none; 
+color : #EFEFEF; 
+border: none;
+} 
+
+#description { 
+float: left; 
+color: #FFFFFF; 
+padding-left:135px; 
+text-align:left; 
+font-size:12px; 
+padding-top:5px; 
+text-transform:capitalize; 
+margin:0px; 
+}
+
+#search { 
+float: right; 
+height: 30px; 
+width: 300px; 
+margin-top:35px; 
+}
+
+.right { 
+margin: 0 0 10px 3px; 
+padding: 10px; 
+float: right; 
+width: 200px; 
+}
+
+.right h2 { 
+font-size: 14px; 
+padding: 3px 0px; 
+margin: 0px 7px 3px 7px; 
+border-bottom: dashed 1px #EFEFEF;
+}
+
+.right ul { 
+list-style-type: none; 
+margin: 0 ; 
+padding: 0;
+}
+
+.right ul li { 
+list-style-type: none; 
+margin: 0 0 20px 0; 
+padding: 0; 
+}
+
+.right ul li ul { 
+list-style-type: square; 
+margin: 0px;
+padding: 0 3px; 
+}
+
+.right ul li ul li { 
+list-style-type:none;  
+background: transparent url(images/bullet.gif) no-repeat 0 4px; 
+padding: 0px 0px 2px 14px; 
+border: 0; 
+margin: 0;  
+}
+
+.left { 
+margin: 0 0 10px 3px; 
+line-height: 16px; 
+padding: 10px;  
+float: left; 
+width: 550px; 
+overflow:hidden; 
+}
+
+.left h2 { 
+font-size: 16px; 
+padding: 3px 0px; 
+margin: 0px 7px 3px 0px; 
+border-bottom: dashed 1px #ccc;
+}
+
+.left img { 
+border:4px #EEE2D5 solid; 
+}
+
+img.wp-smiley { 
+border:0px;
+}
+
+.navigation { 
+display: block; 
+text-align: center; 
+margin-top: 10px; 
+margin-bottom: 60px; 
+}
+
+.alignright { 
+float: right; 
+}
+
+.alignleft { 
+float: left; 
+}
+
+.postmetadata { 
+background:#716D6C; 
+font-size:10px; 
+padding:5px;
+border:#EEE2D5 1px solid; 
+}
+
+blockquote { 
+margin: 15px 30px 0 10px; 
+padding-left: 20px; 
+border-left: 5px solid #; 
+}
+
+blockquote cite { 
+margin: 5px 0 0; 
+display: block; 
+}
+
+.comments h3 { 
+font-size: 14px; 
+padding: 3px 0px; 
+margin: 0px 7px 3px 7px; 
+border-bottom: dashed 1px #ccc;
+}
+
+ol.commentlist { 
+list-style: none;
+padding: 0; 
+margin: 0 0 1px; 
+}
+
+ol.commentlist li { 
+list-style: none; 
+margin: 0; 
+padding: 13px 13px 1px; 
+}
+
+ol.commentlist li.commenthead { 
+list-style: none; 
+margin: 0; 
+}
+
+ol.commentlist li.commenthead h2 { 
+margin: 0;
+}
+
+input#searchsubmit{ 
+background:#716D6C;
+border:1px solid #EEE2D5; 
+color:#FFFFFF;
+font-size:13px; 
+}
+
+input#submit{ 
+background:#716D6C;
+border:2px solid #EEE2D5;
+color:#FFFFFF;
+font-size:13px; 
+}
+
+input#s { 
+color: #FFFFFF; 
+width: 70%; 
+border: 1px solid #EEE2D5; 
+padding: 3px; 
+margin-bottom: 0.6em; 
+background:#716D6C; 
+margin-top: 2px;
+}
+
+textarea { 
+color: #FFFFFF; 
+width: 80%; 
+border: 1px solid #EEE2D5; 
+padding: 3px; 
+margin-bottom: 0.6em; 
+background: #716D6C;
+margin-top: 2px;
+}
+
+input#url { 
+color: #FFFFFF; 
+width: 50%; 
+border: 1px solid #EEE2D5; 
+padding: 3px; 
+margin-bottom: 0.6em; 
+background: #716D6C; 
+margin-top: 2px;
+}
+
+input#author { 
+color: #FFFFFF; 
+width: 50%; 
+border: 1px solid #EEE2D5; 
+padding: 3px; 
+margin-bottom: 0.6em; 
+background: #716D6C; 
+margin-top: 2px;
+}
+
+input#email { 
+color: #FFFFFF; 
+width: 50%; 
+border: 1px solid #EEE2D5; 
+padding: 3px; 
+margin-bottom: 0.6em; 
+background: #716D6C; 
+margin-top: 2px;
+}
+
+#footer { 
+font-size: 11px; 
+color: #FFFFFF; 
+background: #000000; 
+height: 28px; 
+padding: 0px; 
+margin-top: 0px; 
+text-align:center; 
+clear:both; 
+}
+
+

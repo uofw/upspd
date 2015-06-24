@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		>
+<channel>
+	<title>Comments on: SBORPS Random Fact 08</title>
+	<atom:link href="http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Sat, 20 Feb 2010 00:43:45 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+	<item>
+		<title>By: billybob</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4274</link>
+		<dc:creator>billybob</dc:creator>
+		<pubDate>Wed, 23 Dec 2009 18:00:09 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4274</guid>
+		<description>I like the ipod hdd idea. A 60Gb psp would be very nice.</description>
+		<content:encoded><![CDATA[<p>I like the ipod hdd idea. A 60Gb psp would be very nice.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Torch</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4236</link>
+		<dc:creator>Torch</dc:creator>
+		<pubDate>Thu, 17 Dec 2009 16:42:23 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4236</guid>
+		<description>Why would you assume that? It could be anything, but still binary compatible with existing ones.</description>
+		<content:encoded><![CDATA[<p>Why would you assume that? It could be anything, but still binary compatible with existing ones.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Davee</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4234</link>
+		<dc:creator>Davee</dc:creator>
+		<pubDate>Wed, 16 Dec 2009 23:24:29 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4234</guid>
+		<description>I assume that the newer model revisions we see here are just upgraded packages with a higher capacity HDD?</description>
+		<content:encoded><![CDATA[<p>I assume that the newer model revisions we see here are just upgraded packages with a higher capacity HDD?</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Torch</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4165</link>
+		<dc:creator>Torch</dc:creator>
+		<pubDate>Thu, 03 Dec 2009 10:10:23 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4165</guid>
+		<description>That means it can be connected to a desktop IDE harddrive? Or we could cram an iPod HDD in it..</description>
+		<content:encoded><![CDATA[<p>That means it can be connected to a desktop IDE harddrive? Or we could cram an iPod HDD in it..</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: silverspring</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4147</link>
+		<dc:creator>silverspring</dc:creator>
+		<pubDate>Sun, 29 Nov 2009 10:23:16 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4147</guid>
+		<description>Yes the PSP GO flash memory uses the ATA interface (also the UMD drive used ATA too). 
+
+The GO flash is an emulated HDD, it uses APA partitioning with the PFS filesystem on top (for anyone familiar with ps2dev this is the same partitioning/filesystem as the PS2 HDD, PFS = Playstation FileSystem). 
+
+A FAT filesystem driver runs on top of the emulated HDD to provide file access to the VSH and when you connect via USB to PC.
+
+In a previous blog post I posted some sysreg NID&#039;s that were added in 2.70 and this is the API the GO flash uses:
+
+&lt;strong&gt;sceSysregAtahddIoEnable
+sceSysregAtahddClkEnable
+sceSysregAtahddBusClockEnable
+sceSysregAtahddResetEnable&lt;/strong&gt;
+etc.
+
+Note, this is a seperate ATA interface to the UMD interface in ata.prx (sceAta) which is used for the ATAPI protocol.</description>
+		<content:encoded><![CDATA[<p>Yes the PSP GO flash memory uses the ATA interface (also the UMD drive used ATA too). </p>
+<p>The GO flash is an emulated HDD, it uses APA partitioning with the PFS filesystem on top (for anyone familiar with ps2dev this is the same partitioning/filesystem as the PS2 HDD, PFS = Playstation FileSystem). </p>
+<p>A FAT filesystem driver runs on top of the emulated HDD to provide file access to the VSH and when you connect via USB to PC.</p>
+<p>In a previous blog post I posted some sysreg NID&#8217;s that were added in 2.70 and this is the API the GO flash uses:</p>
+<p><strong>sceSysregAtahddIoEnable<br />
+sceSysregAtahddClkEnable<br />
+sceSysregAtahddBusClockEnable<br />
+sceSysregAtahddResetEnable</strong><br />
+etc.</p>
+<p>Note, this is a seperate ATA interface to the UMD interface in ata.prx (sceAta) which is used for the ATAPI protocol.</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Torch</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/comment-page-1/#comment-4144</link>
+		<dc:creator>Torch</dc:creator>
+		<pubDate>Sat, 28 Nov 2009 14:55:30 +0000</pubDate>
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146#comment-4144</guid>
+		<description>Is there anything that uses the ATA drivers? How does the GO&#039;s flash memory work?</description>
+		<content:encoded><![CDATA[<p>Is there anything that uses the ATA drivers? How does the GO&#8217;s flash memory work?</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

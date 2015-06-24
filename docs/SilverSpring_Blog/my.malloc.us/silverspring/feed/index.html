@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SBORPS</title>
+	<atom:link href="http://my.malloc.us/silverspring/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Fri, 08 Oct 2010 01:13:30 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+		<item>
+		<title>SBORPS Random Fact 10</title>
+		<link>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-10/</link>
+		<comments>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-10/#comments</comments>
+		<pubDate>Thu, 07 Oct 2010 22:45:34 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=165</guid>
+		<description><![CDATA[Support for NAND flash IC's from Hynix has been added to the NAND driver. Specifically, three extra models from 1.8V family: view plain C: ManufacturerID = 0xAD &#40;Hynix&#41; ChipID = 0x35 &#40;32MB&#41; ChipID = 0x36 &#40;64MB&#41; ChipID = 0x39 &#40;128MB&#41; These are probably used for PSP GO models. The PSP now supports NAND's from Samsung, [...]]]></description>
+			<content:encoded><![CDATA[<p>Support for NAND flash IC's from Hynix has been added to the NAND driver. Specifically, three extra models from 1.8V family:</p>
+<div class="igBar"><span id="lc-2"><a href="#" onclick="javascript:showPlainTxt('c-2'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-2">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">ManufacturerID = 0xAD <span style="color: red;">&#40;</span>Hynix<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">ChipID = 0x35 <span style="color: red;">&#40;</span>32MB<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">ChipID = 0x36 <span style="color: red;">&#40;</span>64MB<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">ChipID = 0x39 <span style="color: red;">&#40;</span>128MB<span style="color: red;">&#41;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>These are probably used for PSP GO models. The PSP now supports NAND's from Samsung, Toshiba, ST Micro, and Hynix.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-10/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>SBORPS Random Fact 09</title>
+		<link>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-09/</link>
+		<comments>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-09/#comments</comments>
+		<pubDate>Thu, 07 Oct 2010 22:34:26 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=159</guid>
+		<description><![CDATA[Been awhile since my last post, been quite busy with other stuff (read 'real life'). I'll be posting more stuff from now though. After searching for any new supported resolutions for the LCD controller I found a strange one (added in 6.xx): view plain C: 720x479 @ 29.97Hz Don't know why it is missing one [...]]]></description>
+			<content:encoded><![CDATA[<p>Been awhile since my last post, been quite busy with other stuff (read 'real life'). I'll be posting more stuff from now though.</p>
+<p>After searching for any new supported resolutions for the LCD controller I found a strange one (added in 6.xx):</p>
+<div class="igBar"><span id="lc-5"><a href="#" onclick="javascript:showPlainTxt('c-5'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-5">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x479 @ <span style="color: #cc66cc;color:#800000;">29</span>.97Hz</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>Don't know why it is missing one single row from the usual 720x480 resolution.</p>
+<p>Here's the full list of supported resolutions:</p>
+<div class="igBar"><span id="lc-6"><a href="#" onclick="javascript:showPlainTxt('c-6'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-6">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">320x180 @ <span style="color: #cc66cc;color:#800000;">119</span>.88Hz VSYNC, <span style="color: #cc66cc;color:#800000;">23</span>.376KHz HSYNC</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">480x272 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.83Hz VSYNC, <span style="color: #cc66cc;color:#800000;">17</span>.110KHz HSYNC</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">480x272 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.94Hz VSYNC, <span style="color: #cc66cc;color:#800000;">17</span>.142KHz HSYNC <span style="color: red;">&#40;</span>native PSP res<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">480x272 @ <span style="color: #cc66cc;color:#800000;">119</span>.65Hz VSYNC, <span style="color: #cc66cc;color:#800000;">34</span>.220KHz HSYNC</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">480x272 @ <span style="color: #cc66cc;color:#800000;">119</span>.88Hz VSYNC, <span style="color: #cc66cc;color:#800000;">34</span>.285KHz HSYNC</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">640x480 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.94Hz VSYNC, <span style="color: #cc66cc;color:#800000;">31</span>.468KHz HSYNC </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">640x480 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.94Hz VSYNC, <span style="color: #cc66cc;color:#800000;">31</span>.468KHz HSYNC <span style="color: red;">&#40;</span>larger borders<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x240 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.83Hz VSYNC, <span style="color: #cc66cc;color:#800000;">15</span>.734KHz HSYNC</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x240 @ &nbsp;<span style="color: #cc66cc;color:#800000;">60</span>.05Hz VSYNC, <span style="color: #cc66cc;color:#800000;">15</span>.734KHz HSYNC</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x479 @ &nbsp;<span style="color: #cc66cc;color:#800000;">29</span>.97Hz VSYNC, <span style="color: #cc66cc;color:#800000;">15</span>.734KHz HSYNC</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x480 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.83Hz VSYNC, <span style="color: #cc66cc;color:#800000;">31</span>.468KHz HSYNC</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x480 @ &nbsp;<span style="color: #cc66cc;color:#800000;">59</span>.94Hz VSYNC, <span style="color: #cc66cc;color:#800000;">31</span>.468KHz HSYNC</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">720x505 @ &nbsp;<span style="color: #cc66cc;color:#800000;">29</span>.97Hz VSYNC, <span style="color: #cc66cc;color:#800000;">15</span>.734KHz HSYNC</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>If you are wondering how the PSP can support resolutions higher than it's native screen resolution of 480x272, it's because the LCD controller needs to support PSP devkits as well which have VGA output to connect to an external LCD monitor.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2010/10/sborps-random-fact-09/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>SBORPS Random Fact 08</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/</link>
+		<comments>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/#comments</comments>
+		<pubDate>Tue, 24 Nov 2009 05:32:47 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=146</guid>
+		<description><![CDATA[To find out the PSP model your code is running on you can call the function sceKernelGetModel(). People have been using it in homebrew to differentiate between 01g and 02g machines (fat and slim) to determine what their app will do depending on the model the user is running. However, the sceKernelGetModel function can do [...]]]></description>
+			<content:encoded><![CDATA[<p>To find out the PSP model your code is running on you can call the function <strong>sceKernelGetModel()</strong>. People have been using it in homebrew to differentiate between 01g and 02g machines (fat and slim) to determine what their app will do depending on the model the user is running.</p>
+<p>However, the sceKernelGetModel function can do a lot more than just determining whether you're running fat or slim PSP, it can return values for:</p>
+<div class="igBar"><span id="lc-8"><a href="#" onclick="javascript:showPlainTxt('c-8'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-8">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">01g - fat PSP</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">02g - slim PSP</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">03g - 3K PSP</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">04g - ??? <span style="color: red;">&#40;</span>an updated 3K model? 4K perhaps?<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">05g - PSP GO</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">06g - ???</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">07g - ???</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">08g - ???</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">/*</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">sceKernelGetModel() actually returns a value </span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">from 0-7 to represent each model, </span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">0 being the PSP fat, </span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">1 being the PSP slim, etc. </span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">all the way upto 7 for the 08g model.</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">*/</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>That's <strong>three</strong> more models after the PSP GO! As well as a 4000 model after 3000. </p>
+<p>The fw for 04g models is already out, it's included with normal fw updaters (6.xx) and can be decrypted using the 3K keys. There's also code already in the fw supporting 06g and 08g models (which seem to be GO-like models).</p>
+<p>So for people thinking the PSP GO was a waste of a update or there wouldn't be any more updates, prepare for three more models...</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-08/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>SBORPS Random Fact 07</title>
+		<link>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-07/</link>
+		<comments>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-07/#comments</comments>
+		<pubDate>Mon, 23 Nov 2009 03:06:03 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=142</guid>
+		<description><![CDATA[Beware of future fw updates, SCE are starting to make activity logs. New registry categories/keys stored in flash1 registry (6.xx fw): view plain C: /DATA/COUNT/boot_count &#40;number of times booted&#41; /DATA/COUNT/game_exec_count &#40;number of games run&#41; /DATA/COUNT/slide_count &#40;number of times slide open, for the GO only&#41; /DATA/COUNT/usb_connect_count &#40;number of times you connect usb&#41; /DATA/COUNT/wifi_connect_count &#40;number of times [...]]]></description>
+			<content:encoded><![CDATA[<p>Beware of future fw updates, SCE are starting to make activity logs.</p>
+<p>New registry categories/keys stored in flash1 registry (6.xx fw):</p>
+<div class="igBar"><span id="lc-10"><a href="#" onclick="javascript:showPlainTxt('c-10'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-10">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/boot_count <span style="color: red;">&#40;</span>number of times booted<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/game_exec_count <span style="color: red;">&#40;</span>number of games run<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/slide_count <span style="color: red;">&#40;</span>number of times slide open, <span style="color: #5697D9;">for</span> the GO only<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/usb_connect_count <span style="color: red;">&#40;</span>number of times you connect usb<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/wifi_connect_count <span style="color: red;">&#40;</span>number of times you connect wifi<span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">/DATA/COUNT/psn_access_count <span style="color: red;">&#40;</span>number of times you logon psn<span style="color: red;">&#41;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>These new registry keys can still be accessed via the sceReg API, 	sceRegOpenCategory/sceRegGetKeyValue etc.</p>
+<p>What other things will they be tracking in future updates? Maybe logging ISO games? Secretly 'phoning-home' with this info? Was any of this mentioned in the EULA?</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/11/sborps-random-fact-07/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>In Memoriam&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2009/09/in-memoriam/</link>
+		<comments>http://my.malloc.us/silverspring/2009/09/in-memoriam/#comments</comments>
+		<pubDate>Sun, 13 Sep 2009 01:26:07 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=126</guid>
+		<description><![CDATA[My best friend for over 16 years, my loyal companion; deeply loved, and forever missed. You were given a great life yet you gave back so much more in return. I hope you are surrounded by all the toys you could possibly play with, the largest, juiciest bones to chew on, and a neverending stretch [...]]]></description>
+			<content:encoded><![CDATA[<p>My best friend for over 16 years, my loyal companion; deeply loved, and forever missed. You were given a great life yet you gave back so much more in return. I hope you are surrounded by all the toys you could possibly play with, the largest, juiciest bones to chew on, and a neverending stretch of grass to run on.</p>
+<p><a href="http://my.malloc.us/silverspring/files/2009/09/snowy_rip.jpg"><img src="http://my.malloc.us/silverspring/files/2009/09/snowy_rip-300x225.jpg" alt="snowy" title="snowy" width="300" height="225" class="aligncenter size-medium wp-image-127" /></a></p>
+<p>Rest In Peace, Snowy. I'll always love you and I'll never forget you. You will be dearly missed...</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/09/in-memoriam/feed/</wfw:commentRss>
+		<slash:comments>6</slash:comments>
+		</item>
+		<item>
+		<title>Why &#8220;eggsploit&#8221; is random.</title>
+		<link>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/</link>
+		<comments>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/#comments</comments>
+		<pubDate>Thu, 09 Jul 2009 09:29:40 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=120</guid>
+		<description><![CDATA[So, a lot of people have been complaining about the unstability of the TIFF "eggsploit" (and thus the successful booting of HEN). The exploit relies on hardcoded memory addresses to succeed however a piece of code in the firmware ensures that memory addresses can randomly change. As the vshbridge.prx is loaded and starts, two fixed [...]]]></description>
+			<content:encoded><![CDATA[<p>So, a lot of people have been complaining about the unstability of the TIFF "eggsploit" (and thus the successful booting of HEN). The exploit relies on hardcoded memory addresses to succeed however a piece of code in the firmware ensures that memory addresses can randomly change.</p>
+<p>As the vshbridge.prx is loaded and starts, two fixed memory pools are created and used for nothing else but random padding. The size of these mem pools are randomly assigned based on the system time. This can therefore affect the memory addresses of where modules are loaded into ram and therefore affect the hardcoded addresses the TIFF exploit relies on.</p>
+<p>The code for the random memory padding (executed on vshbridge module_start):</p>
+<div class="igBar"><span id="lc-12"><a href="#" onclick="javascript:showPlainTxt('c-12'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-12">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">int</span> _vshVshBridgeStart<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; _vshPowerCallbackInit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceImposeSetStatus<span style="color: red;">&#40;</span><span style="color: #cc66cc;color:#800000;">4</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceUmdSetSuspendResumeMode<span style="color: red;">&#40;</span><span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> size;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #2E8B57;">int</span> time = sceKernelGetSystemTimeLow<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>; <span style="color: #4EA73B; font-style: italic;">// time since system start</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x400; <span style="color: #4EA73B; font-style: italic;">// 1 KByte</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x300; <span style="color: #4EA73B; font-style: italic;">// 768 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x200; <span style="color: #4EA73B; font-style: italic;">// 512 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span>time &amp; <span style="color: #cc66cc;color:#800000;">3</span> == <span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x100; <span style="color: #4EA73B; font-style: italic;">// 256 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceKernelCreateFpl<span style="color: red;">&#40;</span><span style="color: #000000;">&quot;SceVshRandomTopPadding&quot;</span>, <span style="color: #cc66cc;color:#800000;">2</span>, <span style="color: #cc66cc;color:#800000;">0</span>, size, <span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #000000; font-weight: bold;">NULL</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x400; <span style="color: #4EA73B; font-style: italic;">// 1 KByte</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x300; <span style="color: #4EA73B; font-style: italic;">// 768 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x200; <span style="color: #4EA73B; font-style: italic;">// 512 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">else</span> <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time &amp; 0xF<span style="color: red;">&#41;</span>&gt;&gt; <span style="color: #cc66cc;color:#800000;">2</span> == <span style="color: #cc66cc;color:#800000;">3</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; size = 0x100; <span style="color: #4EA73B; font-style: italic;">// 256 Bytes</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#125;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; sceKernelCreateFpl<span style="color: red;">&#40;</span><span style="color: #000000;">&quot;SceVshRandomBottomPadding&quot;</span>, <span style="color: #cc66cc;color:#800000;">2</span>, 0x4000, size, <span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #000000; font-weight: bold;">NULL</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">return</span> <span style="color: #cc66cc;color:#800000;">0</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>This bit of random padding code was added in 2.50 firmware and still exists in the latest firmwares.</p>
+<p>Because HEN uses the TIFF exploit to run there is nothing the HEN could do to improve it's chances of booting successfully. It may be that it's simply random luck.</p>
+<p><em>Note: there is no doubt there are also many other factors which could affect the stability of the TIFF "eggsploit".</em></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/07/why-eggsploit-is-random/feed/</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>SBORPS Random Fact 06</title>
+		<link>http://my.malloc.us/silverspring/2009/05/sborps-random-fact-06/</link>
+		<comments>http://my.malloc.us/silverspring/2009/05/sborps-random-fact-06/#comments</comments>
+		<pubDate>Fri, 22 May 2009 05:27:41 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Random Facts]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=110</guid>
+		<description><![CDATA[A nice hidden feature of the PSP firmware is the personalised credits screen. Just place any png picture under flash0:/vsh/resource/name_plate.png (important note: filename has to be all lower case) and it'll show up in the System Settings -> About PSP menu. Make sure the pic is in the correct resolution (480 x 272) otherwise the [...]]]></description>
+			<content:encoded><![CDATA[<p>A nice hidden feature of the PSP firmware is the personalised credits screen. Just place any png picture under <strong>flash0:/vsh/resource/name_plate.png</strong> (important note: filename has to be all lower case) and it'll show up in the System Settings -> About PSP menu. Make sure the pic is in the correct resolution (480 x 272) otherwise the PSP will stretch the image.</p>
+<p>This feature was never documented by Sony but it has existed ever since the very first firmware v1.00. Sony typically used this feature to send personalised PSP's as gifts to VIP's. Now you can make your own personalised PSP too.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/05/sborps-random-fact-06/feed/</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Blog Update</title>
+		<link>http://my.malloc.us/silverspring/2009/05/blog-update/</link>
+		<comments>http://my.malloc.us/silverspring/2009/05/blog-update/#comments</comments>
+		<pubDate>Thu, 07 May 2009 17:16:44 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=71</guid>
+		<description><![CDATA[After being away from the PSP scene for several months (due to several factors such as illness etc.) I've decided to continue and will be starting to add some new content again. I've realised that there has been many bits &#038; pieces of info that I have posted around in several different places over the [...]]]></description>
+			<content:encoded><![CDATA[<p>After being away from the PSP scene for several months (due to several factors such as illness etc.) I've decided to continue and will be starting to add some new content again.</p>
+<p>I've realised that there has been many bits &#038; pieces of info that I have posted around in several different places over the years (in forums etc.) that are useful however not conveniently accessible so I'll be adding them here also. It may seem redundant since it may not necessarily be new info, however gathering all the public info together into one place will make the info more accessible to the people.</p>
+<p>So, greets to all those who still continue to follow and be involved with the PSP community even though the PSP has passed its peak and now entering a declining stage.</p>
+<p>SilverSpring</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/05/blog-update/feed/</wfw:commentRss>
+		<slash:comments>14</slash:comments>
+		</item>
+		<item>
+		<title>Prx Decryption NID&#8217;s !!!!!</title>
+		<link>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/</link>
+		<comments>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/#comments</comments>
+		<pubDate>Sat, 10 Jan 2009 04:43:17 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=68</guid>
+		<description><![CDATA[I never thought these would ever be cracked but finally here are the sceMesgLed NID's (these are only valid upto 2.00 since the NID's were later 'randomised' the following update in 2.50): 0x84a04017 sceUtilsGetLoadModuleCLength 0xa86d5005 sceUtilsGetLoadModuleCLengthByPolling 0xa4547df1 sceUtilsGetLoadModuleDLength 0x94eb1072 sceUtilsGetLoadModuleDLengthByPolling 0x198fd3be sceUtilsGetLoadModuleILength 0xfbc694c7 sceUtilsGetLoadModuleILengthByPolling 0x07e152be sceUtilsGetLoadModuleJLength 0x9906f33a sceUtilsGetLoadModuleJLengthByPolling 0x46ac0e78 sceUtilsGetLoadModuleKLength 0x55c8785e sceUtilsGetLoadModuleKLengthByPolling 0x67a5ecdf sceUtilsGetLoadModuleLLength 0x85b9d9f3 [...]]]></description>
+			<content:encoded><![CDATA[<p>I never thought these would ever be cracked but finally here are the sceMesgLed NID's (these are only valid upto 2.00 since the NID's were later 'randomised' the following update in 2.50):</p>
+<ul>
+<li>0x84a04017  sceUtilsGetLoadModuleCLength</li>
+<li>0xa86d5005  sceUtilsGetLoadModuleCLengthByPolling</li>
+<li>0xa4547df1  sceUtilsGetLoadModuleDLength</li>
+<li>0x94eb1072  sceUtilsGetLoadModuleDLengthByPolling</li>
+<li>0x198fd3be  sceUtilsGetLoadModuleILength</li>
+<li>0xfbc694c7  sceUtilsGetLoadModuleILengthByPolling</li>
+<li>0x07e152be  sceUtilsGetLoadModuleJLength</li>
+<li>0x9906f33a  sceUtilsGetLoadModuleJLengthByPolling</li>
+<li>0x46ac0e78  sceUtilsGetLoadModuleKLength</li>
+<li>0x55c8785e  sceUtilsGetLoadModuleKLengthByPolling</li>
+<li>0x67a5ecdf  sceUtilsGetLoadModuleLLength</li>
+<li>0x85b9d9f3  sceUtilsGetLoadModuleLLengthByPolling</li>
+<li>0x951f4a5b  sceUtilsGetLoadModuleMLength</li>
+<li>0x58999d8e  sceUtilsGetLoadModuleMLengthByPolling</li>
+<li>0x9fc926a0  sceUtilsGetLoadModuleNLength</li>
+<li>0x7a922276  sceUtilsGetLoadModuleNLengthByPolling</li>
+</ul>
+<p>As you can see the naming is very cryptic, but the names do make a little bit of sense (more than some other crypto functions &#038; libs). Each of these functions decrypts a particular ~PSP encrypted executable. The executable type is at offset 0x7C of a ~PSP file, and the executable type number corresponds to the letter listed in the above functions. For example, Type3 exe's (vshmain modules) use the 'C' function to decrypt, Type4 exe's (user modules) use the 'D' function, etc. There are no types 5,6,7,8 exe's so those letters are missing. Other exe types that use the above functions include:</p>
+<ul>
+<li>Type09 UMD games (use 'I' to decrypt)
+<li>Type10 Gamesharing games (use 'J' to decrypt)
+<li>Type11 Debug Gamesharing games (use 'K' to decrypt)
+<li>Type12 MS Updater (use 'L' to decrypt)
+<li>Type13 MS Demo games (use 'M' to decrypt)
+<li>Type14 Flash application eboots (use 'N' to decrypt)
+</ul>
+<p>Later fw added extra exe types also (such as POPS executables - Type20). So as you can see the numbering of the executable type corresponds to the letter of the alphabet used in the decryption functions naming.</p>
+<p>Type1 exe's are internal debug modules while Type2 exe's are kernel modules, they are both decrypted the same way hence the 'A' and 'B' in the function sceUtilsGetLoadModuleABLength of memlmd.prx.</p>
+<p>Here are also 2 more NID's from memlmd (these ONLY exist in 2.00 which was when these functions were added into the fw, they were later 'randomised' the following update in 2.50):</p>
+<ul>
+<li>0xc3a6f784 sceUtilsPrepareGetLoadModuleABLength
+<li>0xdf76975e sceUtilsPrepareGetLoadModuleABLengthByPolling
+</ul>
+<p>This function is similar to the 'sigcheck' functions in that they take an encrypted ~PSP file and 'scrambles' the 'sig' area (0xD0 Bytes from offset 0x80-0x150 of ~PSP binaries). The only difference is that this scrambling is not unique per PSP, whereas the normal sigchecking IS unique per PSP (using each PSP's FuseID to flash the unique prxs, which is why files from different PSP's are not compatible and therefore cannot be shared).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2009/01/prx-decryption-nids/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Another NID Update Again</title>
+		<link>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/</link>
+		<comments>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/#comments</comments>
+		<pubDate>Thu, 18 Dec 2008 15:25:36 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[NID's]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/?p=66</guid>
+		<description><![CDATA[From sceHttp: 0x739c2d79 sceHttpInitExternalCache 0xa461a167 sceHttpEndExternalCache 0x8046e250 sceHttpEnableExternalCache 0xb0257723 sceHttpFlushExternalCache 0x457d221d sceHttpFlushCookie 0x4e4a284a sceHttpCloneTemplate From sceSsl: 0xf57765d3 sceSslGetKeyUsage From sceLibUpdateDL (this completes the lib !!): 0xf7e66cb4 sceUpdateDownloadSetUrl 0x88ff3935 sceUpdateDownloadSetDestCode From sceNetWispr (this completes the lib !!): 0xc856aaac sceNetWisprLogoffStart From sceNetIfhandle_driver: 0xd5ad6dea sceNetGetIfhandleOpt 0xc6d14282 sceNetSetIfhandleOpt 0x955f2924 sceNetMCopypacket From sceNetAdhocctl (new in 5.00): 0xb0b80e80 sceNetAdhocctlCreateEnterGameModeMin From sceDNASCore_lib [...]]]></description>
+			<content:encoded><![CDATA[<p>From sceHttp:</p>
+<ul>
+<li>0x739c2d79  sceHttpInitExternalCache</li>
+<li>0xa461a167  sceHttpEndExternalCache</li>
+<li>0x8046e250  sceHttpEnableExternalCache</li>
+<li>0xb0257723  sceHttpFlushExternalCache</li>
+<li>0x457d221d  sceHttpFlushCookie</li>
+<li>0x4e4a284a  sceHttpCloneTemplate</li>
+</ul>
+<p>From sceSsl:</p>
+<ul>
+<li>0xf57765d3  sceSslGetKeyUsage</li>
+</ul>
+<p>From sceLibUpdateDL (this completes the lib !!):</p>
+<ul>
+<li>0xf7e66cb4  sceUpdateDownloadSetUrl</li>
+<li>0x88ff3935  sceUpdateDownloadSetDestCode</li>
+</ul>
+<p>From sceNetWispr (this completes the lib !!):</p>
+<ul>
+<li>0xc856aaac  sceNetWisprLogoffStart</li>
+</ul>
+<p>From sceNetIfhandle_driver:</p>
+<ul>
+<li>0xd5ad6dea  sceNetGetIfhandleOpt</li>
+<li>0xc6d14282  sceNetSetIfhandleOpt</li>
+<li>0x955f2924  sceNetMCopypacket</li>
+</ul>
+<p>From sceNetAdhocctl (new in 5.00):</p>
+<ul>
+<li>0xb0b80e80  sceNetAdhocctlCreateEnterGameModeMin</li>
+</ul>
+<p>From sceDNASCore_lib (this completes the lib !!):</p>
+<ul>
+<li>0xba0d27f8  sceDNASCoreMakeProxyRequest</li>
+</ul>
+<p>From sceVshNetconfAoss:</p>
+<ul>
+<li>0x50df536d  sceNetAOSSInit</li>
+<li>0xd253b522  sceNetAOSSTerm</li>
+<li>0x653d453f  sceNetAOSSStart</li>
+<li>0xac307152  sceNetAOSSStop</li>
+<li>0x2aee9d4d  sceNetAOSSGetState</li>
+</ul>
+<p>From sceLibFont_HV:</p>
+<ul>
+<li>0x33ffd07c  sceFontIsElement</li>
+</ul>
+<p>From sceUsbGps (new in 5.00):</p>
+<ul>
+<li>0x5881c826  sceUsbGpsGetStaticNavMode</li>
+<li>0xa8ed0bc2  sceUsbGpsSetStaticNavMode</li>
+</ul>
+<p>From scePafHeaparea:</p>
+<ul>
+<li>0xf50aae41  sce_paf_private_getheaparea1</li>
+<li>0xacce25b2  sce_paf_private_getheaparea2</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/12/another-nid-update-again/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

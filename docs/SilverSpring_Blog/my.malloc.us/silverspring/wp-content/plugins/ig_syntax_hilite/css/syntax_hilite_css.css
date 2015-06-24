@@ -1,0 +1,25 @@
+.syntax_hilite, li .syntax_hilite {
+	padding:3px 3px 10px 8px; border:1px solid #303130; border-top: none; background-color:#FEFEFE;
+	font-size:13px; font-family:'Courier New',Courier,monospace;
+	/* comment the line below to remove scrolling in code boxes */
+	overflow:auto; white-space:nowrap;
+}
+/* change this line to set the width of code box */
+.syntax_hilite { width:500px; }
+/* change this line to set the width of code box in a list */
+li .syntax_hilite { width:460px; }
+.igBar, li .igBar {
+	background-color:#FFFFFF; font-family:courier,arial,verdana;
+	border-left:1px solid #EEEEEE; border-top:1px solid #EEEEEE;
+	border-right:1px solid #424142;
+}
+/* change this line to set the width of plain text bar above code box */
+.igBar { width:511px; }
+/* change this line to set the width of plain text bar above code box in a list */
+li .igBar { width:471px;   }
+.igBar a, .igBar a:hover {
+	margin:0px 5px 0px 10px; color:grey; font-size:8px;
+	text-decoration:none;
+}
+.syntax_hilite .langName { color:#000000; font-weight:bold; }
+.syntax_hilite textarea { margin:0px -5px -2px 0px; border:none; }

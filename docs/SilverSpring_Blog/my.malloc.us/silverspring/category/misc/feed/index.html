@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>SBORPS &#187; Misc</title>
+	<atom:link href="http://my.malloc.us/silverspring/category/misc/feed/" rel="self" type="application/rss+xml" />
+	<link>http://my.malloc.us/silverspring</link>
+	<description>SilverSpring's bunch of random PSP stuff...</description>
+	<lastBuildDate>Fri, 08 Oct 2010 01:13:30 +0000</lastBuildDate>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>http://wordpress.org/?v=3.0.1</generator>
+		<item>
+		<title>New NAND Flash device support added</title>
+		<link>http://my.malloc.us/silverspring/2008/07/new-nand-flash-device-support-added/</link>
+		<comments>http://my.malloc.us/silverspring/2008/07/new-nand-flash-device-support-added/#comments</comments>
+		<pubDate>Sat, 19 Jul 2008 13:15:45 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Misc]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/07/19/new-nand-flash-device-support-added/</guid>
+		<description><![CDATA[Support for new nand IC's from ST Micro (upto 128MB) have been added to the nand driver in newer firmwares. Previously only Samsung (retail PSP) and Toshiba (devkit PSP) nands were supported. view plain C: const struct &#123; &#160; &#160; u8 id&#91;2&#93;; // [manufacturer ID, device ID] &#160; &#160; u8 type&#91;2&#93;; &#160; &#160; u16 bytesPerPage; [...]]]></description>
+			<content:encoded><![CDATA[<p>Support for new nand IC's from <strong>ST Micro</strong> (upto 128MB) have been added to the nand driver in newer firmwares. Previously only Samsung (retail PSP) and Toshiba (devkit PSP) nands were supported.</p>
+<div class="igBar"><span id="lc-2"><a href="#" onclick="javascript:showPlainTxt('c-2'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-2">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #2E8B57;">const</span> <span style="color: #2E8B57;">struct</span> <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u8 id<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#93;</span>; <span style="color: #4EA73B; font-style: italic;">// [manufacturer ID, device ID]</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u8 type<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#93;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u16 bytesPerPage;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u16 pagesPerBlock;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; u32 blocksPerDevice;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span> nandIdTable<span style="color: red;">&#91;</span><span style="color: red;">&#93;</span> = <span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// Toshiba 3.3V NAND Flash family</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x98, 0xE6<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">16</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 8MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x98, 0x73<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 16MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x98, 0x75<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">2048</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 32MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x98, 0x76<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">4096</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 64MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x98, 0x79<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">1</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">8192</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 128MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// Samsung 3.3V NAND Flash family</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0xE6<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">16</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 8MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x73<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 16MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x75<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">2048</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 32MB (default TA-079/081 PSP NAND)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x76<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">4096</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 64MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x79<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">8192</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 128MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x71<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">16384</span> <span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 256MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0xDC<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">3</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">32768</span> <span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 512MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// Samsung 1.8V NAND Flash family</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x39<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">16</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 8MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x33<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">1024</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 16MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x35<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">2048</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 32MB (default TA-082/086 PSP NAND)</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x36<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">4096</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 64MB (default TA-085/088 PSP NAND)</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0xEC, 0x78<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">8192</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 128MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; </div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #4EA73B; font-style: italic;">// ST Micro 1.8V NAND Flash family</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x20, 0x35<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">2048</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 32MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x20, 0x36<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">4096</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 64MB</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: red;">&#123;</span> <span style="color: red;">&#123;</span>0x20, 0x39<span style="color: red;">&#125;</span>, <span style="color: red;">&#123;</span><span style="color: #cc66cc;color:#800000;">1</span>, <span style="color: #cc66cc;color:#800000;">2</span><span style="color: red;">&#125;</span>, <span style="color: #cc66cc;color:#800000;">512</span>, <span style="color: #cc66cc;color:#800000;">32</span>, <span style="color: #cc66cc;color:#800000;">8192</span> &nbsp;<span style="color: red;">&#125;</span>, <span style="color: #4EA73B; font-style: italic;">// 128MB</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span>;</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/07/new-nand-flash-device-support-added/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>More SCE Mind Games™&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2008/01/more-sce-mind-games%e2%84%a2/</link>
+		<comments>http://my.malloc.us/silverspring/2008/01/more-sce-mind-games%e2%84%a2/#comments</comments>
+		<pubDate>Sat, 26 Jan 2008 01:42:41 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Misc]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2008/01/26/more-sce-mind-games%e2%84%a2/</guid>
+		<description><![CDATA[Have you ever booted up your psp or resumed from sleep and have it appeared bricked (psp freezes then shutoffs)? Well you can blame SCE for that. You see, if you have corrupt idstorage (keys 4, 5, 6, or 7) there's an exactly 12.5% chance that on boot the psp will appear bricked. The IPL [...]]]></description>
+			<content:encoded><![CDATA[<p>Have you ever booted up your psp or resumed from sleep and have it appeared bricked (psp freezes then shutoffs)?</p>
+<p>Well you can blame SCE for that. You see, if you have corrupt idstorage (keys 4, 5, 6, or 7) there's an exactly 12.5% chance that on boot the psp will appear bricked. The IPL will check for corrupt keys but will only randomly do so. The check is based on the time, if the current time (in millisecs) is a multiple of (approx.) 8, the IPL will check your idstorage keys and if they are corrupt (ie. if the header for those keys dont match what they should be), the psp will shut itself off.</p>
+<p>What is even worse is that this check also occurs during resuming from sleep mode. So one could theoretically boot up the psp fine, sleep, then fail on resume. All of this is to confuse us devs by trying to obscure the problem...very sneaky in my opinion.</p>
+<p>Technically, it checks like this:</p>
+<div class="igBar"><span id="lc-4"><a href="#" onclick="javascript:showPlainTxt('c-4'); return false;">view plain</a></span></div>
+<div class="syntax_hilite"><span class="langName">C:</span>
+<div id="c-4">
+<div class="c" style="font-family: monospace;">
+<ol>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">// a 32/256 (12.5%) chance this check will occur</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #4EA73B; font-style: italic;">// errorExit() shuts down the psp</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>time&gt;&gt;<span style="color: #cc66cc;color:#800000;">4</span> ^ time<span style="color: red;">&#41;</span> &amp; <span style="color: #cc66cc;color:#800000;">7</span> == <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span></div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#123;</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf4<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span> &amp;&amp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf4<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != 0x4272796E<span style="color: red;">&#41;</span><span style="color: red;">&#41;</span> <span style="color: #4EA73B; font-style: italic;">// Bryn</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errorExit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf5<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span> &amp;&amp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf5<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != 0x436C6B67<span style="color: red;">&#41;</span><span style="color: red;">&#41;</span> <span style="color: #4EA73B; font-style: italic;">// Clkg</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errorExit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf6<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span> &amp;&amp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf6<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != 0x4D446472<span style="color: red;">&#41;</span><span style="color: red;">&#41;</span> <span style="color: #4EA73B; font-style: italic;">// MDdr</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errorExit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp;</div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; <span style="color: #5697D9;">if</span> <span style="color: red;">&#40;</span><span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf7<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != <span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#41;</span> &amp;&amp;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: red;">&#40;</span>*<span style="color: red;">&#40;</span>u32*<span style="color: red;">&#41;</span>&amp;leaf7<span style="color: red;">&#91;</span><span style="color: #cc66cc;color:#800000;">0</span><span style="color: red;">&#93;</span> != 0x41506144<span style="color: red;">&#41;</span><span style="color: red;">&#41;</span> <span style="color: #4EA73B; font-style: italic;">// APaD</span></div>
+</li>
+<li style="font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;color:#3A6A8B;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; errorExit<span style="color: red;">&#40;</span><span style="color: red;">&#41;</span>;</div>
+</li>
+<li style="font-weight: bold;color:#26536A;">
+<div style="font-family: 'Courier New', Courier, monospace; font-weight: normal;"><span style="color: red;">&#125;</span></div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<p></p>
+<p>So, what do people think of this new trick?</p>
+<p>Sneaky? Absolutely. Suprised? Well, this is SCE we're talking about here.</p>
+<p>Another day, another mind game...</p>
+<p>EDIT: Slight correction, the time is actually in 500ms intervals (0.5second intervals), not milliseconds.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2008/01/more-sce-mind-games%e2%84%a2/feed/</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>The mind games SCE play&#8230;</title>
+		<link>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/</link>
+		<comments>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/#comments</comments>
+		<pubDate>Sun, 02 Dec 2007 12:22:53 +0000</pubDate>
+		<dc:creator>silverspring</dc:creator>
+				<category><![CDATA[Misc]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://my.malloc.us/silverspring/2007/12/02/the-mind-games-sce-play/</guid>
+		<description><![CDATA[We are all familiar with the various tricks SCE use to fool devs, though I recently came across one that has annoyed me the most. When 3.40 was released, a 'special' prx was flashed with the rest of the firmware that didnt seem to be used at all. It was special in that not only [...]]]></description>
+			<content:encoded><![CDATA[<p>We are all familiar with the various tricks SCE use to fool devs, though I recently came across one that has annoyed me the most.</p>
+<p>When 3.40 was released, a 'special' prx was flashed with the rest of the firmware that didnt seem to be used <strong><em>at all</em></strong>. It was special in that not only was it not used nor referred to once in the entire firmware, it also could <em><strong>NOT</strong></em> be decrypted (the keys to decrypt it simply did not exist in the firmware). Because of this and the fact that the prx was promptly removed from all future firmware (it <strong><em>only</em></strong> exists in 3.40) it was assumed to be a remnant of a debug prx used during testing and they had simply forgot to remove it. Or was it?</p>
+<p>The prx was "idcheck.prx". The module name sounded interesting and on first glance it was assumed to be the debug version of the embedded prx SCE hid in 3.30+ updaters to check for corrupt idstorage in their updaters (the one that refuses to update the PSP if either your keys 4, 5, 6, 7 &amp; 8 were corrupt).</p>
+<p>Long story short, the prx has been decrypted and the result was far from expected. It seems that the original module has been taken out and replaced with a dummy instead. The only remains left of the original module was the module name "sceIdCheck" and the data segment, which included the strings "Illegal idstoarge" (SCE always misspell 'idstorage'), "flash is corrupted", and "cannot restore PSP system". The rest of the module (including all the code) had been dummied with another module from the firmware.</p>
+<p>Now why would SCE do this? If it were a debug prx that was accidently left in, why would they bother going to the trouble of dummying the code?</p>
+<p>Some accidental mistake on their part, or more of their ridiculous mind games at play......</p>
+]]></content:encoded>
+			<wfw:commentRss>http://my.malloc.us/silverspring/2007/12/the-mind-games-sce-play/feed/</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+	</channel>
+</rss>

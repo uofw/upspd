@@ -1,0 +1,1115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html dir="ltr"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="top" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/index.php" title="forums.ps2dev.org Forum Index">
+<link rel="search" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/search.php" title="Search">
+<link rel="help" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/faq.php" title="FAQ">
+<link rel="author" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/memberlist.php" title="Memberlist">
+<link rel="prev" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;view=previous" title="View previous topic">
+<link rel="next" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;view=next" title="View next topic">
+<link rel="up" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=14" title="PSP Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=2" title="Announcements">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=31" title="Patch Submissions">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=1" title="General Discussion">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=22" title="Help Wanted Requests">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=16" title="The Incredible Hall Of Shame">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=32" title="PS1 Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=11" title="PS2 Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=25" title="PS3 Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=27" title="PS3 Linux Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=14" title="PSP Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=21" title="PSP Lua Player Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=28" title="Other Development">
+<link rel="chapter forum" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=29" title="spu-medialib">
+
+<title>forums.ps2dev.org :: View topic - Service mode by power supply pins?</title>
+<!-- link rel="stylesheet" href="templates/subSilver/subSilver.css" type="text/css" -->
+<style type="text/css">
+<!--
+/*
+  The original subSilver Theme for phpBB version 2+
+  Created by subBlue design
+  http://www.subBlue.com
+
+  NOTE: These CSS definitions are stored within the main page body so that you can use the phpBB2
+  theme administration centre. When you have finalised your style you could cut the final CSS code
+  and place it in an external file, deleting this section to save bandwidth.
+*/
+
+/* General page style. The scroll bar colours only visible in IE5.5+ */
+body {
+	background-color: #E5E5E5;
+	scrollbar-face-color: #DEE3E7;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #DEE3E7;
+	scrollbar-3dlight-color: #D1D7DC;
+	scrollbar-arrow-color:  #006699;
+	scrollbar-track-color: #EFEFEF;
+	scrollbar-darkshadow-color: #98AAB1;
+}
+
+/* General font families for common tags */
+font,th,td,p { font-family: Verdana, Arial, Helvetica, sans-serif }
+a:link,a:active,a:visited { color : #006699; }
+a:hover		{ text-decoration: underline; color : #DD6900; }
+hr	{ height: 0px; border: solid #D1D7DC 0px; border-top-width: 1px;}
+
+/* This is the border line & background colour round the entire page */
+.bodyline	{ background-color: #FFFFFF; border: 1px #98AAB1 solid; }
+
+/* This is the outline round the main forum tables */
+.forumline	{ background-color: #FFFFFF; border: 2px #006699 solid; }
+
+/* Main table cell colours and backgrounds */
+td.row1	{ background-color: #EFEFEF; }
+td.row2	{ background-color: #DEE3E7; }
+td.row3	{ background-color: #D1D7DC; }
+
+/*
+  This is for the table cell above the Topics, Post & Last posts on the index.php page
+  By default this is the fading out gradiated silver background.
+  However, you could replace this with a bitmap specific for each forum
+*/
+td.rowpic {
+		background-color: #FFFFFF;
+		background-image: url(templates/subSilver/images/cellpic2.jpg);
+		background-repeat: repeat-y;
+}
+
+/* Header cells - the blue and silver gradient backgrounds */
+th	{
+	color: #FFA34F; font-size: 11px; font-weight : bold;
+	background-color: #006699; height: 25px;
+	background-image: url(templates/subSilver/images/cellpic3.gif);
+}
+
+td.cat,td.catHead,td.catSides,td.catLeft,td.catRight,td.catBottom {
+			background-image: url(templates/subSilver/images/cellpic1.gif);
+			background-color:#D1D7DC; border: #FFFFFF; border-style: solid; height: 28px;
+}
+
+/*
+  Setting additional nice inner borders for the main table cells.
+  The names indicate which sides the border will be on.
+  Don't worry if you don't understand this, just ignore it :-)
+*/
+td.cat,td.catHead,td.catBottom {
+	height: 29px;
+	border-width: 0px 0px 0px 0px;
+}
+th.thHead,th.thSides,th.thTop,th.thLeft,th.thRight,th.thBottom,th.thCornerL,th.thCornerR {
+	font-weight: bold; border: #FFFFFF; border-style: solid; height: 28px;
+}
+td.row3Right,td.spaceRow {
+	background-color: #D1D7DC; border: #FFFFFF; border-style: solid;
+}
+
+th.thHead,td.catHead { font-size: 12px; border-width: 1px 1px 0px 1px; }
+th.thSides,td.catSides,td.spaceRow	 { border-width: 0px 1px 0px 1px; }
+th.thRight,td.catRight,td.row3Right	 { border-width: 0px 1px 0px 0px; }
+th.thLeft,td.catLeft	  { border-width: 0px 0px 0px 1px; }
+th.thBottom,td.catBottom  { border-width: 0px 1px 1px 1px; }
+th.thTop	 { border-width: 1px 0px 0px 0px; }
+th.thCornerL { border-width: 1px 0px 0px 1px; }
+th.thCornerR { border-width: 1px 1px 0px 0px; }
+
+/* The largest text used in the index page title and toptic title etc. */
+.maintitle	{
+	font-weight: bold; font-size: 22px; font-family: "Trebuchet MS",Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none; line-height : 120%; color : #000000;
+}
+
+/* General text */
+.gen { font-size : 12px; }
+.genmed { font-size : 11px; }
+.gensmall { font-size : 10px; }
+.gen,.genmed,.gensmall { color : #000000; }
+a.gen,a.genmed,a.gensmall { color: #006699; text-decoration: none; }
+a.gen:hover,a.genmed:hover,a.gensmall:hover	{ color: #DD6900; text-decoration: underline; }
+
+/* The register, login, search etc links at the top of the page */
+.mainmenu		{ font-size : 11px; color : #000000 }
+a.mainmenu		{ text-decoration: none; color : #006699;  }
+a.mainmenu:hover{ text-decoration: underline; color : #DD6900; }
+
+/* Forum category titles */
+.cattitle		{ font-weight: bold; font-size: 12px ; letter-spacing: 1px; color : #006699}
+a.cattitle		{ text-decoration: none; color : #006699; }
+a.cattitle:hover{ text-decoration: underline; }
+
+/* Forum title: Text and link to the forums used in: index.php */
+.forumlink		{ font-weight: bold; font-size: 12px; color : #006699; }
+a.forumlink 	{ text-decoration: none; color : #006699; }
+a.forumlink:hover{ text-decoration: underline; color : #DD6900; }
+
+/* Used for the navigation text, (Page 1,2,3 etc) and the navigation bar when in a forum */
+.nav			{ font-weight: bold; font-size: 11px; color : #000000;}
+a.nav			{ text-decoration: none; color : #006699; }
+a.nav:hover		{ text-decoration: underline; }
+
+/* titles for the topics: could specify viewed link colour too */
+.topictitle,h1,h2	{ font-weight: bold; font-size: 11px; color : #000000; }
+a.topictitle:link   { text-decoration: none; color : #006699; }
+a.topictitle:visited { text-decoration: none; color : #5493B4; }
+a.topictitle:hover	{ text-decoration: underline; color : #DD6900; }
+
+/* Name of poster in viewmsg.php and viewtopic.php and other places */
+.name			{ font-size : 11px; color : #000000;}
+
+/* Location, number of posts, post date etc */
+.postdetails		{ font-size : 10px; color : #000000; }
+
+/* The content of the posts (body of text) */
+.postbody { font-size : 12px; line-height: 18px}
+a.postlink:link	{ text-decoration: none; color : #006699 }
+a.postlink:visited { text-decoration: none; color : #5493B4; }
+a.postlink:hover { text-decoration: underline; color : #DD6900}
+
+/* Quote & Code blocks */
+.code {
+	font-family: Courier, 'Courier New', sans-serif; font-size: 11px; color: #006600;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+.quote {
+	font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #444444; line-height: 125%;
+	background-color: #FAFAFA; border: #D1D7DC; border-style: solid;
+	border-left-width: 1px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px
+}
+
+/* Copyright and bottom info */
+.copyright		{ font-size: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; color: #444444; letter-spacing: -1px;}
+a.copyright		{ color: #444444; text-decoration: none;}
+a.copyright:hover { color: #000000; text-decoration: underline;}
+
+/* Form elements */
+input,textarea, select {
+	color : #000000;
+	font: normal 11px Verdana, Arial, Helvetica, sans-serif;
+	border-color : #000000;
+}
+
+/* The text input fields background colour */
+input.post, textarea.post, select {
+	background-color : #FFFFFF;
+}
+
+input { text-indent : 2px; }
+
+/* The buttons used for bbCode styling in message post */
+input.button {
+	background-color : #EFEFEF;
+	color : #000000;
+	font-size: 11px; font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* The main submit button option */
+input.mainoption {
+	background-color : #FAFAFA;
+	font-weight : bold;
+}
+
+/* None-bold submit button */
+input.liteoption {
+	background-color : #FAFAFA;
+	font-weight : normal;
+}
+
+/* This is the line in the posting page which shows the rollover
+  help line. This is actually a text box, but if set to be the same
+  colour as the background no one will know ;)
+*/
+.helpline { background-color: #DEE3E7; border-style: none; }
+
+/* Import the fancy styles for IE only (NS4.x doesn't use the @import function) */
+@import url("templates/subSilver/formIE.css");
+-->
+</style>
+</head>
+<body bgcolor="#E5E5E5" link="#006699" text="#000000" vlink="#5493B4">
+
+<a name="top"></a>
+
+<table border="0" cellpadding="10" cellspacing="0" width="100%" align="center">
+	<tbody><tr>
+		<td class="bodyline"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/index.php"><img src="Battery_Hardware_Communication-Dateien/logo_phpBB.gif" alt="forums.ps2dev.org Forum Index" border="0" vspace="1"></a></td>
+				<td valign="middle" width="100%" align="center"><span class="maintitle">forums.ps2dev.org</span><br><span class="gen">Homebrew PS2, PSP &amp; PS3 Development Discussions<br>&nbsp; </span>
+				<table border="0" cellpadding="2" cellspacing="0">
+					<tbody><tr>
+						<td nowrap="nowrap" valign="top" align="center"><span class="mainmenu">&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/faq.php" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_faq.gif" alt="FAQ" border="0" width="12" height="13" hspace="3">FAQ</a>&nbsp; &nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/search.php" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_search.gif" alt="Search" border="0" width="12" height="13" hspace="3">Search</a>&nbsp; &nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/memberlist.php" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_members.gif" alt="Memberlist" border="0" width="12" height="13" hspace="3">Memberlist</a>&nbsp; &nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/groupcp.php" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_groups.gif" alt="Usergroups" border="0" width="12" height="13" hspace="3">Usergroups</a>&nbsp;
+						&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=register" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_register.gif" alt="Register" border="0" width="12" height="13" hspace="3">Register</a>&nbsp;
+						</span></td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" valign="top" height="25" align="center"><span class="mainmenu">&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=editprofile" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_profile.gif" alt="Profile" border="0" width="12" height="13" hspace="3">Profile</a>&nbsp; &nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?folder=inbox" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_message.gif" alt="Log in to check your private messages" border="0" width="12" height="13" hspace="3">Log in to check your private messages</a>&nbsp; &nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/login.php" class="mainmenu"><img src="Battery_Hardware_Communication-Dateien/icon_mini_login.gif" alt="Log in" border="0" width="12" height="13" hspace="3">Log in</a>&nbsp;</span></td>
+					</tr>
+				</tbody></table></td>
+			</tr>
+		</tbody></table>
+
+		<br>
+
+
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+  <tbody><tr>
+	<td colspan="2" valign="bottom" align="left"><a class="maintitle" href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;start=60&amp;postdays=0&amp;postorder=asc&amp;highlight=">Service mode by power supply pins?</a><br>
+	  <span class="gensmall"><b>Goto page  <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=30">Previous</a>&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=0">1</a>, <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=30">2</a>, <b>3</b></b><br>
+	  &nbsp; </span></td>
+  </tr>
+</tbody></table>
+
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+  <tbody><tr>
+	<td nowrap="nowrap" valign="bottom" align="left"><span class="nav"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=newtopic&amp;f=14"><img src="Battery_Hardware_Communication-Dateien/post.gif" alt="Post new topic" border="0" align="middle"></a>&nbsp;&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=reply&amp;t=3917"><img src="Battery_Hardware_Communication-Dateien/reply.gif" alt="Reply to topic" border="0" align="middle"></a></span></td>
+	<td valign="middle" width="100%" align="left"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/index.php" class="nav">forums.ps2dev.org Forum Index</a>
+	  -&gt; <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=14" class="nav">PSP Development</a></span></td>
+  </tr>
+</tbody></table>
+
+<table class="forumline" border="0" cellpadding="3" cellspacing="1" width="100%">
+	<tbody><tr align="right">
+		<td class="catHead" colspan="2" height="28"><span class="nav"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;view=previous" class="nav">View previous topic</a> :: <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;view=next" class="nav">View next topic</a> &nbsp;</span></td>
+	</tr>
+	
+	<tr>
+		<th class="thLeft" nowrap="nowrap" width="150" height="26">Author</th>
+		<th class="thRight" nowrap="nowrap">Message</th>
+	</tr>
+	<tr>
+		<td class="row1" valign="top" width="150" align="left"><span class="name"><a name="57319"></a><b>groepaz</b></span><br><span class="postdetails"><br><img src="Battery_Hardware_Communication-Dateien/pic.gif" alt="" border="0"><br><br>Joined: 01 Sep 2005<br>Posts: 305<br></span><br></td>
+		<td class="row1" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57319#57319"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Wed Aug 29, 2007 12:49 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57319"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">haha :)<br>_________________<br><a href="http://www.hitmen-console.org/" target="_blank">http://www.hitmen-console.org</a>
+<br>
+<a href="http://hitmen.c02.at/files/yapspd/" target="_blank">http://hitmen.c02.at/files/yapspd/</a></span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row1" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=3672"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=3672"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>  <a href="http://www.hitmen-console.org/" target="_userwww"><img src="Battery_Hardware_Communication-Dateien/icon_www.gif" alt="Visit poster's website" title="Visit poster's website" border="0"></a>   <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="top" width="150" align="left"><span class="name"><a name="57320"></a><b>jimparis</b></span><br><span class="postdetails"><br><br><br>Joined: 10 Jun 2005<br>Posts: 1180<br>Location: Boston</span><br></td>
+		<td class="row2" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57320#57320"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Wed Aug 29, 2007 1:04 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57320"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Of course the real secret is 
+how the pre-IPL code was first dumped and how the custom MS IPL was 
+signed, but I'm not sure of all the details at the moment :)  With 
+moonlight's custom IPL example posted here though, you can dump the 
+pre-IPL easily, and run unsigned code at IPL time.</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row2" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=2324"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=2324"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="top" width="150" align="left"><span class="name"><a name="57325"></a><b>Art</b></span><br><span class="postdetails"><br><br><br>Joined: 09 Nov 2005<br>Posts: 652<br></span><br></td>
+		<td class="row1" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57325#57325"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Wed Aug 29, 2007 2:22 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57325"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">So there IS a battery firmware serial matchng that on the outside printed
+<br>
+label?
+<br>
+Well aren't I the moron. (see post above).
+<br>
+Art.</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row1" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=4413"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=4413"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="top" width="150" align="left"><span class="name"><a name="57634"></a><b>nem</b></span><br><span class="postdetails"><br><br><br>Joined: 13 Jan 2005<br>Posts: 73<br></span><br></td>
+		<td class="row2" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57634#57634"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Thu Sep 06, 2007 1:10 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57634"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Long time passed after I appeared the scene.  
+<br>
+Here is how I find to get into service mode.  Pretty long. ;)  
+<br>
+
+<br>
+There was a rumor that battery may be involved to service mode, so 
+firstly I examined battery communication.  Text below was written long 
+time ago and includes some obsolete descriptions.  
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">Battery communication reversed</span>
+<br>
+
+<br>
+I used a microcontroller to sniff communications between PSP and battery.  
+<br>
+
+<br>
+<span style="text-decoration: underline">Electrical</span>
+<br>
+Not much investigated. 
+<br>
+One-wire time-divided bi-directional serial.  
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Data format and protocol</span>
+<br>
+Asynchronous serial communication.  19200bps, NRZ, LSB-first, 8 bit data, even parity, 1 stop bit. 
+<br>
+Always initiated by PSP and battery replys.  Break signal is issued by 
+PSP as start-up of communication.  Packet format is same in both 
+direction. 
+<br>
+
+<br>
+Variable sized packet formatted as; 
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">start mark&nbsp; &nbsp; &nbsp;(1)&nbsp; &nbsp; 0x5a:psp-&gt;battery&nbsp; 0xa5:battery-&gt;psp 
+<br>
+packet size&nbsp; &nbsp; (1)&nbsp; &nbsp; bytesize of packet excluding start mark and packet size 
+<br>
+type&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(1)&nbsp; &nbsp; packet type 
+<br>
+data&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(*)&nbsp; &nbsp; optional 
+<br>
+bcc&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (1)&nbsp; &nbsp; sum of all octet in packet to be 0xFF, from start mark to bcc </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Packet type and meanings, reply format</span>
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">type&nbsp; description&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data&nbsp; &nbsp; reply from battery&nbsp; &nbsp;remark 
+<br>
+0x01&nbsp; request status&nbsp; &nbsp; &nbsp; &nbsp;none&nbsp; &nbsp; unknown_flag:u8&nbsp; &nbsp; &nbsp; 
+<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp;energyleft_mAh:u16&nbsp; &nbsp;
+<br>
+0x02&nbsp; request temperature&nbsp; none&nbsp; &nbsp; 
+temperature:u8&nbsp; &nbsp; &nbsp; &nbsp;cercius degree, min/max value 
+unknown 
+<br>
+0x03&nbsp; request voltage&nbsp; &nbsp; &nbsp; none&nbsp; &nbsp; voltage_mV:u16&nbsp; &nbsp; &nbsp; &nbsp;
+<br>
+0x04&nbsp; request current&nbsp; &nbsp; &nbsp; none&nbsp; &nbsp; 
+current_mA:short&nbsp; &nbsp; &nbsp;positive if charging battery 
+<br>
+0x07&nbsp; request capacity&nbsp; &nbsp; &nbsp;none&nbsp; &nbsp; capacity_mAh:u16 
+<br>
+0x09&nbsp; request timeleft&nbsp; &nbsp; &nbsp;none&nbsp; &nbsp; timeleft_min:u16&nbsp; &nbsp; &nbsp;XMB showing not this value 
+<br>
+0x0c&nbsp; request serialno&nbsp; &nbsp; &nbsp;none&nbsp; &nbsp; serialno:u32&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;suspected
+<br>
+0x80&nbsp; request auth?&nbsp; &nbsp; &nbsp; &nbsp; 9byte&nbsp; 
+&nbsp;16byte&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp;encrypted data/reply 
+<br>
+0x81&nbsp; request auth?&nbsp; &nbsp; &nbsp; &nbsp; 8byte&nbsp; 
+&nbsp;8byte&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+encrypted data/reply </td>	</tr></tbody></table><span class="postbody">
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">type&nbsp; description&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data&nbsp; &nbsp; remark 
+<br>
+0x05&nbsp; reply from battery&nbsp; &nbsp;none&nbsp; &nbsp; NAK, BCC error and so on??
+<br>
+0x06&nbsp; reply from battery&nbsp; &nbsp;*&nbsp; &nbsp; &nbsp; &nbsp;ACK, with reply data </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+unknown_flag may involve in/out currents.  Note that the value is not 
+consistent with this guess when battery is full charged, PSP power off 
+and DC connected, so there would be other meanings. 
+<br>
+Type 0x80/0x81 for battery authentication?? 
+<br>
+First byte of data of type 0x80 request is 0x00, others are random-looking. 
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Typical sequences</span>
+<br>
+When battery placed : 01, 0C, 80, 81, 01, 80, 81 
+<br>
+Every 30 seconds with DC in : 01, 80, 81 
+<br>
+Every 30 seconds without DC in : 01, 0C, 80, 81 
+<br>
+Cold start : 01, 07, 09, 02, 04, 03, 01 
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Which to craft?</span>
+<br>
+Possible candidate at this time:
+<br>
+
+<br>
+reply to type 01 : non-usual value 
+<br>
+reply to type 0C : some special region of value 
+<br>
+reply to type 80 : need to know about encryption 
+<br>
+reply to type 81 : need to know about encryption 
+<br>
+others : non-usual value 
+<br>
+
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">Faking the communication</span>
+<br>
+
+<br>
+Added some circuit to fake battery communication.  Original battery is 
+needed because authentication algorithm is unknown.  I interrupted the 
+serial line and changed specific text.  For some third party make 
+unlicensed battery, the algorithm would be already cracked by someone, 
+or not;).  
+<br>
+
+<br>
+<span style="text-decoration: underline">Authentication</span>
+<br>
+Authentication is still unknown.  Here is some specimen of chosen text request.  
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">Text 0x80 data part : reply from battery 
+<br>
+00 00 00 00 00 00 00 00 00 : A5 12 06 31 A9 81 78 95 41 0C 63 4A 0F 0D B4 30 99 B0 26 71 
+<br>
+00 00 00 00 00 00 00 00 01 : A5 12 06 A7 AA C2 5F E1 ED 17 3E 7E 4F 9B 7D D7 E1 6F 1A 87 
+<br>
+00 00 00 00 00 00 00 00 02 : A5 12 06 F6 08 B1 51 5B 88 7D CF 86 C2 47 A7 1F 31 64 14 15 
+<br>
+00 00 00 00 00 00 00 00 03 : A5 12 06 11 2C 35 79 D3 E8 6E A5 31 42 DB 00 A2 5E 00 9E 9D 
+<br>
+00 00 00 00 00 00 00 00 04 : A5 12 06 C4 C8 8D FE B9 3E D3 3A 42 EA 8F 55 2E 0A F8 0F D8 
+<br>
+00 00 00 00 00 00 00 00 05 : A5 12 06 90 A3 50 6D 67 71 3F B8 FB 49 E1 C6 BD B6 AD EC 8C 
+<br>
+00 00 00 00 00 00 00 00 06 : A5 12 06 5A 57 BE 60 CD 95 07 83 01 6F 2D CA F0 10 05 80 9B 
+<br>
+00 00 00 00 00 00 00 00 07 : A5 12 06 A4 A9 A6 6F 01 5D 91 A3 37 C0 8A 07 B1 93 4B 5B DC 
+<br>
+00 00 00 00 00 00 00 00 08 : A5 12 06 18 F3 46 6E C6 3C D2 58 A5 D8 DE B0 CD AA F3 6C 76 
+<br>
+00 00 00 00 00 00 00 00 09 : A5 12 06 75 C3 88 58 0C 23 C8 8B 2F 5A 46 EF C9 17 3D A8 25 
+<br>
+00 00 00 00 00 00 00 00 0A : A5 12 06 BD 40 B2 CA 77 AA 15 14 35 09 D3 A3 FB 2C 39 98 D3 
+<br>
+00 00 00 00 00 00 00 00 0B : A5 12 06 0B 51 80 3E 2F 0E 07 87 B2 6B 54 B4 2E BC 26 EC 3C 
+<br>
+00 00 00 00 00 00 00 00 0C : A5 12 06 A9 7A A7 44 19 61 07 4F BD 86 A3 BD A3 57 86 E2 5F 
+<br>
+00 00 00 00 00 00 00 00 0D : A5 12 06 3E 46 97 E2 4D DE 5C D0 2D 51 7A E6 01 27 E6 06 FC 
+<br>
+00 00 00 00 00 00 00 00 0E : A5 12 06 9B DB 06 3D 89 56 89 99 AC E1 90 B5 61 E1 B5 90 2F 
+<br>
+00 00 00 00 00 00 00 00 0F : A5 12 06 10 D1 2E FD 71 30 22 72 B0 57 18 A5 00 8C 27 21 69 </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Emergency shutdown?</span>
+<br>
+Reply from battery for 0x01 text with first byte of data part having 
+0x40 bit(bit6) set will cause immidiate shutdown of PSP.  The bit would 
+mean critical failure of the battery, or something like that I guess.  
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Special battery serial number to force behavior of PSP</span>
+<br>
+Trying some text faked and I found the way to service mode.  
+<br>
+Serial number request is text type 0x0c and battery will reply by text 
+0x06 with 4 byte serial number.  Faking serial number would cause 
+special behavior of PSP.  At this time I needed a hardware to rewrite 
+serial number reply text.  
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">type&nbsp; description&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data&nbsp; &nbsp; reply from battery
+<br>
+0x0c&nbsp; request serialno&nbsp; &nbsp; &nbsp;none&nbsp; &nbsp; serialno:u32&nbsp; &nbsp; &nbsp; </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+Serial number 0x00000000 will force PSP to power on with normal mode when placing the battery.  
+<br>
+Serial number 0xffffffff will force PSP to power on with service mode when placing the battery.  
+<br>
+
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">Investigate circuit board inside the battery</span>
+<br>
+
+<br>
+There are at least two types of circuit board inside PSP battery module.
+  I have not investigated new styled battery module which have smaller 
+circuit board.  Both have same model number, PSP-110, but seems to have 
+different part code and serial number format on the label.  On bottom 
+right of the label, '2-177-077-01' would be old styled, 'CGA-4B101A' 
+would be new styled.  
+<br>
+
+<br>
+Old-style circuit board within battery have 2048-bit serial EEPROM, 
+organized as 16bit data x 7bit address.  S93C56, indicated as IC04.  It 
+is 8 pin SOP with pin configuration 'GR'.  
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">Pin assign of IC04
+<br>
+1&nbsp; CS&nbsp; &nbsp; Chip select, active high
+<br>
+2&nbsp; SK&nbsp; &nbsp; Serial data clock, DIN latched at positive edge, DOUT changes on positive edge
+<br>
+3&nbsp; DIN&nbsp; &nbsp;Serial data in
+<br>
+4&nbsp; DOUT&nbsp; Serial data out
+<br>
+5&nbsp; GND&nbsp; &nbsp;Ground
+<br>
+6&nbsp; NC&nbsp; &nbsp; Not connected
+<br>
+7&nbsp; NC&nbsp; &nbsp; Not connected
+<br>
+8&nbsp; Vcc&nbsp; &nbsp;Power (2.5V??)&nbsp; &nbsp;</td>	</tr></tbody></table><span class="postbody">
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">DIN/DOUT connection
+<br>
+&nbsp;IC05(pull-up inside??) --- DIN(3pin) --- 10kohm(R21) -- DOUT(4pin)&nbsp; </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+I looked into how this EEPROM is accessed while placed on PSP, and found
+ this EEPROM is the storage of serial number, which is accessed just 
+before replying serial number request from PSP.  Word(16bit) address 
+0x07 reads lower half with MSB first, address 0x09 reads upper half.  
+Address value is something weird but I have no idea for that.  I have 
+not observed other address/data access while my brief analysis.  
+<br>
+
+<br>
+Next I peeled off the EEPROM and dumped it to confirm serial number is actually in it.  
+<br>
+
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">Modifying battery circuit board to make 'service mode battery'</span>
+<br>
+
+<br>
+I found another way which does not need special hardware.  It can be 
+done by modifying circuit board inside battery.  There would be some 
+risk, so I recommend this method is for emergency use only.  Rewriting 
+the responsible data for serial number inside the EEPROM is the best 
+way.  
+<br>
+
+<br>
+The idea to make 'service mode battery' is to force serial number as 
+0xffffffff.  For DIN/DOUT seems to be pulled-up, all you need to do is 
+just cut DOUT.  I made IC04-4pin floated from the circuit board and 
+confirmed the battery works as 'service mode battery'.  Note that the 
+chip is always powered and pins are hot, be careful while doing 
+attempts.  
+<br>
+
+<br>
+This method is just a hack and may cause battery brick or malfunction 
+including overcharge in specific condition.  The EEPROM have other 
+information like total capacity which would be read on some time.  
+<br>
+
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">Service mode is within 'software land'</span>
+<br>
+
+<br>
+I looked into sceSyscon_driver functions and found API to read/write 
+EEPROM inside the battery which stores serial number.  Both old-styled 
+and new-styled battery is supported by this.  
+<br>
+
+<br>
+<span style="text-decoration: underline">sceSyscon_driver stub</span>
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&nbsp; &nbsp;STUB_START&nbsp; &nbsp;"sceSyscon_driver",0x00010000,0x00020005
+<br>
+&nbsp; &nbsp;STUB_FUNC&nbsp; &nbsp;0x1165C864,sceSyscon_driver_1165C864
+<br>
+&nbsp; &nbsp;STUB_FUNC&nbsp; &nbsp;0x68EF0BEF,sceSyscon_driver_68EF0BEF
+<br>
+&nbsp; &nbsp;STUB_END </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">C prototype</span>
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">// text 0x13 - write battery EEPROM
+<br>
+// addr:00..7f&nbsp; data:0000..ffff
+<br>
+// return error code
+<br>
+u32 sceSyscon_driver_1165C864(u8 addr, u16 data);
+<br>
+
+<br>
+// text 0x14 - read battery EEPROM
+<br>
+// addr:00..7f&nbsp; 
+<br>
+// return error code or data(0000xxxx)
+<br>
+//&nbsp; &nbsp;0x802500b8 : battery not in place
+<br>
+u32 sceSyscon_driver_68EF0BEF(u8 addr); </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Read EEPROM</span>
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">// battery EEPROM : 16bit data x 7bit address 
+<br>
+u16 eepromdump[0x80];
+<br>
+
+<br>
+&nbsp; &nbsp;// read entire EEPROM.&nbsp; store it somewhere to backup. 
+<br>
+&nbsp; &nbsp;u32 address, data;
+<br>
+&nbsp; &nbsp;for (address=0; address&lt;0x80; i++) {
+<br>
+&nbsp; &nbsp;&nbsp; &nbsp;data=sceSyscon_driver_68EF0BEF(address);
+<br>
+&nbsp; &nbsp;&nbsp; &nbsp;if (data &amp; 0xffff0000) fatalerror();
+<br>
+&nbsp; &nbsp;&nbsp; &nbsp;eepromdump[address]=data;
+<br>
+&nbsp; &nbsp;}
+<br>
+&nbsp; &nbsp;writetofile(eepromdump); </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+
+<br>
+<span style="text-decoration: underline">Patch battery EEPROM </span>
+<br>
+</span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>Code:</b></span></td>	</tr>	<tr>	  <td class="code">&nbsp; &nbsp;// overwrite serial number to 0xffffffff to make service mode battery 
+<br>
+&nbsp; &nbsp;// serial number is stored at address 0x07 and address 0x09 
+<br>
+&nbsp; &nbsp;r=sceSyscon_driver_1165C864(0x07, 0xffff);&nbsp; &nbsp;// lower 16bit
+<br>
+&nbsp; &nbsp;if (r) fatalerror();
+<br>
+&nbsp; &nbsp;r=sceSyscon_driver_1165C864(0x09, 0xffff);&nbsp; &nbsp;// upper 16bit
+<br>
+&nbsp; &nbsp;if (r) fatalerror(); </td>	</tr></tbody></table><span class="postbody">
+<br>
+
+<br>
+Note that battery EEPROM can also be read/written by hardware direct 
+serial communication to battery.  Actually I used this method before I 
+found the functions.  Text 0x13 is for writing, text 0x14 is for reading
+ battery EEPROM.  This will require some hardware though.  
+<br>
+
+<br>
+
+<br>
+
+<br>
+<span style="font-weight: bold">The box opened</span>
+<br>
+
+<br>
+Bit4 of 0xbe240004 is affected by the special serial number 0xffffffff, 
+and this is the trigger to service mode.  I do not know yet how this 
+work like this.  
+<br>
+
+<br>
+By this time I made up a method to bypass IPL block 
+decryption/authentication and to run plaintext mips code, that is first 
+0xb0 bytes of the block.  With enormous efforts of the Prometheus 
+members, Pandora is out now.  
+<br>
+
+<br>
+'Forging IPL block' is another long story, may be told sometime somewhere.</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row2" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=868"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=868"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>  <a href="http://sec.pn.to/" target="_userwww"><img src="Battery_Hardware_Communication-Dateien/icon_www.gif" alt="Visit poster's website" title="Visit poster's website" border="0"></a>   <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="top" width="150" align="left"><span class="name"><a name="57642"></a><b>danzel</b></span><br><span class="postdetails"><br><br><br>Joined: 04 Nov 2005<br>Posts: 182<br></span><br></td>
+		<td class="row1" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57642#57642"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Thu Sep 06, 2007 7:02 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57642"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Awesome stuff nem, always interesting to see the process :-)
+<br>
+I'm eagerly awaiting further stories down the IPL path.</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row1" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=4376"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=4376"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="top" width="150" align="left"><span class="name"><a name="57654"></a><b>Hellcat</b></span><br><span class="postdetails"><br><br><br>Joined: 24 Jan 2007<br>Posts: 84<br></span><br></td>
+		<td class="row2" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57654#57654"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Thu Sep 06, 2007 5:08 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57654"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody"></span><table border="0" cellpadding="3" cellspacing="1" width="90%" align="center"><tbody><tr> 	  <td><span class="genmed"><b>danzel wrote:</b></span></td>	</tr>	<tr>	  <td class="quote">I'm eagerly awaiting further stories down the IPL path.</td>	</tr></tbody></table><span class="postbody">
+<br>
+Awsome read, ineed!
+<br>
+
+<br>
+I'd have much interest in more IPL stories and info :)</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row2" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=8496"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=8496"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="top" width="150" align="left"><span class="name"><a name="57921"></a><b>memturbo</b></span><br><span class="postdetails"><br><br><br>Joined: 11 Sep 2007<br>Posts: 2<br></span><br></td>
+		<td class="row1" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57921#57921"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Tue Sep 11, 2007 11:50 pm<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57921"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">Could you tell us where to cut the DOUT I cant seem to find it on the board
+<br>
+
+<br>
+Thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row1" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=10560"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=10560"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="top" width="150" align="left"><span class="name"><a name="57933"></a><b>memturbo</b></span><br><span class="postdetails"><br><br><br>Joined: 11 Sep 2007<br>Posts: 2<br></span><br></td>
+		<td class="row2" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=57933#57933"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Wed Sep 12, 2007 5:54 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: </span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=57933"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">I found it and it worked great
+<br>
+used it on my 3.52 and downgraded just fine thanks</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row2" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row2" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=10560"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=10560"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="top" width="150" align="left"><span class="name"><a name="68941"></a><b>Kreationz</b></span><br><span class="postdetails"><br><br><br>Joined: 18 May 2008<br>Posts: 54<br></span><br></td>
+		<td class="row1" valign="top" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td width="100%"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?p=68941#68941"><img src="Battery_Hardware_Communication-Dateien/icon_minipost.gif" alt="Post" title="Post" border="0" width="12" height="9"></a><span class="postdetails">Posted: Sun May 18, 2008 11:07 am<span class="gen">&nbsp;</span>&nbsp; &nbsp;Post subject: DOUT Pin on the small board</span></td>
+				<td nowrap="nowrap" valign="top"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=quote&amp;p=68941"><img src="Battery_Hardware_Communication-Dateien/icon_quote.gif" alt="Reply with quote" title="Reply with quote" border="0"></a>   </td>
+			</tr>
+			<tr>
+				<td colspan="2"><hr></td>
+			</tr>
+			<tr>
+				<td colspan="2"><span class="postbody">My battery is the type on the
+ 2nd page. The one with chip 780102h. Where is the DOUT pin located for 
+that style of board? I'm a noob where electronics are concerned, but all
+ I need is chip and pin number and I can get it from there. My skills 
+lie in programming. Any help is greatly appreciated.</span><span class="gensmall"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="row1" valign="middle" width="150" align="left"><span class="nav"><a href="#top" class="nav">Back to top</a></span></td>
+		<td class="row1" nowrap="nowrap" valign="bottom" width="100%" height="28"><table border="0" cellpadding="0" cellspacing="0" width="18" height="18">
+			<tbody><tr>
+				<td nowrap="nowrap" valign="middle"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/profile.php?mode=viewprofile&amp;u=12106"><img src="Battery_Hardware_Communication-Dateien/icon_profile.gif" alt="View user's profile" title="View user's profile" border="0"></a> <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/privmsg.php?mode=post&amp;u=12106"><img src="Battery_Hardware_Communication-Dateien/icon_pm.gif" alt="Send private message" title="Send private message" border="0"></a>     <script language="JavaScript" type="text/javascript"><!--
+
+	if ( navigator.userAgent.toLowerCase().indexOf('mozilla') != -1 && navigator.userAgent.indexOf('5.') == -1 && navigator.userAgent.indexOf('6.') == -1 )
+		document.write(' ');
+	else
+		document.write('</td><td>&nbsp;</td><td valign="top" nowrap="nowrap"><div style="position:relative"><div style="position:absolute"></div><div style="position:absolute;left:3px;top:-1px"></div></div>');
+
+				//--></script><noscript></noscript></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+	<tr>
+		<td class="spaceRow" colspan="2" height="1"><img src="Battery_Hardware_Communication-Dateien/spacer.gif" alt="" width="1" height="1"></td>
+	</tr>
+	<tr align="center">
+		<td class="catBottom" colspan="2" height="28"><table border="0" cellpadding="0" cellspacing="0">
+			<tbody><tr><form method="post" action="viewtopic.php?t=3917&amp;start=60"></form>
+				<td align="center"><span class="gensmall">Display posts from previous: <select name="postdays"><option value="0" selected="selected">All Posts</option><option value="1">1 Day</option><option value="7">7 Days</option><option value="14">2 Weeks</option><option value="30">1 Month</option><option value="90">3 Months</option><option value="180">6 Months</option><option value="364">1 Year</option></select>&nbsp;<select name="postorder"><option value="asc" selected="selected">Oldest First</option><option value="desc">Newest First</option></select>&nbsp;<input value="Go" class="liteoption" name="submit" type="submit"></span></td>
+			</tr>
+		</tbody></table></td>
+	</tr>
+</tbody></table>
+
+<table border="0" cellpadding="2" cellspacing="2" width="100%" align="center">
+  <tbody><tr>
+	<td nowrap="nowrap" valign="middle" align="left"><span class="nav"><a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=newtopic&amp;f=14"><img src="Battery_Hardware_Communication-Dateien/post.gif" alt="Post new topic" border="0" align="middle"></a>&nbsp;&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/posting.php?mode=reply&amp;t=3917"><img src="Battery_Hardware_Communication-Dateien/reply.gif" alt="Reply to topic" border="0" align="middle"></a></span></td>
+	<td valign="middle" width="100%" align="left"><span class="nav">&nbsp;&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/index.php" class="nav">forums.ps2dev.org Forum Index</a>
+	  -&gt; <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewforum.php?f=14" class="nav">PSP Development</a></span></td>
+	<td nowrap="nowrap" valign="top" align="right"><span class="gensmall">All times are GMT + 10 Hours</span><br><span class="nav">Goto page  <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=30">Previous</a>&nbsp;&nbsp;<a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=0">1</a>, <a href="file:///D:/Benutzer/Felix/Programming/Hacking/Consoles/PSP/Programming/pages/viewtopic.php?t=3917&amp;postdays=0&amp;postorder=asc&amp;start=30">2</a>, <b>3</b></span>
+	  </td>
+  </tr>
+  <tr>
+	<td colspan="3" align="left"><span class="nav">Page <b>3</b> of <b>3</b></span></td>
+  </tr>
+</tbody></table>
+
+<table border="0" cellspacing="2" width="100%" align="center">
+  <tbody><tr>
+	<td nowrap="nowrap" valign="top" width="40%" align="left"><span class="gensmall"></span><br>
+	  &nbsp;<br>
+	  </td>
+	<td nowrap="nowrap" valign="top" align="right">
+<form method="get" name="jumpbox" action="viewforum.php" onsubmit="if(document.jumpbox.f.value == -1){return false;}"><table border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }"><option value="-1">Select a forum</option><option value="-1">&nbsp;</option><option value="-1">Forum Administration</option><option value="-1">----------------</option><option value="2">Announcements</option><option value="31">Patch Submissions</option><option value="1">General Discussion</option><option value="22">Help Wanted Requests</option><option value="16">The Incredible Hall Of Shame</option><option value="-1">&nbsp;</option><option value="-1">Development Forums</option><option value="-1">----------------</option><option value="32">PS1 Development</option><option value="11">PS2 Development</option><option value="25">PS3 Development</option><option value="27">PS3 Linux Development</option><option value="14" selected="selected">PSP Development</option><option value="21">PSP Lua Player Development</option><option value="28">Other Development</option><option value="-1">&nbsp;</option><option value="-1">Project Forums</option><option value="-1">----------------</option><option value="29">spu-medialib</option></select><input name="sid" value="690aa0edc6c16cdda85f8574b6fd70c2" type="hidden">&nbsp;<input value="Go" class="liteoption" type="submit"></span></td>
+	</tr>
+</tbody></table></form>
+
+<span class="gensmall">You <b>cannot</b> post new topics in this forum<br>You <b>cannot</b> reply to topics in this forum<br>You <b>cannot</b> edit your posts in this forum<br>You <b>cannot</b> delete your posts in this forum<br>You <b>cannot</b> vote in polls in this forum<br></span></td>
+  </tr>
+</tbody></table>
+
+
+<div align="center"><span class="copyright"><br><br>
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB 2.0. If you cannot (for good
+	reason) retain the full copyright we request you at least leave in place the
+	Powered by phpBB line, with phpBB linked to www.phpbb.com. If you refuse
+	to include even this then support on our forums may be affected.
+
+	The phpBB Group : 2002
+// -->
+Powered by <a href="http://www.phpbb.com/" target="_phpbb" class="copyright">phpBB</a> © 2001, 2005 phpBB Group<br></span></div>
+		</td>
+	</tr>
+</tbody></table>
+
+
+
+
+</body></html>

@@ -1,0 +1,1220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="keywords" content=" general psp q's, " />
+	<meta name="description" content="[Archive]  general psp q's Sony PlayStation Portable" />
+	
+	<title> general psp q's [Archive]  - LAN.ST</title>
+	<link rel="stylesheet" type="text/css" href="http://lan.st/archive/archive.css" />
+</head>
+<body>
+<div class="pagebody">
+<div id="navbar"><a href="http://lan.st/archive/index.php">LAN.ST</a> &gt; <a href="http://lan.st/archive/index.php/f-83.html">Console Hacking &amp; Development</a> &gt; <a href="http://lan.st/archive/index.php/f-43.html">Sony PlayStation Portable</a> &gt;  general psp q's</div>
+<hr />
+<div class="pda"><a href="http://lan.st/archive/index.php/t-3013.html?pda=1" rel="nofollow">PDA</a></div>
+<p class="largefont">View Full Version : <a href="http://lan.st/showthread.php?t=3013">general psp q's</a></p>
+<hr />
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-20-2010, 11:01 PM</div></div><div class="posttext">hello~<br />
+ ive been around psp's for a while and im getting interested with homebrew apps on them (i have a 3001). anywho, im a pretty decent delphi/pascal coder but i haven't ever used C, and it appears that's the only language that works on psp's right?  just to clear things up, psp's will run foreign code fine it just wont launch it, that's why you run homebrew through legit psp games with exploits right?, and the reason we cant run homebrew is because our homebrew isn't kirk-signed right. (kirk is...? hardware? what?)<br />
+now, game/buffer overflow exploits are usermode, how would i go about finding kernel exploits, how would i even start to look for them? one last question, how did Pandora's battery put psp's into service mode, and how the hell did he come up with that idea? (do psp 3000's even have a service mode? or is it gone completely?)<br />
+<br />
+:D</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Some1</div><div class="date">05-20-2010, 11:20 PM</div></div><div class="posttext">Kirk is hardware.  Kernel exploits are exploits found in the vsh, they will most likely be found in formats such as mp3, tiff, png, mp4 ect.  Pandora battery's were originally created by Sony, they used it as a shortcut to reflash and bricked psp, I'm not sure how hackers cracked it, but its in a vid somewhere on this forum, and no service mode didnt' disapear on the 3k or the GO, sony just change the ipl and pre-ipl so our magic memory sticks won't work...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-21-2010, 12:22 AM</div></div><div class="posttext">and we cant dump the pre-ipl why?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Mathieulh</div><div class="date">05-21-2010, 12:24 AM</div></div><div class="posttext">Kirk is hardware.  Kernel exploits are exploits found in the vsh, they will most likely be found in formats such as mp3, tiff, png, mp4 ect.  Pandora battery's were originally created by Sony, they used it as a shortcut to reflash and bricked psp, I'm not sure how hackers cracked it, but its in a vid somewhere on this forum, and no service mode didnt' disapear on the 3k or the GO, sony just change the ipl and pre-ipl so our magic memory sticks won't work...<br />
+<br />
+Err... Kernel exploits are found... in the kernel.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Some1</div><div class="date">05-21-2010, 02:20 AM</div></div><div class="posttext">Err... Kernel exploits are found... in the kernel.<br />
+<br />
+Yes I know but when you are in the vsh you have access to the kernel, so if you find an exploit in the vsh then you have a kernel exploit, right?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">05-21-2010, 09:00 AM</div></div><div class="posttext">and we cant dump the pre-ipl why?<br />
+<br />
+Because by the time we can load code to read it, it's gone and the ram has been reallocated. The preipl *was* dumped using other, more exotic methods (UPNand voodoo magic).<br />
+<br />
+<br />
+<br />
+Err... Kernel exploits are found... in the kernel.<br />
+<br />
+Yes I know but when you are in the vsh you have access to the kernel, so if you find an exploit in the vsh then you have a kernel exploit, right?<br />
+<br />
+The reason VSH exploits are desirable is because they are normally portable media based, this means that users don't have to go out and buy a game in order to execute their exploit, take ChickHEN for example, that utilised a TIFF file exploit and was as simple as placing the image in the appropriate directory along with a binary file in the root of the MS. Also, I think you can take what Mathieulh says as pretty much gospel in these kinds of topics.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">05-21-2010, 10:09 AM</div></div><div class="posttext">one last question, how did Pandora's battery put psp's into service mode, and how the hell did he come up with that idea? (do psp 3000's even have a service mode? or is it gone completely?)<br />
+<br />
+Tyranid's speech at the CCC answers partly to this question:<br />
+http://video.google.com/videoplay?docid=-993960164729227655#<br />
+<br />
+Also any subject involving &quot;nem&quot; on ps2dev.org is likely to have partial answers to this. Here is an explanation by nem himself:<br />
+http://webcache.googleusercontent.com/search?q=cache:XE7yrXR_6rYJ:forums.ps2dev.org/viewtopic.php%3Fp%3D57634+site:forums.ps2dev.org+n em+service+mode&amp;cd=1&amp;hl=en&amp;ct=clnk&amp;gl=us<br />
+<br />
+(Sorry, giving you google's cached version because ps2dev seems to be down a lot recently :( )</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-22-2010, 07:55 AM</div></div><div class="posttext">...., and no service mode didnt' disapear on the 3k or the GO, sony just change the ipl and pre-ipl so our magic memory sticks won't work...<br />
+(i read and watched the links wololo posted,)<br />
+@some1: so service mode still exists we just can't get to it, (right?); sony can, so its gotta be possible. <br />
+<br />
+[thinking out loud]<br />
+<br />
+lets assume sony gets a broken(flash) psp (3001).<br />
+lets also assume sony made it easy to fix (eg. don't need to open it up).<br />
+<br />
+possible ways to access it (IO stuffs):<br />
+1:usb<br />
+2:-wireless<br />
+3:memorystick<br />
+4:-audio/headset plug/video <br />
+5:-power plug<br />
+6:-umd<br />
+7:battory<br />
+<br />
+if the flash is dead so im guessing wireless, UMD, audio/video are out, and you cant really do anything with the power plug.<br />
+okay that leaves us with usb, battery and memstick (who would have guessed?). <br />
+[/thinking out loud]<br />
+<br />
+its pretty safe to say that sony still uses some type of battery to get into service mode right?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">05-22-2010, 09:36 AM</div></div><div class="posttext">I imagine it's a memory stick combined with something else. Don't forget there is also the serial port (where the video out connectors are).<br />
+<br />
+However, even if we can get into service mode we still have the ipl signing issue.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Flyer</div><div class="date">05-22-2010, 10:46 AM</div></div><div class="posttext">i think it's usb+memstick</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">05-22-2010, 04:27 PM</div></div><div class="posttext">If it's USB, then Pre-IPL should have been changed to include a small USB driver -or load it from flash, but since flash may have been wiped out, it makes not much sense-. does the storage for Pre-IPL allow the inclusion of a whole USB driver?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">05-22-2010, 07:08 PM</div></div><div class="posttext">Doesn't necessarily need to be a driver. syscon could just detect a signal on a pin - not necessarily a full usb connection. After all, the pre-ipl for slim and fat don't have any battery reading code - they simply detect something set by syscon.<br />
+<br />
+When that has been done, service mode could probably be completed using a memory stick, similar to what is done with the battery.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">KylBlz</div><div class="date">05-22-2010, 10:26 PM</div></div><div class="posttext">there was a thread on service mode for 3k/go earlier.. he said usb+ms. they ran into trouble with the msid and msipl not matching. however they could have just been a troll..<br />
+<br />
+as far as i know, you can execute c/c++, basic, lua, delphi, python... i think thats it</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-22-2010, 10:35 PM</div></div><div class="posttext">as far as i know, you can execute c/c++, basic, lua, delphi, python... i think thats it<br />
+ you can execute delphi on a psp? (thats great news for me :D) umm, how? there is no delphi-pspsdk.<br />
+[edit]<br />
+okay so i read up about datels lite blue thing and it does indeed put 300x's into service mode you just cant do anything from there. so that kind of answered one of my q's.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">05-23-2010, 02:03 PM</div></div><div class="posttext">Doesn't necessarily need to be a driver. syscon could just detect a signal on a pin<br />
+No, you can't, afaik. USB protocol is way more complicated than a serial transfer. And Syscon has no direct access to USB pins, unlike battery pins.<br />
+<br />
+You can run any programming language on PSP that has a compiler/interpreter for PSP. As with everything else :P</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-23-2010, 04:20 PM</div></div><div class="posttext">so is there a delphi compiler/interpreter for psp as KylBlz suggested?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">05-23-2010, 04:30 PM</div></div><div class="posttext">Doesn't necessarily need to be a driver. syscon could just detect a signal on a pin<br />
+No, you can't, afaik. USB protocol is way more complicated than a serial transfer. And Syscon has no direct access to USB pins, unlike battery pins.<br />
+<br />
+You can run any programming language on PSP that has a compiler/interpreter for PSP. As with everything else :P<br />
+<br />
+Yeah, it's not USB. It'll be through it's special port. No doubt some of the lines are connected to the syscon.<br />
+<br />
+and we cant dump the pre-ipl why?<br />
+<br />
+Because by the time we can load code to read it, it's gone and the ram has been reallocated. The preipl *was* dumped using other, more exotic methods (UPNand voodoo magic).<br />
+<br />
+<br />
+<br />
+Err... Kernel exploits are found... in the kernel.<br />
+<br />
+Yes I know but when you are in the vsh you have access to the kernel, so if you find an exploit in the vsh then you have a kernel exploit, right?<br />
+<br />
+The reason VSH exploits are desirable is because they are normally portable media based, this means that users don't have to go out and buy a game in order to execute their exploit, take ChickHEN for example, that utilised a TIFF file exploit and was as simple as placing the image in the appropriate directory along with a binary file in the root of the MS. Also, I think you can take what Mathieulh says as pretty much gospel in these kinds of topics.<br />
+<br />
+Actually VSH exploits are desirable because of ulevel 4, which means you can access the VSH API.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-23-2010, 10:50 PM</div></div><div class="posttext">just curious, has anyone tried to exploit the file transfer, i would assume you could send malformed packets and get some type of crash from it.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">05-24-2010, 10:57 PM</div></div><div class="posttext">What do you mean by &quot;file transfer&quot;? You mean USB communication? If so, you can try, but I highly doubt you'll found any flaw in there (exploitable, that is).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-24-2010, 11:56 PM</div></div><div class="posttext">filetransfer, as in sending images (files) from one psp to another. (wireless)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">05-25-2010, 01:33 PM</div></div><div class="posttext">That's not a standard option on a PSP. You require homebrew to do so. And why would you like exploiting a homebrew?<br />
+<br />
+If you mean exploitable flaws on the Wifi protocol or TCP/IP stack, well there could be any, although I highly doubt so too.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Some1</div><div class="date">05-25-2010, 01:36 PM</div></div><div class="posttext">That's not a standard option on a PSP. You require homebrew to do so. And why would you like exploiting a homebrew?<br />
+<br />
+If you mean exploitable flaws on the Wifi protocol or TCP/IP stack, well there could be any, although I highly doubt so too.<br />
+<br />
+I think hes talking about the send/receive function in the images folder, on OFW.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">05-25-2010, 09:08 PM</div></div><div class="posttext">I think hes talking about the send/receive function in the images folder, on OFW.<br />
+yes, i thought that was pretty obvious.<br />
+i figure if you somehow send a malformed packet the psp reading it wouldn't know how to handle it and give you a buffer over flow, crash or something</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Some1</div><div class="date">05-25-2010, 11:21 PM</div></div><div class="posttext">yes, i thought that was pretty obvious.<br />
+i figure if you somehow send a malformed packet the psp reading it wouldn't know how to handle it and give you a buffer over flow, crash or something<br />
+<br />
+Did some tests, you can't send a corrupted/unsupported image, and if you receive a corrupted/unsupported image then it won't display it, and if it can't display it you can't exit the image to save it, and if you can't save it then you probably can't do much(so don't try sending chickhen to another psp because it won't work), so I'm not sure if there is much to look at here...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">05-26-2010, 01:32 AM</div></div><div class="posttext">if you're serious about hacking through wireless you should create your own application that sends malformed packets. Sending a malformed image through correct wifi communication will lead nowhere, as you discovered.<br />
+And as far as I know, nobody's looked into that very seriously yet.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">05-26-2010, 01:43 AM</div></div><div class="posttext">Usually those protocol stacks (like CSMA/CA) are extensively tested, and most likely used in other Sony devices. It would be hard finding a flaw there. Same goes for TCP/IP.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">05-26-2010, 06:07 AM</div></div><div class="posttext">Actually VSH exploits are desirable because of ulevel 4, which means you can access the VSH API.<br />
+<br />
+I'm not too clear on what that is, but I was speaking from a user's POV, in that a VSH media exploit is a case of &quot;Download the file, allow the PSP to attempt to parse it, exploit executed, done&quot;, and also the fact that this way, no cost is incurred buying a game, from a developers POV, Extra &quot;stuff&quot; (ulevel4) is more desirable I guess.<br />
+<br />
+Usually those protocol stacks (like CSMA/CA) are extensively tested, and most likely used in other Sony devices. It would be hard finding a flaw there. Same goes for TCP/IP.<br />
+<br />
+I've often wondered how well the PSP handles malformed WiFi data, but as m0skit0 says, all of the protocols associated with online communications appear to be solid :(</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-10-2010, 12:27 AM</div></div><div class="posttext">:/ test test, my posts are vanishing.<br />
+[edit]<br />
+do psp's have running processes (ex, windows has wininet, winlogon, explorer) (that's what .prx's and .elf are right?) if so do we know what they are named (the system ones)?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-10-2010, 03:21 AM</div></div><div class="posttext">do psp's have running processes<br />
+PSP has no processes, but threads, since it doesn't have a MMU.<br />
+<br />
+that's what .prx's and .elf are right?<br />
+You don't have to mix executables (PRXs are ELFs btw) with processes, they're 2 different (but related) things. Executables contain the process image, but also a lot of additional data needed to actually set up the code to be running. So no, ELFs are not processes.<br />
+<br />
+if so do we know what they are named (the system ones)?<br />
+Yes.<br />
+<br />
+Did you ever used PSPLINK from Tyranid? If not I suggest you get used to it because it's the basic PSP hacker/developer tool. Of course that requires a CFW'd PSP.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-10-2010, 04:43 AM</div></div><div class="posttext">stupid me updated my psp so i cant cfw it :/ (well hbl works) so i can't do to much with it really.<br />
+<br />
+&gt;_&gt; the reason i asked is because i had an idea to get kernel access, i don't know c, but i can do it in pascal. (i also don't know what pspsdk api's are limited to, so it may not be possible)<br />
+but it requires knowing a 'process' that the psp needs to run [any kernel level process really]. <br />
+<br />
+*i use the word process loosely because i know psp's don't run like windows i just need to compare it to something.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">pyroesp</div><div class="date">06-10-2010, 10:27 AM</div></div><div class="posttext">@Cracksman: If you have a PSP 1k or 2k, you could use the DD8 to &quot;downgrade&quot; to a CFW</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-10-2010, 11:18 AM</div></div><div class="posttext">@pyroesp, is that was the deal i would have done it already :/</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">pyroesp</div><div class="date">06-10-2010, 01:01 PM</div></div><div class="posttext">I'm interested in your idea. <br />
+I did learn Pascal at school and I know how to program in C (I'm not too bad at it :P).<br />
+<br />
+Maybe I could give you a hand ? (if it isn't too difficult ^^&quot;)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">.Dominoes,</div><div class="date">06-10-2010, 01:23 PM</div></div><div class="posttext">Ahem, a question regarding a few posts back. When a psp, since they all have it, goes into service mode, what does it read off of? I mean, it has to pick up some execute, does that come from the battery or the flash 0?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">06-10-2010, 02:03 PM</div></div><div class="posttext">Ahem, a question regarding a few posts back. When a psp, since they all have it, goes into service mode, what does it read off of? I mean, it has to pick up some execute, does that come from the battery or the flash 0?<br />
+<br />
+When you insert a battery into a PSP it goes through a pre-power operation which checks the serial number written on the battery EEPROM.<br />
+If that serial number is 0x00000000 it will auto turn on and boot from the NAND (Flash0) as normal without you touching the power button, this is known as auto-boot mode. If the battery's serial number is 0xFFFFFFFF then the PSP will power on and boot from the memory stick... This is normal behaviour by the PSP and is by design, the beauty of how/why installing CFW works (Let alone the research that made it possible) is much more complicated.<br />
+<br />
+Edit: m0skit0 you have much more tolerance than I, here's to taking a leaf out of your book...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-11-2010, 12:28 AM</div></div><div class="posttext">@cracksman: you can post your idea (if you wish) in Pascal. If you prefer going private, go ahead.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-11-2010, 02:47 AM</div></div><div class="posttext">@pyroesp, im self taught.<br />
+okay, i actually wrote this for windows not having psp's in mind, but i don't see why you couldn't mod it a little and make it psp-able.<br />
+the theory is, if you inject something in to a 'process' (thread) you get all the privileges of that 'process' (thread).<br />
+<br />
+but like i mentioned above, i don't know what the pspsdk api's are limited to so this may not even be possible.  <br />
+known bugs: if run on windows7 writeprocessmemory throws ERROR_PARTIAL_COPY (getlasterror 299), this is a &gt;Vista memory issue i don't know how to fix it (psp's don't run vista so that okay :D)<br />
+<br />
+uses<br />
+  windows;<br />
+<br />
+Function Include(Handle: cardinal; EntryPoint: pointer; Size: Cardinal): cardinal;<br />
+var<br />
+  Bnull, OldProtect : cardinal;<br />
+  Base              : pointer;<br />
+begin<br />
+  base := VirtualAllocEx(Handle, nil, Size, MEM_COMMIT or MEM_RESERVE, PAGE_EXECUTE_READWRITE);<br />
+  VirtualProtectEx(Handle, Base, Size, PAGE_EXECUTE_READWRITE, OldProtect);<br />
+  if base = nil then exit;<br />
+  if WriteProcessMemory(Handle, base, entrypoint, Size, Bnull) then<br />
+    CreateRemoteThread(Handle, nil, 0, entrypoint, nil, 0, Result)<br />
+  else<br />
+    messagebox(0, pchar(inttostr(getlasterror)), pchar(':D'), 0);<br />
+end;<br />
+<br />
+procedure main;<br />
+begin<br />
+  //this code will be run with all the same privileges as the one you injected it in to.<br />
+  //so if you get in in a kernel thread you have kernel access.<br />
+  LoadLibrary('kernel32.dll');//whatever you want<br />
+  LoadLibrary('user32.dll');//anything<br />
+  messagebox(0, pchar('hello world 0'), pchar(':D0'), 0);<br />
+  messagebox(0, pchar('hello world 1'), pchar(':D1'), 0);<br />
+end;<br />
+procedure mainend; begin end;<br />
+<br />
+var<br />
+  Pid : cardinal;<br />
+  HP : cardinal;<br />
+  size: cardinal;<br />
+begin<br />
+  Size := cardinal(@mainend) - cardinal(@main);<br />
+<br />
+  hp := 1234; //get/find the Handle to the Process(Any kernnel thread)<br />
+  Result := OpenProcess(PROCESS_ALL_ACCESS, False, PID); //open it<br />
+  include(HP, @Main, Size); //add to it :D<br />
+end;<br />
+<br />
+<br />
+p.s. if you google this code you'll probably find it posted elsewhere cause i was asking about the ERROR_PARTIAL_COPY error :D <br />
+p.p.s i think i found a bug in your forum software.<br />
+<br />
+ALSO if all else fails this will cause the 'process' (thread) to crash. which is also good i guess?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-11-2010, 09:51 AM</div></div><div class="posttext">I think you should not make comparisions between Windows and PSP. They're absolutely whole different systems. And most important, in Windows you have full privileges over the system, which is not the case on a PSP with OFW. FW has the hand over the user. To resume: you can't inject code into kernel modules without a kernel exploit. So your idea wouldn't work. <br />
+<br />
+I suggest you do some research about PSP internal working, also about how a MIPS CPU operates.<br />
+<br />
+Don't give up though ;)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">06-11-2010, 10:53 AM</div></div><div class="posttext">p.p.s i think i found a bug in your forum software<br />
+<br />
+Could you PM details of this to me please?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-12-2010, 04:25 AM</div></div><div class="posttext">in Windows you have full privileges over the system<br />
+no, not if your not an admin.<br />
+besides the beauty of my snippet is you can run it as a limited user and still get privileges of what you injected it in to. (system processes are not something you can usually mess with, but you CAN use this on it)<br />
+<br />
+you can't inject code into kernel modules without a kernel exploit.<br />
+so just elevate your self (SeDebugPrivilege). <br />
+Function SetDebug(Hprocess : cardinal): boolean;<br />
+Var<br />
+  NewToken          : TOKEN_PRIVILEGES;<br />
+  PrevToken         : TOKEN_PRIVILEGES;<br />
+  TokenHandle       : cardinal;<br />
+  ReturnLength      : cardinal;<br />
+begin<br />
+  Result := false;<br />
+  if OpenProcessToken(Hprocess, TOKEN_ADJUST_PRIVILEGES + TOKEN_QUERY, TokenHandle) then<br />
+  begin<br />
+    lookupPrivilegeValue(nil, pChar('SeSecurityPrivilege'), NewToken.Privileges[0].Luid);<br />
+    NewToken.PrivilegeCount := 1;<br />
+    NewToken.Privileges[0].Attributes := SE_PRIVILEGE_ENABLED;<br />
+    PrevToken := NewToken;<br />
+    ReturnLength := 0;<br />
+    if AdjustTokenPrivileges(TokenHandle, False, NewToken, SizeOf(NewToken), PrevToken, ReturnLength) then<br />
+      Result := true;<br />
+  end;<br />
+end;<br />
+<br />
+          ^          kernel land<br />
+---------(^elevate )----------<br />
+user land ^</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-12-2010, 01:15 PM</div></div><div class="posttext">Yeah, that's what I'm talking about. You cannot elevate your privileges without a kernel exploit. That code is no use at all on PSP.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-13-2010, 12:48 AM</div></div><div class="posttext">You cannot elevate your privileges without a kernel exploit<br />
+that sounds simple enough but i don't understand. why cant that^ be ran in userland, are X API's just disabled or something?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-14-2010, 12:04 AM</div></div><div class="posttext">You cannot elevate the privileges by a simple system call like in your example. I've not programmed Pascal for Windows, but that code seems to simply call an API to elevate the privileges of the process. You first call lookupPrivilegeValue() to check current privilege, then just change it calling AdjustTokenPrivileges().<br />
+<br />
+This is equivalent to having administrator privileges. This is Windows lack of security at work. You cannot do that on Linux for example. Please correct me if I'm wrong.<br />
+<br />
+For PSP:<br />
+When running on a MIPS architecture, there are 2 &quot;segments&quot; of memory: user memory and kernel memory. MIPS addresses are 32-bit long, and bit 31 (32nd bit from LSB to MSB) indicates user/kernel. When set to 0, it's user memory, when set to 1 it's kernel memory. So from 0x00000000 to 0x7FFFFFFF it's user memory, and from 0x80000000 to 0xFFFFFFFF it's kernel. Code running on user memory cannot access kernel memory. MIPS CPU internal circuits check that, so you cannot it fool it (except possible unknown CPU exploit). But code running on kernel memory can access any address with no problem. <br />
+<br />
+The only way to switch from user to kernel mode is through exceptions, most notably system calls (SYSCALL instruction), which give access to kernel exported functions. If you find an exploitable vulnerability inside those functions, you can actually &quot;inject&quot; your code into kernel memory and then run it, having thus full priveleges over the console since your code now resides on kernel memory.<br />
+<br />
+I hope this clears it up. If you still think your code can actually run on PSP somehow, I'm all ears.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-14-2010, 04:49 AM</div></div><div class="posttext">so are we trying to change bit 31 to 1? (&lt;- is this bit in userland by any chance :D)<br />
+The only way to switch from user to kernel mode is through exceptions, most notably system calls<br />
+and we can't call system calls in user mode(?).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-14-2010, 09:10 AM</div></div><div class="posttext">I think you definitely lack knowledge to understand what I was saying. <br />
+<br />
+so are we trying to change bit 31 to 1?<br />
+This makes no sense at all.<br />
+<br />
+is this bit in userland by any chance<br />
+This makes no sense, too.<br />
+<br />
+we can't call system calls in user mode<br />
+Dude, do you actually read what I write?<br />
+<br />
+The only way to switch from user to kernel mode is through exceptions, most notably system calls</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">06-14-2010, 11:57 AM</div></div><div class="posttext">so just elevate your self (SeDebugPrivilege). <br />
+<br />
+Eureka! We've been spending years trying to find exploits, when the only thing we actually had to do was to elevate ourselves. Thanks a lot cracksman!<br />
+<br />
+I'm seriously thinking you're just a troll...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">06-14-2010, 12:15 PM</div></div><div class="posttext">I'm seriously thinking you're just a troll...<br />
+<br />
+lol... I think he's just misinformed, You know how closed minded us windows users can get.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-14-2010, 12:16 PM</div></div><div class="posttext">Yeah, he's one of you xDDD</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">06-14-2010, 02:29 PM</div></div><div class="posttext">Yeah, he's one of you xDDD<br />
+<br />
+Yea, well... we out number you 10 to 1, I can recall a conversation I had with an AOL tech support guy MANY years ago.<br />
+<br />
+Max: &quot;So, I've installed some patches to get my rockwell winmodem to work, but it doesn't seem to want to communicate with your stuff, I'm running Linux Mandrake 7.1 btw&quot;<br />
+Tech: &quot;Ok, which version of windows are you running?&quot;<br />
+Max: &quot;I'm not... I'm running Linux&quot;<br />
+Tech: &quot;Yes, but which version of windows is that running on&quot;<br />
+Max: &quot;Maybe you don't understand, I'm not running any version of windows, I'm running a different operating system called Linux&quot;<br />
+Tech: &quot;So... how does your computer work if you don't have windows installed?&quot;<br />
+Max: &quot;Nevermind, I'll figure it out myself&quot;<br />
+<br />
+I did eventually figure it out.. It was dialup too.. but since then, I'd rather just have things work in a familiar environment rather than mess around too much... you know what they say, Linux will do absolutely everything you require of it, if time is not an issue for you.<br />
+<br />
+Don't blame the player... blame the game.<br />
+<br />
+On a side note: My mother runs Linux Puppy, does that exonerate me?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">pyroesp</div><div class="date">06-14-2010, 05:39 PM</div></div><div class="posttext">Yeah, he's one of you xDDD<br />
+<br />
+Yea, well... we out number you 10 to 1, I can recall a conversation I had with an AOL tech support guy MANY years ago.<br />
+<br />
+Max: &quot;So, I've installed some patches to get my rockwell winmodem to work, but it doesn't seem to want to communicate with your stuff, I'm running Linux Mandrake 7.1 btw&quot;<br />
+Tech: &quot;Ok, which version of windows are you running?&quot;<br />
+Max: &quot;I'm not... I'm running Linux&quot;<br />
+Tech: &quot;Yes, but which version of windows is that running on&quot;<br />
+Max: &quot;Maybe you don't understand, I'm not running any version of windows, I'm running a different operating system called Linux&quot;<br />
+Tech: &quot;So... how does your computer work if you don't have windows installed?&quot;<br />
+Max: &quot;Nevermind, I'll figure it out myself&quot;<br />
+<br />
+I did eventually figure it out.. It was dialup too.. but since then, I'd rather just have things work in a familiar environment rather than mess around too much... you know what they say, Linux will do absolutely everything you require of it, if time is not an issue for you.<br />
+<br />
+Don't blame the player... blame the game.<br />
+<br />
+On a side note: My mother runs Linux Puppy, does that exonerate me?<br />
+<br />
+OMG, I would be ROFL XD<br />
+<br />
+(sorry for off-topic post :D)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">06-14-2010, 07:03 PM</div></div><div class="posttext">(sorry for off-topic post :D)<br />
+<br />
+This post drifted off topic a while ago, there has been some general speculation and some interesting snippets, as well as off topic banter, I don't see too much wrong with it as it is :)<br />
+<br />
+inb4 Mathieulh wades in and slaps this in HOS.<br />
+<br />
+Incidentally, at that point in time in the UK, hardly anyone knew of linux, even some &quot;professionals&quot; seriously.... the reason I wanted to play with it was because I'd been reading some Americans talking about it on a forum, took me 2 weeks just to get the xserver to work properly, never did get the sound working though.<br />
+<br />
+Also, while the Americans where running around with their cable modems we all had 56k v92 modems (if we where lucky), there simply wasn't broadband technology installed anywhere, I can remember being requested by my ISP to call up a special number and &quot;Register my interest&quot; for broadband, I called it about 50 times because the Americans liked to ping me offline for fun or send my rockwell +++ATH0 in an ICMP packet... Nostalgic RAGE!!!<br />
+<br />
+American Guy: &quot;Uh... Max.. can you say buhhhbye?!&quot;<br />
+Max: Offline...<br />
+<br />
+Anyway you are right.<br />
+&lt;/off topic&gt;</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-15-2010, 02:58 AM</div></div><div class="posttext">For PSP:<br />
+When running on a MIPS architecture, there are 2 &quot;segments&quot; of memory: user memory and kernel memory. MIPS addresses are 32-bit long, and bit 31 (32nd bit from LSB to MSB) indicates user/kernel. When set to 0, it's user memory, when set to 1 it's kernel memory.<br />
+i was asking 'if we changed that bit to 1 we would be in kernel right'? <br />
+then i asked if that bit (bit 31) was user mode accessible (doubtful).<br />
+<br />
+and yes, i did read what you wrote but i thought someone said something about not being able to call system calls (or maybe i got confused and though 'system' has something to do with kernel ???)<br />
+lol... I think he's just misinformed, You know how closed minded us windows users can get. <br />
+ <br />
+we have a winner!</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SilverSpring</div><div class="date">06-15-2010, 05:58 AM</div></div><div class="posttext">At the risk of this thread ending up in the HOS I'll bring things back on topic.<br />
+<br />
+@cracksman, there are many things wrong with your example.<br />
+<br />
+Firstly, the privileges you are talking about are purely OS-level security. It is something that Windows itself implemented to separate privileges between users. <br />
+<br />
+The correct Windows/x86 analogy to what m0skit0 is trying to explain (the separation of user/kernel mode via system calls) would be something like this:<br />
+<br />
+As an example, the ReadFile function (a very common WinAPI call):<br />
+<br />
+User_mode[app calls ReadFile -&gt; calls the NativeAPI equivalent NtReadFile in kernel32.dll -&gt; calls the processor-dependant trap instruction in ntdll.dll] -&gt; system call software interrupt -&gt; Kernel_mode[calls the real NtReadFile code in ntoskrnl.exe]<br />
+<br />
+This is how user code reaches kernel code, it is dependant on the architecture: on x86 they use the 'int 0x2E' instruction, more modern Intel x86 cpu's use the 'sysenter' instruction, AMD x86 cpu's use the 'syscall' instruction (they all do the same thing).<br />
+<br />
+What you have described is the Windows-specific mechanisms of handling access tokens, something which is needed for a multi-user OS. The PSP is NOT a multi-user multitasking OS. Anything using Se* of the WinAPI is part of this Windows security system (the security reference monitor). It has nothing to do with how the PSP OS works.<br />
+<br />
+On a side note, those WinAPI calls you mentioned work just as well in C (or .net for that matter).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">06-15-2010, 07:37 AM</div></div><div class="posttext">thanks for clearing that up(although im still a bit confused, probably because im not used to it).<br />
+so as an example, on a psp, if you call ReadFile in usermode you can only read things in usermode [eg. kernel is off limits] right?<br />
+-<br />
+so is there ever a time where any user land api is used in kernel land?<br />
+boot time/game launching/game saving/ect<br />
+<br />
+and how did [whatever] game exploit get kernel access?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">06-15-2010, 10:57 AM</div></div><div class="posttext">i was asking 'if we changed that bit to 1 we would be in kernel right'?<br />
+then i asked if that bit (bit 31) was user mode accessible (doubtful).<br />
+Programming 101 (BOTH PSP AND PC): your code, when running, is on main memory (RAM), I guess you already knew this. As such, he's at some address when running, for example address X. CPU just fetches the instruction from that address X, executes it, then fetches instruction from address X+1, executes it, and so on.<br />
+<br />
+What I meant by user/kernel mode on PSP was that if the address of the executing code as bit 31 = 0, then you're on user mode. If it's set to 1, then it's kernel mode. If you change bit 31, you'll end up with a whole different address, and your code will not be there anymore. And anyway, you can't call a kernel space code directly from a user space code, it will raise an invalid address exception. I hope this clears things up. <br />
+<br />
+Anyway, I suggest you again to check some tutorial about how code actually runs on a machine, at low-level (assembly) so you can understand it better. If you didn't know, everything is translated to machine language to run (even Pascal), as processors only understand that.<br />
+<br />
+so is there ever a time where any user land api is used in kernel land?<br />
+You didn't get what SilverSpring told you. All API code is on kernel land (well I'm bending the truth, but anyways).  So for your code that runs on user mode to be able to call those APIs, he has to switch to kernel mode, which can only be acheived by SYSCALL instruction (which triggers an exception, which is the equivalent of a software interruption for IA32). This SYSCALL has a number, which is handled by the kernel to see what service you've requested, then pass it to the proper kernel function, then use RTE (IRET on IA32) to return from an exception, and back to your user mode code.<br />
+<br />
+and how did [whatever] game exploit get kernel access?<br />
+By finding a vulnerability on a kernel function and exploiting it. If a kernel function accessable through standard PSP API is vulnerable, you can trick it to copy your code into kernel space, then call it using another (or the same) API call. Then you'd be running on kernel space with full privileges.<br />
+<br />
+Again, I suggest you get to know how programming actually works, because high-level prorgamming for Windows won't yield anything useful on PSP.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">07-02-2010, 09:11 PM</div></div><div class="posttext">derp, okay its me again with another idea.<br />
+<br />
+couldn't you replace a prx with a modded one with your code? (i don't know much about the innards of psp's as you can see^ but hang with me)<br />
+so for example lets pretend there is a note_botton.prx normally when you push the 'note' button this .prx is called and messes with the volume controls. now if you replaced this note_button.prx with your own or patched it to JMP to some code elsewhere, when you push the 'note' button wouldn't your code run? (if it was a kernel .prx would your code be run in kernel land?)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Dr. Soup</div><div class="date">07-02-2010, 10:49 PM</div></div><div class="posttext">derp, okay its me again with another idea.<br />
+<br />
+couldn't you replace a prx with a modded one with your code? (i don't know much about the innards of psp's as you can see^ but hang with me)<br />
+so for example lets pretend there is a note_botton.prx normally when you push the 'note' button this .prx is called and messes with the volume controls. now if you replaced this note_button.prx with your own or patched it to JMP to some code elsewhere, when you push the 'note' button wouldn't your code run? (if it was a kernel .prx would your code be run in kernel land?)A kinda similiar exploit was used back in 1.50 firmware, where you were able to swap a prx (from exceptionman till init.prx) with a plain one which must not have any kernel mode attributes or imports. But Sony (of course) fixed that exploit later (1.52?). So in order to get this working in new firmware you'd have to encrypt your prx and flash it. Dead end.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">pyroesp</div><div class="date">07-03-2010, 12:12 AM</div></div><div class="posttext">derp, okay its me again with another idea.<br />
+<br />
+couldn't you replace a prx with a modded one with your code? (i don't know much about the innards of psp's as you can see^ but hang with me)<br />
+so for example lets pretend there is a note_botton.prx normally when you push the 'note' button this .prx is called and messes with the volume controls. now if you replaced this note_button.prx with your own or patched it to JMP to some code elsewhere, when you push the 'note' button wouldn't your code run? (if it was a kernel .prx would your code be run in kernel land?)<br />
+<br />
+To read and write in the flash mem of the PSP you'll need a kernel exploit. <br />
+A program in user mode can only read those mem.<br />
+<br />
+A kernel exploit allows you to read and write, but I don't see the point in doing that if you have a kernel exploit.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-03-2010, 01:32 AM</div></div><div class="posttext">Even if you have a kernel exploit you cannot do that. As explained by Dr. Soup, PRX are encrypted, and any modification will make them corrupt. The only way you have to modify an encrypted file is decrypting, modifying, and then encrypting again. But you cannot do that because PSP's encryption algorithm is unknown (although some guesses have been done, but nothing 100% sure), same as the keys used. <br />
+<br />
+Anyway, such ideas are very basic and you should expect other people have thought about this before you, since PSP has now 5+ years on the market ;)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-03-2010, 01:42 PM</div></div><div class="posttext">any modification will make them corrupt.<br />
+<br />
+Silverspring states that he can modify headers... lol this is over my head but that's worth mentioning...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">pyroesp</div><div class="date">07-03-2010, 02:39 PM</div></div><div class="posttext">Even if you have a kernel exploit you cannot do that. As explained by Dr. Soup, PRX are encrypted, and any modification will make them corrupt. The only way you have to modify an encrypted file is decrypting, modifying, and then encrypting again... <br />
+<br />
+I should have mentioned that :D</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-03-2010, 02:55 PM</div></div><div class="posttext">any modification will make them corrupt.<br />
+<br />
+Silverspring states that he can modify headers... lol this is over my head but that's worth mentioning...<br />
+<br />
+If memory serves me well, the only thing that protects them is a SHA-1 checksum and some scrambling. They only hold information about the size and information about the extra non-KIRK encryption that PRX's have (eg. XOR with a kernel key). You can change them all you want, it is still going to feed the body of the file to KIRK and won't pass the checks.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">07-23-2010, 10:29 PM</div></div><div class="posttext">i read that anything run from the UPDATE folder runs as kernel is that true?<br />
+from pspiso:...nothing ever runs in kernel mode apart from the update folder in the ms0:/eh:0 and UMD</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">07-24-2010, 12:10 AM</div></div><div class="posttext">i read that anything run from the UPDATE folder runs as kernel is that true?<br />
+from pspiso:...nothing ever runs in kernel mode apart from the update folder in the ms0:/eh:0 and UMD<br />
+<br />
+Yeah, that is true, because the PSP KERNEL doesn't even run in kernel mode ofc.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-24-2010, 01:46 PM</div></div><div class="posttext">i read that anything run from the UPDATE folder runs as kernel is that true?<br />
+from pspiso:...nothing ever runs in kernel mode apart from the update folder in the ms0:/eh:0 and UMD<br />
+<br />
+Yeah, that is true, because the PSP KERNEL doesn't even run in kernel mode ofc.<br />
+<br />
+Really? if thats the case then hopefully there can be way to hex edit the checksum of the eboot using sonys code with our crack code to make kernal exploits work.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Draam</div><div class="date">07-24-2010, 02:54 PM</div></div><div class="posttext">to hex edit the checksum of the eboot using sonys code with our crack code to make kernal exploits work. <br />
+<br />
+If you have a kernel exploit, you don't need to encrypt anything. And vice-versa :).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-24-2010, 05:17 PM</div></div><div class="posttext">i read that anything run from the UPDATE folder runs as kernel is that true?<br />
+from pspiso:<br />
+<br />
+Yeah, that is true, because the PSP KERNEL doesn't even run in kernel mode ofc.<br />
+<br />
+Really? if thats the case then hopefully there can be way to hex edit the checksum of the eboot using sonys code with our crack code to make kernal exploits work.<br />
+<br />
+1) HE WAS BEING SARCASTIC.<br />
+2) The updater doesn't run in kernel mode.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Mathieulh</div><div class="date">07-24-2010, 06:05 PM</div></div><div class="posttext">The updater runs in &quot;updater&quot; mode....</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">07-24-2010, 09:48 PM</div></div><div class="posttext">i didn't think it was true but i thought id ask anyways.<br />
+<br />
+...<br />
+2) The updater doesn't run in kernel mode.<br />
+<br />
+okay it doesn't run in kernel mode but its got to access kernel mode somehow to update right?(i mean, it sounds logical, kernel &amp;updating go hand in hand right?)<br />
+@Mathieulh what is this updater mode you speak of?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">07-24-2010, 11:47 PM</div></div><div class="posttext">i didn't think it was true but i thought id ask anyways.<br />
+<br />
+...<br />
+2) The updater doesn't run in kernel mode.<br />
+<br />
+okay it doesn't run in kernel mode but its got to access kernel mode somehow to update right?(i mean, it sounds logical, kernel &amp;updating go hand in hand right?)<br />
+@Mathieulh what is this updater mode you speak of?<br />
+<br />
+It's got updater mode, which has certain modules loaded compared to other modes (which can give certain advantages). The updater loads some module which have kernel attributes yes, but the updater runs in updater mode.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">T4b</div><div class="date">07-25-2010, 11:11 AM</div></div><div class="posttext">It's got updater mode, which has certain modules loaded compared to other modes (which can give certain advantages). The updater loads some module which have kernel attributes yes, but the updater runs in updater mode.<br />
+Does that mean that updater mode is actually user mode with some extra privileges?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-25-2010, 12:50 PM</div></div><div class="posttext">It's got updater mode, which has certain modules loaded compared to other modes (which can give certain advantages). The updater loads some module which have kernel attributes yes, but the updater runs in updater mode.<br />
+Does that mean that updater mode is actually user mode with some extra privileges?<br />
+<br />
+Exactly. Plus, there's a module loaded (vshbridge) in updater mode that allows you to load kernel modules from a different location than just flash0, such as from the updater itself (they still have to be signed and encrypted, though). Inside user mode the only place you can load kernel modules from is flash0.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-25-2010, 11:06 PM</div></div><div class="posttext">I knew it (a little) lol, so Bubbletune your saying that loadin the vshbridge.prx can be used on an exploit? because i was thinking of coding/creating a little 6.20 kernel mode myself but not really sure if im doing it correctly, i was thinking of using the hello world source codes from C. by using the same excat but from the ex. decrypt vsh/modcule/any.prx and see if the image or tiff from my Wip exploit from PICTURE or VIDEO (i guess) please feel free to correct me im just kinda startin a bit atm.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">07-26-2010, 12:26 AM</div></div><div class="posttext">I knew it (a little) lol, so Bubbletune your saying that loadin the vshbridge.prx can be used on an exploit? because i was thinking of coding/creating a little 6.20 kernel mode myself but not really sure if im doing it correctly, i was thinking of using the hello world source codes from C. by using the same excat but from the ex. decrypt vsh/modcule/any.prx and see if the image or tiff from my Wip exploit from PICTURE or VIDEO (i guess) please feel free to correct me im just kinda startin a bit atm.<br />
+<br />
+... You obviously have absolutely no idea what you are talking about. The sentence isn't even coherent.<br />
+<br />
+You should 1. Know what you are talking about before you stay stuff (and that means research, people) and 2. Actually form a sentence that makes sense.<br />
+<br />
+If this thread has any more un-researched stupid theories then I will be closing it.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-26-2010, 01:30 PM</div></div><div class="posttext">sorry, i know it didn't made any sense that time but i wanted to know what i was doing before i go on researching things and not watse my time at the wrong thing. CloudHunter and 2) i know when i need to research it or not at the time i just to know if its correct FIRST so it won't be a complete waste of my time like said before. and again sorry and i promise it won't turn out to this again.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-27-2010, 02:08 PM</div></div><div class="posttext">I knew it (a little) lol, so Bubbletune your saying that loadin the vshbridge.prx can be used on an exploit?<br />
+<br />
+No... all it does is provide an API to load SIGNED, ENCRYPTED kernel modules from the memory stick. Also, you can't load it outside of VSH/updater mode.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-27-2010, 08:10 PM</div></div><div class="posttext">I knew it (a little) lol, so Bubbletune your saying that loadin the vshbridge.prx can be used on an exploit?<br />
+<br />
+No... all it does is provide an API to load SIGNED, ENCRYPTED kernel modules from the memory stick. Also, you can't load it outside of VSH/updater mode.<br />
+<br />
+oh okay so its just a loader to load your signed encryption that you've made to go into kernel mode. and btw is usermode easier than kernel mode?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">07-27-2010, 08:33 PM</div></div><div class="posttext">Do you have any idea what you are talking about?<br />
+<br />
+Updater Mode is just User Mode with elevated priveledges ie. load Sony Signed modules off the memory stick and flash0 write access.<br />
+<br />
+I don't understand what you mean by 'is user mode easier than kernel mode'. AFAIK the PSP never runs in kernel mode, it just interfaces with the kernel through syscalls.<br />
+<br />
+EDIT if you mean 'is it easier' to find exploits then yes.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-27-2010, 09:53 PM</div></div><div class="posttext">Metroid_III &amp; DSwizzy145, please stop talking nonsense. If you don't know, ask. Don't make nonsense sentences like &quot;PSP never runs in kernel mode&quot; or &quot;is user mode easier than kernel mode&quot;... o.O</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">07-27-2010, 09:56 PM</div></div><div class="posttext">I knew it (a little) lol, so Bubbletune your saying that loadin the vshbridge.prx can be used on an exploit?<br />
+<br />
+No... all it does is provide an API to load SIGNED, ENCRYPTED kernel modules from the memory stick. Also, you can't load it outside of VSH/updater mode.<br />
+<br />
+oh okay so its just a loader to load your signed encryption that you've made to go into kernel mode. and btw is usermode easier than kernel mode?<br />
+<br />
+This is ridiculous.<br />
+<br />
+Forget everything you've &quot;learned&quot;, and learn it all properly from the beginning. If you can't even understand when someone tells you something correct, you need to learn from the beginning and how to read.<br />
+<br />
+If I see one more stupid question/answer from you in this thread you're looking at a ban. I'd like to keep this topic open as it keeps some stupid questions out of the main forum.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">07-27-2010, 10:07 PM</div></div><div class="posttext">Metroid_III &amp; DSwizzy145, please stop talking nonsense. If you don't know, ask. Don't make nonsense sentences like &quot;PSP never runs in kernel mode&quot; or &quot;is user mode easier than kernel mode&quot;... o.O<br />
+<br />
+Sorry m0skit0. I actually made that assumption because the kernel is supposed to always run in the background with threads connecting it to user mode, right? The user interfaces with user mode, and is limited by what the kernel will let them do. It shouldn't ever be truly in kernel mode because that would suggest that the user has full control over the system. Feel free to inform me of why I'm wrong.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-28-2010, 01:13 AM</div></div><div class="posttext">The initial loaders (Pre-IPL and IPL) run on kernel mode obviously. Then the actual kernel is loaded by them, again on kernel space. The kernel initializes itself, then loads the VSH on user mode. From now on, everything loaded by the user will be loaded on user memory, with the exception of eventual kernel modules needed by the game/VSH. User mode modules require advanced services which involve access to the console hardware, but direct hardware interfacing can only be done on kernel mode, so user mode modules require services from the kernel (such as reading a file from MS) through system calls. So I would say that most code run by the PSP is actually kernel code.<br />
+<br />
+Anyway, this is basic PSP architecture (I could even say general operating system knowledge) for you to have if you're expecting to post on such a development forum.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-28-2010, 01:32 AM</div></div><div class="posttext">Relax man, just kidding and besides i do know half of this stuff FYI but i just wanted a simple and calm Question and yes kernel does run from the consoles Ram and flash0 access. and user mode does require binary code to run things easier so Relax Moskit0 i do know what i mean but i know i dont explain things 100% clear at most times but at least half of it does makes since not all!</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-28-2010, 01:42 AM</div></div><div class="posttext">Chill OUT Cloudhunter, sorry about your little thread and also FYI i actually do know what the heck im talkin about and i do know about hex editing and address values by encryptin the code or decryptin the code and things about the psplink by finding crashes that can help get into two diffrent modes so relax and i promise this will never happen again.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">07-28-2010, 02:04 AM</div></div><div class="posttext">The initial loaders (Pre-IPL and IPL) run on kernel mode obviously. Then the actual kernel is loaded by them, again on kernel space. The kernel initializes itself, then loads the VSH on user mode. From now on, everything loaded by the user will be loaded on user memory, with the exception of eventual kernel modules needed by the game/VSH. User mode modules require advanced services which involve access to the console hardware, but direct hardware interfacing can only be done on kernel mode, so user mode modules require services from the kernel (such as reading a file from MS) through system calls. So I would say that most code run by the PSP is actually kernel code.<br />
+<br />
+Anyway, this is basic PSP architecture (I could even say general operating system knowledge) for you to have if you're expecting to post on such a development forum.<br />
+<br />
+Thanks for the excellent explanation m0skit0, I guess I wasn't thinking too much when I made that comment. I'll make sure to be careful of my info from now on :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-28-2010, 11:08 AM</div></div><div class="posttext">@DSwizzy145: if you don't know how to explain something (and you obviously don't), then you actually don't know that thing. Plain simple.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-28-2010, 01:07 PM</div></div><div class="posttext">@m0skit0 FYI i do but  i was being sarcastic on my info i actually do know things about the pre ipl, user mode &amp; kernel modules and also im sorry for the nonsense i've made on that comment like said this problem will not occure again ever.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-28-2010, 01:25 PM</div></div><div class="posttext">All I see is too much talking and no proofs.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">midnightexpress</div><div class="date">07-29-2010, 11:05 PM</div></div><div class="posttext">Kirk is hardware.  Kernel exploits are exploits found in the vsh, they will most likely be found in formats such as mp3, tiff, png, mp4 ect.  Pandora battery's were originally created by Sony, they used it as a shortcut to reflash and bricked psp, I'm not sure how hackers cracked it, but its in a vid somewhere on this forum, and no service mode didnt' disapear on the 3k or the GO, sony just change the ipl and pre-ipl so our magic memory sticks won't work...<br />
+<br />
+The pandora battery was discovered by a system modder by the well known name of &quot;ben heck&quot; Now I also know that there where others that found the pandora battery. (like soft modding) but ben found the Hard mod witch was found long before the soft modding.<br />
+<br />
+As for your question finding cracks and explotes in the PSP is done thoue PSPLink. (Most of the time)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">07-29-2010, 11:11 PM</div></div><div class="posttext">Kirk is hardware.  Kernel exploits are exploits found in the vsh, they will most likely be found in formats such as mp3, tiff, png, mp4 ect.  Pandora battery's were originally created by Sony, they used it as a shortcut to reflash and bricked psp, I'm not sure how hackers cracked it, but its in a vid somewhere on this forum, and no service mode didnt' disapear on the 3k or the GO, sony just change the ipl and pre-ipl so our magic memory sticks won't work...<br />
+<br />
+The pandora battery was discovered by a system modder by the well known name of &quot;ben heck&quot; Now I also know that there where others that found the pandora battery. (like soft modding) but ben found the Hard mod witch was found long before the soft modding.<br />
+<br />
+As for your question finding cracks and explotes in the PSP is done thoue PSPLink. (Most of the time)<br />
+<br />
+Pandora's Battery was originally used by Sony, it was reversed engineered by hackers. And crashes are examined through PSPLink, but they must be found first in one of the aforementioned vectors aka mp4, mp3, gif, tiff, etc.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Mathieulh</div><div class="date">07-29-2010, 11:39 PM</div></div><div class="posttext">Metroid The pandora battery never was reverse engineered because we never had one, what we did was a lot of trial and errors with the serial pin of the battery in the hope of triggering the service mode (which was really getting syscon to set a gpio register) <br />
+<br />
+The battery part was figured once the IPL block was forged, in fact the battery was the easy part, it took less than a week to be done (though we initially had the serial gnd pin cut so the battery would send all FF then later on the functions to reprogram the eeprom were figured out), vs about 6 months to figure how to dump the pre-ipl through an exploit, time attack kirk, forge the block etc etc</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 03:15 AM</div></div><div class="posttext">I read somewere that battery/card was reversed because sony guy forget it in console after repairing... Just a joke or mistake?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 09:22 AM</div></div><div class="posttext">I always thought the battery serial thing was a bit sloppy, why all FF's/00's? why not some random arbitrary value.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-30-2010, 10:00 AM</div></div><div class="posttext">I read somewere that battery/card was reversed because sony guy forget it in console after repairing... Just a joke or mistake?<br />
+<br />
+That was a clue that it had something to do with the battery. It was up to them to confirm it and figure out what it was. It was never reverse engineered. I'm quite sure they never even possessed that battery.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 10:57 AM</div></div><div class="posttext">I read somewere that battery/card was reversed because sony guy forget it in console after repairing... Just a joke or mistake?<br />
+<br />
+Occasionally service memory sticks from Sony service centres turn up, but distributing their contents is illegal, even so that hasn't stopped them ending up in a few peoples collections.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-30-2010, 01:56 PM</div></div><div class="posttext">why all FF's/00's? why not some random arbitrary value<br />
+Maybe because at first time they used hardmodded batteries, and the resulting value read was FF's. Putting a random value would require a slighlty more complicated hardware. Also might be so they could have a special value not on the middle of serial numbers domain, which would be confusing for third-party manufacturers. Not really worth the effort, as I think Sony was not relying on this serial number as a security feature, but rather on Pre-IPL checks for a valid IPL.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">07-30-2010, 02:07 PM</div></div><div class="posttext">Metroid The pandora battery never was reverse engineered because we never had one, what we did was a lot of trial and errors with the serial pin of the battery in the hope of triggering the service mode (which was really getting syscon to set a gpio register) <br />
+<br />
+The battery part was figured once the IPL block was forged, in fact the battery was the easy part, it took less than a week to be done (though we initially had the serial gnd pin cut so the battery would send all FF then later on the functions to reprogram the eeprom were figured out), vs about 6 months to figure how to dump the pre-ipl through an exploit, time attack kirk, forge the block etc etc<br />
+<br />
+Thanks for the explanation. While I did realize you guys never had an actual Pandora, reverse-engineered was the 1st word that came to mind because most sites just throw that word around meaninglessly. Anyway, thanks. Very insightful.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 04:49 PM</div></div><div class="posttext">Maybe because at first time they used hardmodded batteries, and the resulting value read was FF's. Putting a random value would require a slighlty more complicated hardware. Also might be so they could have a special value not on the middle of serial numbers domain, which would be confusing for third-party manufacturers. Not really worth the effort, as I think Sony was not relying on this serial number as a security feature, but rather on Pre-IPL checks for a valid IPL.<br />
+<br />
+I didn't think about it like that... makes sense now, besides... the battery was only security through obscurity, it wasn't a real attempt at a security concept, they left that to the (pre)IPL.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 05:30 PM</div></div><div class="posttext">but distributing their contents is illegal<br />
+Their contents are: some .prx.enc (encrypted) files, .bin OS/flasher (encrypted?), parental_lock.bin (not encrypted and not checked but used by OS in installation) and an ofw =)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 06:31 PM</div></div><div class="posttext">but distributing their contents is illegal<br />
+Their contents are: some .prx.enc (encrypted) files, .bin OS/flasher (encrypted?), parental_lock.bin (not encrypted and not checked but used by OS in installation) and an ofw =)<br />
+<br />
+Ultimately useless too... can you decrypt and then re-encrypt the .enc files on a new MS or hack an MSID?<br />
+<br />
+I can't...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 06:46 PM</div></div><div class="posttext">No, i can't encrypt files back. And i have some decrypted files that decrypted by someone (i'm really don't know who did it). <br />
+There is other way to copy jigkick ms. And it's totally secret. And need some special hardware =)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 07:05 PM</div></div><div class="posttext">No, i can't encrypt files back. And i have some decrypted files that decrypted by someone (i'm really don't know who did it). <br />
+There is other way to copy jigkick ms. And it's totally secret. And need some special hardware =)<br />
+<br />
+lol.... you're just spoofing or re-writing the MSID, that's not secret :p<br />
+<br />
+Arduino proxy spoofer?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 07:08 PM</div></div><div class="posttext">Secret is how to do it. It's not simple =)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 07:23 PM</div></div><div class="posttext">Secret is how to do it. It's not simple =)<br />
+<br />
+Nothing ever is... I'm reasonably confident that with an Audrino and some other stuff I could spoof an MSID.<br />
+<br />
+But from what I hear.. you're ordering &quot;specific&quot; memory sticks... I'll leave it at that lol.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 07:28 PM</div></div><div class="posttext">He-he, i'd like to know how to start psp-3000 in service mode =) Without any hardware mods.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 07:31 PM</div></div><div class="posttext">He-he, i'd like to know how to start psp-3000 in service mode =) Without any hardware mods.<br />
+<br />
+Wouldn't we all :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">07-30-2010, 10:04 PM</div></div><div class="posttext">He-he, i'd like to know how to start psp-3000 in service mode =) Without any hardware mods.<br />
+<br />
+Wouldn't we all :)<br />
+<br />
+that would be awesome to do so :) i'll be just like bootmii but on PSP lol :D</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 10:27 PM</div></div><div class="posttext">He-he, i'd like to know how to start psp-3000 in service mode =) Without any hardware mods.<br />
+<br />
+Wouldn't we all :)<br />
+<br />
+that would be awesome to do so :) i'll be just like bootmii but on PSP lol :D<br />
+<br />
+No, it wouldn't... we don't have control.. just service mode, booting to the memory stick isn't even half the battle, you might as well replace your memory stick with cheese for all the good it'd do.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-30-2010, 11:00 PM</div></div><div class="posttext">Booting from MS = Half Unbrick/Downgrade.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">07-30-2010, 11:32 PM</div></div><div class="posttext">Booting from MS = Half Unbrick/Downgrade.<br />
+<br />
+Incorrect.... booting from MS is the easy part.. the pre-ipl/ipl timing attack + brute force, then actually understanding wtf is going on is most of the battle... the service mode battery was nothing in comparison.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">coyotebean</div><div class="date">07-31-2010, 06:04 AM</div></div><div class="posttext">Also, starting with PSP-300X, the ipl can no longer be directly decrypted by Kirk. You will see 1 at position 0x62 and I think that is a flag to indicate some &quot;decryption&quot; required on the first 0x40/0x60 bytes</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-31-2010, 10:50 AM</div></div><div class="posttext">MaxMouseDLL,<br />
+1st part = service mode<br />
+2nd part = sony card<br />
+1+2=megaultrahack =)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-31-2010, 11:26 AM</div></div><div class="posttext">MaxMouseDLL,<br />
+1st part = service mode<br />
+2nd part = sony card<br />
+1+2=megaultrahack =)<br />
+<br />
+No, the first part is dumping the pre-ipl, the second hardest task of all.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-31-2010, 12:32 PM</div></div><div class="posttext">Bubbletune,<br />
+any ideas about pre-ipl dumping? Kexploit? Decap?<br />
+P.S. How Brokencodes did it?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">07-31-2010, 03:51 PM</div></div><div class="posttext">Kernel exploits cannot dump Pre-IPL since it's no longer mapped to any memory address. Although if IPL actually de-maps Pre-IPL, cannot we just remap it through Syscon or something like that? <br />
+<br />
+I think Brokencodes simply brute-forced a part, although I'm not even sure Brokencodes's results were real or fake. Anyway, the only way to know is actually asking him xD</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-31-2010, 05:02 PM</div></div><div class="posttext">Bubbletune,<br />
+any ideas about pre-ipl dumping? Kexploit? Decap?<br />
+P.S. How Brokencodes did it?<br />
+<br />
+Back in old PSP's it was possible to remove blocks from the IPL because there were blocks that had a zero checksum, and they just so happened to use the value of zero to specify there being no block in front of it. Thus, you could leave a leap of unused memory right at the entry point (as long as the new block at the start had a zero checksum), and if booted to another firmware with a modification chip, stuffed code there and power cycled, it would execute it before the CPU resets to get rid of the pre-IPL. This was fixed in the newer models, however.<br />
+<br />
+Also, there is no reason at all to assume that Brokencodes had dumped the pre-IPL.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">ByteMaster</div><div class="date">07-31-2010, 05:17 PM</div></div><div class="posttext">Also, there is no reason at all to assume that Brokencodes had dumped the pre-IPL.<br />
+<br />
+If I remember correctly, Dark_Alex was working on understanding the extra checksum that was in the IPL; this was a mystery and the pre-IPL was needed to understand how the checksum worked. Since the website is down, I can't link to Dark_Alex's post but this is a quote I found:<br />
+<br />
+&quot;Summary: basically, all security of newest PSP cpu's rely on the secrecy of the calculation of those 0x20 bytes. If pre-ipl were dumped somehow, the security would go down TOTALLY. &quot;<br />
+<br />
+Edit: it can be found here:<br />
+http://www.psp-hacks.com/2008/10/06/why-psp-motherboard-ta88v3-cannot-be-hacked-yet/<br />
+<br />
+Again IIRC, Brokencodes purported to know how this checksum worked (source was posted as well, I have this somewhere but not on this computer), and in further analysis Dark_Alex said it was code &quot;to forge a portion of the IPL signature block&quot; but not the entire thing (as per Sceners.org but that is also down ATM so no link).<br />
+<br />
+Even when the IPL is figured out, on TA-088v3 and higher we still need a method to put the PSP in service mode, which the infamous 'blue lite tool' was purported to do (whether through a &quot;crypto processor&quot; or doing some funny stuff with the voltage level is still unknown).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">07-31-2010, 05:50 PM</div></div><div class="posttext">TA-088v3 works with standart pandora battery (bandora pattery, he-he).<br />
+Now i have two psp-2001 ta-088v3 5.03, but how to dump? =)<br />
+<br />
+May anyone reupload despertar 7 source code?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">07-31-2010, 06:45 PM</div></div><div class="posttext">Also, there is no reason at all to assume that Brokencodes had dumped the pre-IPL.<br />
+<br />
+If I remember correctly, Dark_Alex was working on understanding the extra checksum that was in the IPL; this was a mystery and the pre-IPL was needed to understand how the checksum worked.<br />
+He posted information he found after taking a look at the new IPL format, I have my doubts that he was actually working on cracking it.<br />
+<br />
+Again IIRC, Brokencodes purported to know how this checksum worked (source was posted as well, I have this somewhere but not on this computer), and in further analysis Dark_Alex said it was code &quot;to forge a portion of the IPL signature block&quot; but not the entire thing (as per Sceners.org but that is also down ATM so no link).<br />
+<br />
+I never really took a close look, but it could've been so that SCE was just using a standard hashing algromithm and Brokencodes found it by trial-and-error, or something similiar to that. If he had dumped the pre-ipl he would've had more information, not just a part.<br />
+<br />
+Even when the IPL is figured out, on TA-088v3 and higher we still need a method to put the PSP in service mode, which the infamous 'blue lite tool' was purported to do (whether through a &quot;crypto processor&quot; or doing some funny stuff with the voltage level is still unknown).<br />
+<br />
+You can still use custom IPL blocks to write custom firmwares, even if you don't have service mode. :p Also, there's probably a clue to how service mode is enabled on these new models in the pre-IPL.<br />
+<br />
+A little side-note before people forget: Custom IPL blocks use an exploit in the pre-IPL. There is no reason to assume that the new checksum is the only change. It's good security as it stops you from downgrading to older firmwares alltogether and it invalidates current custom IPL blocks, but the chances that they actually fixed the exploit are large, in which case calcuating the hash using code reversed from a pre-IPL dump won't get us any closer.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">cracksman</div><div class="date">08-09-2010, 07:28 PM</div></div><div class="posttext">(i assume there is a reason we can't or it probably would have been done already)<br />
+we can dump memory correct? so couldn't someone dump mem when kirk is run, then step through the ASM to see how it works? (reverse it kindof like how you would make a keygen, then implant that in our homebrew)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-09-2010, 07:54 PM</div></div><div class="posttext">If you want to dump memory with ipl info, you must write custom ipl with memdump code. If you want to flash custom ipl to ta-088v3 nand, you must sign it.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Bubbletune</div><div class="date">08-09-2010, 08:23 PM</div></div><div class="posttext">(i assume there is a reason we can't or it probably would have been done already)<br />
+we can dump memory correct? so couldn't someone dump mem when kirk is run, then step through the ASM to see how it works? (reverse it kindof like how you would make a keygen, then implant that in our homebrew)<br />
+<br />
+KIRK isn't in the RAM memory. It's a seperate chip on the CPU.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">08-09-2010, 08:24 PM</div></div><div class="posttext">Snipped - Ninja'd!</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">arnold</div><div class="date">08-10-2010, 07:51 AM</div></div><div class="posttext">Yeah... we can just wait sit and wait for a Pre-IPL exploit to pop up on our desktops and then create forged IPL blocks.<br />
+<br />
+Fun.<br />
+<br />
+-arnater</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">08-10-2010, 02:13 PM</div></div><div class="posttext">Forged IPL blocks... Hmmm, tasty.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">08-11-2010, 02:19 AM</div></div><div class="posttext">i've found a good website that makes complete understand (for the Noobz) here on how buffer overflow works propertly, here's the link ;) http://users.abo.fi/fbjon/segfault/ Enjoy :)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SilverSpring</div><div class="date">08-11-2010, 03:54 AM</div></div><div class="posttext">i've found a good website that makes complete understand (for the Noobz) here on how buffer overflow works propertly, here's the link ;) http://users.abo.fi/fbjon/segfault/ Enjoy :)<br />
+<br />
+Dammit I'm getting tired of this crap from you. What the hell is that you just linked to?<br />
+<br />
+Have a one-week ban and take some time off (hopefully it'll do you good). I've put off banning you for a long time, one more stupid-ass post from you and you get a permanent IP ban.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">08-11-2010, 11:00 AM</div></div><div class="posttext">The guy who wrote that web page has absolutely no idea about what he's talking. &quot;Buffer overflows are programs&quot;? WTF? xD Most likely written by DSwizzy145 himself, IMO.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-11-2010, 11:08 AM</div></div><div class="posttext">WTF did I just read?! ... I'm going to go lay down for a while, a week ban was lenient...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">08-11-2010, 12:01 PM</div></div><div class="posttext">The guy who wrote that web page has absolutely no idea about what he's talking. &quot;Buffer overflows are programs&quot;? WTF? xD Most likely written by DSwizzy145 himself, IMO.<br />
+<br />
+From the site itself.<br />
+<br />
+This is, of course, a parody/modification on the original Ninja power site. Nothing can beat it in weirdness. <br />
+<br />
+And the site the parody is based on: http://www.realultimatepower.net/<br />
+<br />
+I really hope he was joking and didn't think the site was real.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">08-11-2010, 12:31 PM</div></div><div class="posttext">Sorry Cloudhunter, didn't notice</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">08-11-2010, 01:35 PM</div></div><div class="posttext">Sorry Cloudhunter, didn't notice<br />
+<br />
+Don't be sorry - or do, but only sorry that the site exists :p<br />
+<br />
+Anyway, now that... Interesting... Interuption is over, let's get back to the topic. Use it wisely, he'll be back in one week saying stupid stuff again.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">SilverSpring</div><div class="date">08-11-2010, 02:53 PM</div></div><div class="posttext">I really hope he was joking and didn't think the site was real.<br />
+<br />
+Joke or not the ban still stands either way. Crap like that doesn't belong here and he has posted plenty of crap (possibly even 100% crap-posts so far from him in his short time here).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-11-2010, 11:51 PM</div></div><div class="posttext">If one was trying to brute force Sony's signature can others use their computers to connect to the guy's computer via internet and help him with providing cpu?<br />
+Like that thing on ps3 where you go on something in the xmb under the network tab and it contributed to some kind of research. (This was a while back and I can't remember what it was called.)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">arnold</div><div class="date">08-12-2010, 10:08 AM</div></div><div class="posttext">You mean a collaborative network of PS3's with the aim of cracking Kirk?<br />
+<br />
+Setting it up seems to be more complicated than actually cracking Kirk. :P<br />
+<br />
+-arnold</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-12-2010, 01:49 PM</div></div><div class="posttext">The cracking has to happen actually on the PSP... you could in theory setup some elaborate distributed crack attempt, but coding it is actually pretty hard (I did something similar a while back to brute force SHA-1 NIDS to their function names, I managed to find maybe two legit ones, the app was called NIDCRK).<br />
+<br />
+I wouldn't like to attempt to code homebrew to do that...<br />
+<br />
+Besides, cracking a particular input isn't what we're after, what we want to know is the algorithms associated with the encryption and signing process, brute force isn't an option.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-12-2010, 02:11 PM</div></div><div class="posttext">You mean a collaborative network of PS3's with the aim of cracking Kirk?<br />
+<br />
+Setting it up seems to be more complicated than actually cracking Kirk. :P<br />
+<br />
+-arnold<br />
+<br />
+I was just using the ps3 as an example.<br />
+@MaxMouseDLL You're saying it can be done, but it would be kinda useless?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-12-2010, 02:20 PM</div></div><div class="posttext">I was just using the ps3 as an example.<br />
+@MaxMouseDLL You're saying it can be done, but it would be kinda useless?<br />
+<br />
+I don't even think you can brute force it... we don't even know the algorithm (encryption/signing) to attempt it.<br />
+<br />
+We need to know the steps from an unencrypted piece of data to it's encrypted and signed version... we simply don't know them... brute force is useless in this instance, even if it where useful the fact that it's encrypted AND signed would increase the possibilities exponentially, meaning that you'd probably need more people running this thing than the population of earth (Depending on the size of data you're trying to brute force).<br />
+<br />
+You'd need an infinite amount of monkeys, sitting at an infinite amount of computers, typing for an infinite amount of time... you'd get your encryption and signing algorithm... you'd also get the complete works of Shakespeare and everything else ever written, being written or ever will be written... but that's besides the point... <br />
+<br />
+They brute forced some blocks of the IPL, that's how pandora works...<br />
+<br />
+Edit: What we need to do is write some code that allows access to the flashes and the capability of running unsigned code, then somehow have Sony sign it, this kind of thing happened recently with the iPhone, a guy made a crappy flash light app, but hid inside it some code to allow tethering... apple made it available on the appstore and boom, everyone that downloaded it had restriction-less tethering. Apple discovered their screw up and tore the app down... but it's a cool demonstration of covert capabilities.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-12-2010, 02:23 PM</div></div><div class="posttext">I was just using the ps3 as an example.<br />
+@MaxMouseDLL You're saying it can be done, but it would be kinda useless?<br />
+<br />
+I don't even think you can brute force it... we don't even know the algorithm (encryption/signing) to attempt it.<br />
+<br />
+They brute forced some blocks of the IPL, that's how pandora works...<br />
+<br />
+Hmm I wonder what Datel did.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-12-2010, 02:35 PM</div></div><div class="posttext">Datel melted the IC casing with acid, put the KIRK (and probably Spock and all other de-capped IC's) into a scanning electron microscope or similar, then had guys pouring over the images of hard coded logic gates/components etc, with that information they where able to reconstruct the signing and encryption algorithms by simply looking at the hardware in detail... this kind of thing is very expensive and if there where a shortcut way to doing this kind of thing you can be sure datel would have done that instead.<br />
+<br />
+There are companies (Like Chipworks) which will decap IC's for you and provide you with a detailed report for reverse engineering, there are legitimate reasons for this kind of service (A company that has developed an IC for you, but has then gone bust, or you inherit some hardware and have no idea how it works...) - (I've tried, they (Chipworks) won't speak to me), even so... even if we had this kind of information... we'd be hard pressed to understand it, and I'm told it probably wouldn't be enough anyway.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-12-2010, 05:51 PM</div></div><div class="posttext">Oh jeez..that sound exspensive.<br />
+Next thing you know people start a donation found for that.lol<br />
+Well anyway, why wouldn't it be enough?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">08-12-2010, 06:28 PM</div></div><div class="posttext">We don't even know if it is hardcoded logic or a ROM.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-12-2010, 07:14 PM</div></div><div class="posttext">We don't even know if it is hardcoded logic or a ROM.<br />
+<br />
+Unfortunately..<br />
+<br />
+Oh jeez..that sound exspensive.<br />
+Next thing you know people start a donation found for that.lol<br />
+Well anyway, why wouldn't it be enough?<br />
+<br />
+I already tried this, I was going to approach Mathieu to see if I could steal a spare PSP (or two) from him to send to Chipworks, but after an initial conversation with Chipworks they decided to ignore me, so I couldn't even start trying to raise funds, why don't you give it a shot, see if you have more luck.<br />
+<br />
+Edit: it's like this (1 + 2) = 3 where (1 + 2) is decrypted data, 3 is encrypted and signed data, explain that to me assuming you have no concept of numbers (Encryption) or math (Signing)... all you're left with is the fact that a given input gives a certain output... you cannot describe how it works, just that it works... it's what's known as a &quot;Black box&quot;</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-12-2010, 09:09 PM</div></div><div class="posttext">Any reason they started ignoring you, Max?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-12-2010, 09:37 PM</div></div><div class="posttext">Any reason they started ignoring you, Max?<br />
+<br />
+Have a think about it... say for example that I managed to raise the funds, Mathieul gave me 3 PSP's for the project, I send them all to chipworks, they send me back a complete rundown of every IC in the thing, we find someone who knows how to interpret the data, he gives us back the encryption and signing algorithms... overnight we can legitimately sign and encrypt our own homebrew, and because of backward compatibility Sony can do nothing about it, their security has gone down TOTALLY, there is now nothing they can do to stop us.<br />
+<br />
+A few hours later, Sony find out who's responsible for giving us this information.. Chipworks.... you think they want to be involved in that war? hell no... they want Joe soap, who's just took over a business.. has some hardware and isn't on great terms with it's developers, he owns the rights to the hardware so they reverse engineer it for him, everyone is happy... everyone gets paid..<br />
+<br />
+They DO NOT want a legal battle....</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-12-2010, 10:06 PM</div></div><div class="posttext">Never thought about it like that..<br />
+<br />
+<br />
+<br />
+Imagine that power..the fact that sony wouldn't be able to stop us...sounds like a homebrew dev's dream...sounds like sony's nightmare.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-13-2010, 12:42 AM</div></div><div class="posttext">Never thought about it like that..<br />
+<br />
+Imagine that power..the fact that sony wouldn't be able to stop us...sounds like a homebrew dev's dream...sounds like sony's nightmare.<br />
+<br />
+When the PSP is &quot;dead&quot; something like this may surface... or maybe when Sony deems the PSP to be dead they will leak it...<br />
+<br />
+Say for example Sony leave the PSP which they eventually will... running homebrew/(lets face it) pirate games on it, may garner them some revenue... The PSP's death throws may be just that... but not for a long time yet.<br />
+<br />
+The homebrew scene will die... the PSP will die.... once it's all said and done, it might be in Sony's interest to tell all... I hope so...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">08-13-2010, 01:48 AM</div></div><div class="posttext">That would most likely reveal some of their internal secrets, still being used in other hardware, I don't see them leaking it. However, once no firmware update is done anymore for the PSP, then a kernel exploit will be good enough.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-13-2010, 02:42 AM</div></div><div class="posttext">Wololo, not to be too nosy in your buisness, but has anybody, anybody at all come forward to you with a kernel exploit? This is killing me..</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">08-13-2010, 05:18 AM</div></div><div class="posttext">People who have the ability to find Kernel exploits know much more than I do, why would they come to me for help?<br />
+If anything, I would be the one coming to these guys to see if they could make some use of some user mode exploits.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Esteban</div><div class="date">08-13-2010, 05:21 AM</div></div><div class="posttext">People who have the ability to find Kernel exploits know much more than I do, why would they come to me for help?<br />
+If anything, I would be the one coming to these guys to see if they could make some use of some user mode exploits.<br />
+<br />
+Lol I see.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-17-2010, 02:37 PM</div></div><div class="posttext">I know that ofw 6.xx has patched many of known kexploits. Why still no 5.05-5.50-5.51-5.55-5.70 to 5.03 downgrader with this &quot;useless&quot; kexploits?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Mathieulh</div><div class="date">08-17-2010, 02:58 PM</div></div><div class="posttext">i've found a good website that makes complete understand (for the Noobz) here on how buffer overflow works propertly, here's the link ;) http://users.abo.fi/fbjon/segfault/ Enjoy :)<br />
+<br />
+ROFL that made my day xD</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">08-17-2010, 03:49 PM</div></div><div class="posttext">I know that ofw 6.xx has patched many of known kexploits. Why still no 5.05-5.50-5.51-5.55-5.70 to 5.03 downgrader with this &quot;useless&quot; kexploits?<br />
+<br />
+Maybe developers don't wanna? It takes time. Also, 5.70 -&gt; 5.03 isn't possible.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Deathrow</div><div class="date">08-17-2010, 04:16 PM</div></div><div class="posttext">Also, 5.70 -&gt; 5.03 isn't possible.<br />
+<br />
+Excuse my ignorance, but why wouldn't it be possible to downgrade to firmware 5.03 from 5.70? Is it the changed NIDs or something? or perhaps something else? Shed some light pleaz and thnkx</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Cloudhunter</div><div class="date">08-17-2010, 05:23 PM</div></div><div class="posttext">Also, 5.70 -&gt; 5.03 isn't possible.<br />
+<br />
+Excuse my ignorance, but why wouldn't it be possible to downgrade to firmware 5.03 from 5.70? Is it the changed NIDs or something? or perhaps something else? Shed some light pleaz and thnkx<br />
+<br />
+PSP 3000's that came with 5.70 are actually PSP 4000's. All it'd help would be slim users and early 3000 users.<br />
+<br />
+A HEN would be possible, but after what happened last time I doubt people would bother.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Deathrow</div><div class="date">08-17-2010, 05:44 PM</div></div><div class="posttext">PSP 3000's that came with 5.70 are actually PSP 4000's. All it'd help would be slim users and early 3000 users.<br />
+<br />
+A HEN would be possible, but after what happened last time I doubt people would bother.<br />
+<br />
+Firstly, that is for PSP 3000's that have been originally set with firmware 5.70. What about all the other PSP's originally set to 4.01(first firmware?) and others? However, I guess in the end, I would just create more pirates then people creating homebrew =/<br />
+<br />
+Second, if these kernel exploits are patched on newer firmwares, whats the harm in their release? It would just bump people up to a new firmware, or even bring the CFW to the PSP Go? There are still many possibilities with these exploits, and I'm pretty sure that the current scene would be sincere on their release. But I guess it would make sense, not much of a point with the things released now.......</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">adenayank</div><div class="date">08-17-2010, 07:57 PM</div></div><div class="posttext">my opinion on whether or not the release of kernel exploits actually becomes a question, for those who may already have the kernel exploits they can use it to play pirated games, especially for users who have a psp that can be hacked. but what about the PSP Go users who buy a psp where they are above expectations given by one of hacker after two days the console came out? the question is what if the kernel exploits of the last firmware for the psp go on release?(sorry for my bad english)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Metroid_III</div><div class="date">08-18-2010, 01:07 AM</div></div><div class="posttext">my opinion on whether or not the release of kernel exploits actually becomes a question, for those who may already have the kernel exploits they can use it to play pirated games, especially for users who have a psp that can be hacked. but what about the PSP Go users who buy a psp where they are above expectations given by one of hacker after two days the console came out? the question is what if the kernel exploits of the last firmware for the psp go on release?(sorry for my bad english)<br />
+<br />
+I think you're talking about &quot;FreePlay's&quot; exploit, right? Patched and was only user-mode FYI. No one ever said it was kernel mode. And I hope you're not referring to kernel exploits as just a means to pirate. The translation is a little messy so I may have misunderstood you, i apologize if there was any misunderstanding.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-18-2010, 01:47 AM</div></div><div class="posttext">PSP 3000's that came with 5.70are actually PSP 4000's<br />
+New mobo? Or something else?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">adenayank</div><div class="date">08-18-2010, 03:11 AM</div></div><div class="posttext">my opinion on whether or not the release of kernel exploits actually becomes a question, for those who may already have the kernel exploits they can use it to play pirated games, especially for users who have a psp that can be hacked. but what about the PSP Go users who buy a psp where they are above expectations given by one of hacker after two days the console came out? the question is what if the kernel exploits of the last firmware for the psp go on release?(sorry for my bad english)<br />
+<br />
+I think you're talking about &quot;FreePlay's&quot; exploit, right? Patched and was only user-mode FYI. No one ever said it was kernel mode. And I hope you're not referring to kernel exploits as just a means to pirate. The translation is a little messy so I may have misunderstood you, i apologize if there was any misunderstanding.<br />
+<br />
+okay i apologize too, but please think about psp go user like me, why until this day,and it almost a year we can't play iso or something, and i just can play homebrew, but now i will get boring about homebrew cause in my country in indonesia download game for psp is more expensive, price of the game is from 300.000 IDR until 600.000 IDR. and if we use our psp go for downgrade or hacking will brick my psp,cause now no more sony center service in indonesia so please think about us!(sorry for my bad english)</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">wololo</div><div class="date">08-18-2010, 07:56 AM</div></div><div class="posttext">but what about the PSP Go users who buy a psp where they are above expectations given by one of hacker after two days the console came out? <br />
+<br />
+I think there is a saying in English &quot;beggers are not choosers&quot; or something like that, which means that if you want to hack your PSP, you should start doing it yourself.<br />
+<br />
+I know, it's easier said than done, but consider this: nowadays, to hack a PSP through software, you need to already have a hacked PSP.<br />
+It means ALL hackers already have at least one hacked PSP.<br />
+<br />
+Now, think about it yourself: if you had a hacked PSP, would you be actively looking for exploits? The answer is: most people who have a hacked PSP don't care at all about other users. So, before asking if hackers &quot;care&quot; about PSP Go users, buy a hackable PSP yourself, and see if you still care about the sake of other users (not enough money? Sell your Go and buy a used Phat, you will even make money). If you do, then you are &quot;good enough&quot; to ask that kind of question. Otherwise, you're just egotistic, like most people (and unlike hackers).<br />
+<br />
+That's what PSP hackers do on a daily basis: work for others, not for themselves, because they already have a hacked PSP. So don't think hackers &quot;don't care&quot; about the others. As a matter of fact, hackers probably care more about the hackable status of THE psp Go than PSP go owners themselves, who only care about the hackable status of THEIR psp go.<br />
+<br />
+In other words, if you truly want the psp go to be hacked, you need to buy a hackable PSP. Ironic, isn't it? :D<br />
+<br />
+You can also blame yourself for your initial choices...why did you buy a psp go in the first place? you knew it was a unhacakble system. Or, if you didn't, you should have researched more before buying.<br />
+<br />
+By the way, I'm not trying to be insulting you or anything, I'm just saying that it's easy to forget that the hackers community don't owe anything to the psp scene, and that anyone who really wants to can become a hacker. Hackers don't have superpowers. Just a hackable PSP (LESS expensive than a psp go, so you can't use money as a justification for not buying one) and a brain (ships by default on most humans models).</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">MaxMouseDLL</div><div class="date">08-18-2010, 10:05 AM</div></div><div class="posttext">a brain (ships by default on most humans models).<br />
+<br />
+I lol'd yea, they ship the hardware by default... but 90~99% of that hardware comes pre-installed with terrible firmware, and in my case... more bad blocks than it should have.</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">DSwizzy145</div><div class="date">08-18-2010, 05:36 PM</div></div><div class="posttext">but what about the PSP Go users who buy a psp where they are above expectations given by one of hacker after two days the console came out? <br />
+<br />
+I think there is a saying in English &quot;beggers are not choosers&quot; or something like that, which means that if you want to hack your PSP, you should start doing it yourself.<br />
+<br />
+I know, it's easier said than done, but consider this: nowadays, to hack a PSP through software, you need to already have a hacked PSP.<br />
+It means ALL hackers already have at least one hacked PSP.<br />
+<br />
+Now, think about it yourself: if you had a hacked PSP, would you be actively looking for exploits? The answer is: most people who have a hacked PSP don't care at all about other users. So, before asking if hackers &quot;care&quot; about PSP Go users, buy a hackable PSP yourself, and see if you still care about the sake of other users (not enough money? Sell your Go and buy a used Phat, you will even make money). If you do, then you are &quot;good enough&quot; to ask that kind of question. Otherwise, you're just egotistic, like most people (and unlike hackers).<br />
+<br />
+That's what PSP hackers do on a daily basis: work for others, not for themselves, because they already have a hacked PSP. So don't think hackers &quot;don't care&quot; about the others. As a matter of fact, hackers probably care more about the hackable status of THE psp Go than PSP go owners themselves, who only care about the hackable status of THEIR psp go.<br />
+<br />
+In other words, if you truly want the psp go to be hacked, you need to buy a hackable PSP. Ironic, isn't it? :D<br />
+<br />
+You can also blame yourself for your initial choices...why did you buy a psp go in the first place? you knew it was a unhacakble system. Or, if you didn't, you should have researched more before buying.<br />
+<br />
+By the way, I'm not trying to be insulting you or anything, I'm just saying that it's easy to forget that the hackers community don't owe anything to the psp scene, and that anyone who really wants to can become a hacker. Hackers don't have superpowers. Just a hackable PSP (LESS expensive than a psp go, so you can't use money as a justification for not buying one) and a brain (ships by default on most humans models).<br />
+<br />
+True :D but &quot;beggers are not choosers&quot; is actually beggers can't be choosers ;) but thanks for explaining that to people and hows its all done :D</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-22-2010, 01:05 PM</div></div><div class="posttext">Is there any patched in 6.xx kexploit than may used with MOHH exploit?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">08-22-2010, 06:49 PM</div></div><div class="posttext">MoHH exploit is patched on 6.XX dude...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-23-2010, 12:24 PM</div></div><div class="posttext">m0skit0,<br />
+i know it =) I'd like to play on 5.55 with MOHH &amp; kexploit, but i don't have second one.<br />
+May be someone have useless in 6.xx kexploit [than may be used with MOHH exploit on 5.55]?</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">m0skit0</div><div class="date">08-23-2010, 03:23 PM</div></div><div class="posttext">You said 6.XX, not 5.55 :P Also if you want to play with 5.55, why you want a 6.XX kxploit? You make no sense.<br />
+<br />
+And anyways, if you're waiting someone to give you a 6.XX kxploit, then you'd better take a comfortable seat and wait around.<br />
+<br />
+People these days...</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Yoti</div><div class="date">08-23-2010, 11:11 PM</div></div><div class="posttext">any patched in 6.xx<br />
+Patched in 6.xx and not patched in 5.xx [up to 5.55].</div></div><hr />
+
+
+<div class="post"><div class="posttop"><div class="username">Davee</div><div class="date">08-24-2010, 12:10 AM</div></div><div class="posttext">I think this thread has outrun it's &quot;development&quot; discussion. @Yoti, if anyone is willing to share an obsolete exploit, I'm sure they will PM you.<br />
+<br />
+Closed.</div></div><hr />
+
+
+<div id="copyright">vBulletin&reg; v3.7.2, Copyright &copy;2000-2012, Jelsoft Enterprises Ltd.</div>
+</div>
+</body>
+</html>
