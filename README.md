@@ -17,12 +17,12 @@ As soon as you have contributed something through a pull request, you will most 
 
 ## Where can documentation be found?
 
-You can find useful information to complete this documentation there:
-- [YAPSPD](http://hitmen.c02.at/files/yapspd/psp_doc.pdf.tar.gz), the best and most complete current documentation
-- [LAN.ST](http://lan.st/), a forum with very interesting things about PSP
-- [ps2dev.org](http://ps2dev.org/) (archive [here](http://lukasz.dk/mirror/forums.ps2dev.org/)), another website and mostly forum which holds a lot of information too
+We uploaded useful information to our Github repository: http://uofw.github.io/upspd/docs/
+
+Furthermore, you can find useful information to complete this documentation on these sites:
+
+- [ps2dev.org - archived](http://lukasz.dk/mirror/forums.ps2dev.org/), another website and mostly forum which holds a lot of information too
 - [wololo.net](http://wololo.net), a blog and forum about more PSP stuff
-- SBORPS, SilverSpring's former blog, now down but you should be able to find things in web archives
-- http://mrmrice.fx-world.org/vfpu.html, with information about the VFPU
-- http://wiki.fx-world.org/doku.php?do=index, with details about the VFPU instructions and registers, attacked by spambots, but the information still should be there
-- [Kirk engine](http://code.google.com/p/kirk-engine/), a project of imitating KIRK's behavior, holding information about how it works
+- <s>http://mrmrice.fx-world.org/vfpu.html</s>, with information about the VFPU
+- <s>http://wiki.fx-world.org/doku.php?do=index</s>, with details about the VFPU instructions and registers
+- [Kirk engine](https://github.com/Felix-Dev/kirk_engine), a project of imitating KIRK's behavior, holding information about how it works (also available here: https://code.google.com/p/kirk-engine/)
