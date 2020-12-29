@@ -3,9 +3,9 @@ uPSPD
 
 uPSPD (unofficial PSP documentation) is a project of making a full documentation for PSP.
 
-This project was started because PSP lacks a good documentation - the only acceptable one is yapspd but it's clearly not up to date.
+This project was started because PSP lacks good documentation - the only acceptable one is yapspd but it's clearly not up to date.
 
-So, with all the discoveries we wanted to centralize, some discovered in [https://github.com/uofw/uofw](uOFW) and others we found on the Internet, we decided to make this documentation.
+This repository will contain info we discovered while working on [uOFW](https://github.com/uofw/uofw) and other findings published by a variety of people throughout the years. The vision behind it is to become a centralized place of information for those interested in the technical details of the PSP system.
 
 The documentation can be accessed through the "Wiki" tab of this page.
 
