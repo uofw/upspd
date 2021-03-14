@@ -2,7 +2,6 @@
 
 # Visual Studio cache/options directory
 /.vs
-/docs/.vs
 
 # Visual Studio project files
 *.sln
