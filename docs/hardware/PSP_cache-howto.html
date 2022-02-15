@@ -13,7 +13,7 @@
 	<span class="date">11 Oct 2005</span>
 </div>
 
-<h2>Introducion</h2>
+<h2>Introduction</h2>
 <p>The PSP's MIPS CPU incorporates a data cache to speed up access to memory.  The cache
 can be mostly ignored, but it cannot be forgotten.  This HOWTO describes what the cache is,
 how it works, why and when you need to care about it, and what to do.</p>
@@ -25,14 +25,14 @@ at about 222-333MHz.  This is much faster than the memory it is attached to.  If
 memory every time it needs to read or write a value, then its effective speed would be much slower.</p>
 <p>The MIPS solves this like all other modern CPUs: by having caches.  A cache is a small piece of
 memory which is local to the CPU (typically on the same chip), which is much faster to access than
-main memory.  The downside is that its also much smaller than main memory (32kB vs 32MB on the PSP),
+main memory.  The downside is that it's also much smaller than main memory (32kB vs 32MB on the PSP),
 so the CPU still needs to use main memory.</p>
 <p>There are actually two caches: the data cache and the instruction cache.  The data cache is
 used when your program does a load or store to memory, and the instruction cache is used to actually
-execute all the instructions your program.  In general you can ignore the instruction cache unless
+execute all the instructions of your program.  In general you can ignore the instruction cache unless
 you're using dynamic code generation (but you probably know everything in this document if you're
 doing that), though the discussion of cache locality also applies to the instruction cache.</p>
-<p>(The PSP's cache structure is pretty simple compared to other CPUs.  There's only a 32k L1 cache;
+<p>(The PSP's cache structure is pretty simple compared to other CPUs. There's only a 32k L1 cache;
 there's no L2 cache to worry about.)</p>
 
 <h2>Cache structure and operation</h2>
@@ -63,11 +63,11 @@ write actually hits main memory.  The only thing which normally
 pushes a dirty cache line into memory is being replaced.  If it is never replaced, then it will
 never be written.</p>
 <p>(I could talk about the associativity of the cache and the replacement policy, but it isn't
-really relevent.)</p>
+really relevant.)</p>
 
 <h2>Cache Coherency</h2>
 <p>All this happens transparently from a software perspective.  Apart from the performance
-effects of all this going on, there's really no way to know its happening, and you can
+effects of all this going on, there's really no way to know it's happening, and you can
 safely ignore it.  Or can you?</p>
 <p>The tricky part about all this is that the CPU ends up with its own copy of pieces of main
 memory.  If the CPU were the only user of memory in the system, then this would be fine,
@@ -77,10 +77,10 @@ memory has a consistent and coherent view of memory.</p>
 <p>In the Intel world, the CPU performs something called "cache snooping".  This means that a
 dedicated piece of hardware looks at all memory operations to main memory, and checks to
 see if the CPU's cache has a more up-to-date version of the memory.  It also looks at memory
-writes, and makes sure that the CPU's cache has the most up to date version of the data.</p>
+writes, and makes sure that the CPU's cache has the most up-to-date version of the data.</p>
 <p>The PSP's MIPS isn't like that.  It has no snooping or hardware coherency support, which
 leads to a problem: if you simply write out a set of commands for the GE into memory, and then
-tell the GE to run them, there's no guarentee that your commands have actually been written
+tell the GE to run them, there's no guarantee that your commands have actually been written
 to memory by the time GE tries to run them; they could just be still sitting there in
 dirty cache lines.  You'll see some vertices looking fine, but others are way
 off in space.  You'll see most of your texture, but chunks of it are missing or junk.</p>
@@ -92,14 +92,14 @@ space, which is generally known as an uncached pointer.  These two pointers are 
 two different pointers which refer to the same piece of physical memory.</p>
 <p>When you use the uncached pointer, the memory access completely bypasses all the machinery
 described above: reads will come straight from memory, and writes will go straight to memory.</p>
-<p>This leads to a potiential problem.  If you use memory through the cached pointer, and then
+<p>This leads to a potential problem.  If you use memory through the cached pointer, and then
 start using the uncached pointer, then you will be in a world of pain.  It won't explode, crash
 or do anything obvious.  It may seem to work perfectly well 99% of the time.  But then you'll get
 bitten by strange, non-deterministic, elusive bugs which will move around and disappear every
 time you try to debug the problem.</p>
 <p>When you use uncached memory, it completely ignores the cache, and the cache completely ignores
 the uncached access.  If you write to cached memory, then read via uncached, you won't necessarily
-see the previously written value because its still in cache.  If you write via the uncached pointer,
+see the previously written value because it's still in cache.  If you write via the uncached pointer,
 your write may get undone at some later arbitrary point when the dirty cache line eventually
 gets written.</p>
 <p>The solution?  You need to:</p>
@@ -134,22 +134,22 @@ are in <code>&lt;psputils.h&gt;</code>.  These are:</p>
 		<dd>This writes back a range of memory, making the cache lines in that range clean.
 			<code>p</code> and <code>size</code> should be aligned to the cache-line size.  This
 			will probably be more efficient than writing back the whole cache if size is relatively
-			small, but if size is more than around 16k, its probably better to just writeback
+			small, but if size is more than around 16k, it's probably better to just writeback
 			the whole thing.</dd>
 	<dt id="write-invalidate"><code>void sceKernelDcacheWritebackInvalidateRange(const void *p, unsigned int size)</code></dt>
 		<dd>This writes back a range of memory and invalidates the cache for that range.
 			<code>p</code> and <code>size</code> should be aligned to the cache-line size.
 			This is like <code>sceKernelDcacheWritebackInvalidateAll</code>, but it only affects the
 			specified memory range.  This is likely to be more efficient, because it doesn't
-			completely destroy the cache's working-set.  You should <strong>always</strong>
+			completely destroy the cache's working-set. You should <strong>always</strong>
 			use this on a range of memory before accessing it via an uncached pointer.</dd>
 	<dt><code>sceKernelDcacheInvalidateRange(const void *p, unsigned int size)</code></dt>
 		<dd>This function should be used with <strong>extreme</strong> caution.  It will
 			invalidate a range of cache lines; if they were previously dirty, then the
-			dirty data will be discarded.  This should be used when you want to force data
+			dirty data will be discarded. This should be used when you want to force data
 			to be fetched from main memory, and you're certain that there are no dirty cache
-			lines in that range of memory.  It is <em>very</em> important that <code>p</code>
-			and <code>size</code> are cache-aligned.  Because this function affects whole
+			lines in that range of memory. It is <em>very</em> important that <code>p</code>
+			and <code>size</code> are cache-aligned. Because this function affects whole
 			cache lines, if you pass an unaligned pointer or size, then you may end up affecting
 			unintended data.</dd>
 </dl>
