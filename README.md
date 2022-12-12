@@ -26,3 +26,4 @@ Furthermore, you can find useful information to complete this documentation on t
 - <s>http://mrmrice.fx-world.org/vfpu.html</s>, with information about the VFPU
 - <s>http://wiki.fx-world.org/doku.php?do=index</s>, with details about the VFPU instructions and registers
 - [Kirk engine](https://github.com/Felix-Dev/kirk_engine), a project of imitating KIRK's behavior, holding information about how it works (also available here: https://code.google.com/p/kirk-engine/)
+- [PSP Architecture](https://www.copetti.org/writings/consoles/playstation-portable/), a nice overview of all the PSP hardware & software
