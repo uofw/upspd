@@ -1,19 +1,11 @@
 uPSPD
 =====
 
-uPSPD (unofficial PSP documentation) is a project of making a full documentation for PSP.
+uPSPD (unofficial PSP documentation) was a project of making a full documentation for PSP.
 
-This project was started because PSP lacks good documentation - the only acceptable one is yapspd but it's clearly not up to date.
+**In an effort to avoid documentation fragmentation, the contents to the wiki have been moved to [the PSP dev wiki](https://playstationdev.wiki/pspdevwiki/index.php/Main_Page) and this repository shouldn't be used anymore.**
 
-This repository will contain info we discovered while working on [uOFW](https://github.com/uofw/uofw) and other findings published by a variety of people throughout the years. The vision behind it is to become a centralized place of information for those interested in the technical details of the PSP system.
-
-The documentation can be accessed through the "Wiki" tab of this page.
-
-## How to contribute?
-
-You can simply directly edit a wiki page and save it; it should open a pull request automatically.
-
-As soon as you have contributed something through a pull request, you will most likely be granted access to modify this wiki directly.
+The old documentation remains in the "Wiki" tab of this page.
 
 ## Where can documentation be found?
 
@@ -21,6 +13,7 @@ We uploaded useful information to our Github repository: http://uofw.github.io/u
 
 Furthermore, you can find useful information to complete this documentation on these sites:
 
+- [PSP Dev Wiki](https://playstationdev.wiki/pspdevwiki/index.php/Main_Page) - the most complete documentation wiki as of now
 - [ps2dev.org - archived](http://lukasz.dk/mirror/forums.ps2dev.org/), another website and mostly forum which holds a lot of information too
 - [wololo.net](http://wololo.net), a blog and forum about more PSP stuff
 - <s>http://mrmrice.fx-world.org/vfpu.html</s>, with information about the VFPU
